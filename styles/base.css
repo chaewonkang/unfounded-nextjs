@@ -152,45 +152,6 @@ html {
     background-color: #fff;
 }
 
-/* ENDOF Slideshow */
-
-.opacity {
-    opacity: 0;
-    transition: 3s;
-}
-
-.fadeIn {
-    opacity: 1;
-}
-
-@-webkit-keyframes blink {
-    0% {
-        transform: scale(1, 1.5);
-        opacity: 0.3;
-    }
-    50% {
-        transform: scale(1, 1.5);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(1, 1.5);
-        opacity: 0.3;
-    }
-}
-
-.blink {
-    width: 100vw;
-    height: 100vh;
-    z-index: 30;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #000;
-    animation-name: blink;
-    animation-duration: 1.5s;
-    animation-iteration-count: 1;
-}
-
 @keyframes fadeIn {
     0% {
         opacity: 0;

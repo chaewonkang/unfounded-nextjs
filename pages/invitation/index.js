@@ -1,7 +1,8 @@
 import PageLayout from "../../components/PageLayout";
 import { ThemeProvider } from "styled-components";
-import theme from "../styles/theme";
+import theme from "../../styles/theme";
 import { useRouter } from "next/router";
+import TransitionLayout from "../../components/TransitionLayout";
 
 const Invitation = () => {
     const router = useRouter();
@@ -9,7 +10,9 @@ const Invitation = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <PageLayout></PageLayout>
+            <PageLayout>
+                <TransitionLayout />
+            </PageLayout>
         </ThemeProvider>
     );
 };

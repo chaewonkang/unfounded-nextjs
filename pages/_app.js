@@ -1,7 +1,9 @@
 import React from "react";
 import Head from "next/head";
+import TransitionLayout from "../components/TransitionLayout";
 import "../styles/base.css";
 import "../styles/fonts.css";
+import "../styles/animation.css";
 
 function MyApp({ Component, pageProps }) {
     return (
@@ -24,7 +26,9 @@ function MyApp({ Component, pageProps }) {
                 ></link>
                 <title>Unfounded 2021</title>
             </Head>
-            <Component {...pageProps} />
+            <TransitionLayout>
+                <Component {...pageProps} />
+            </TransitionLayout>
         </>
     );
 }

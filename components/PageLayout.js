@@ -11,18 +11,18 @@ const layoutStyle = css`
 const PageLayout = ({ children }) => {
     const router = useRouter();
     const transparentPage = "/";
-    const includePage = [];
+    const includePage = ["/introduction"];
 
     return (
-        <div css={layoutStyle}>
-            {transparentPage === router.asPath ? (
-                <Header isTransparent />
-            ) : (
+        <>
+            {transparentPage === router.asPath ? null : (
                 <Header isTransparent={false} />
             )}
-            <div>{children}</div>
+            <div css={layoutStyle}>
+                <div>{children}</div>
+            </div>
             {includePage.includes(router.asPath) && <Footer />}
-        </div>
+        </>
     );
 };
 

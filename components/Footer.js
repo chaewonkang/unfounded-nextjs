@@ -10,6 +10,7 @@ const footerContainer = css`
     padding-bottom: 27px;
     display: flex;
     flex-direction: row;
+    color: #fff;
 
     & > div {
         width: 50%;
@@ -46,7 +47,7 @@ const footerLeftArea = css`
 
         & > p:last-of-type {
             font-family: PP Neue Montreal Book, sans-serif;
-            -webkit-text-stroke: 0.5px #000;
+            -webkit-text-stroke: 0.5px;
             font-size: 15px;
             line-height: 23px;
         }
@@ -55,7 +56,7 @@ const footerLeftArea = css`
     & > div:last-of-type {
         font-family: PP Neue Montreal Book, sans-serif;
         font-size: 15px;
-        -webkit-text-stroke: 0.5px #000;
+        -webkit-text-stroke: 0.5px;
         line-height: 23px;
 
         & > div {
@@ -108,7 +109,7 @@ const footerRightArea = css`
         display: flex;
         flex-direction: column;
         font-family: PP Neue Montreal Book, sans-serif;
-        -webkit-text-stroke: 0.5px #000;
+        -webkit-text-stroke: 0.5px;
         font-size: 15px;
         line-height: 23px;
 
@@ -118,11 +119,11 @@ const footerRightArea = css`
     }
 `;
 
-const Footer = ({ bgColor }) => {
+const Footer = ({ bgColor, color }) => {
     return (
         <div
             css={footerContainer}
-            style={bgColor ? { backgroundColor: bgColor } : null}
+            style={bgColor ? { backgroundColor: bgColor, color: color } : null}
         >
             <div css={footerLeftArea}>
                 <div>

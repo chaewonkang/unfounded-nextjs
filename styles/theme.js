@@ -10,6 +10,28 @@ export const fadeIn = keyframes`
     }
 `;
 
+export const slideDown = keyframes`
+	0% {
+		opacity: 0,
+		transform: "translate3d(0, 100%,0)",
+	}
+	100% {
+		opacity: 1,
+		transform: "translate3d(0, 0, 0)",
+	}
+`;
+
+export const slideUp = keyframes`
+	0% {
+		opacity: 1,
+		transform: "translate3d(0, 0, 0)",
+	}
+	100% {
+		opacity: 0,
+		transform: "translate3d(0, -50%, 0)",
+	}
+`;
+
 export const titleKr = css`
     font-family: Gothic A1, sans-serif;
     font-weight: bold;

@@ -104,6 +104,7 @@ const Index = () => {
             </div>
             <Footer
                 bgColor={"#FF9D46"}
+                color={"#000"}
                 style={{
                     animation: `fadeIn ${delay * 2}s ease-in`,
                 }}
