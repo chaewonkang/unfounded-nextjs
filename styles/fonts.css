@@ -1,0 +1,162 @@
+@font-face {
+    font-family: "Union Regular";
+    src: url("../static/fonts/Union-Regular.woff2") format("woff2"),
+        url("../static/fonts/Union-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Union Bold";
+    src: url("../static/fonts/Union-Bold.woff2") format("woff2"),
+        url("../static/fonts/Union-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "GTFAgentur";
+    src: url("../static/fonts/GTFAgenturTRIAL-Regular.woff2") format("woff2"),
+        url("../static/fonts/GTFAgenturTRIAL-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gothic A1";
+    src: url("../static/fonts/GothicA1-ExtraLight.woff2") format("woff2"),
+        url("../static/fonts/GothicA1-ExtraLight.woff") format("woff");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gothic A1";
+    src: url("../static/fonts/GothicA1-ExtraBold.woff2") format("woff2"),
+        url("../static/fonts/GothicA1-ExtraBold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gothic A1";
+    src: url("../static/fonts/GothicA1-Black.woff2") format("woff2"),
+        url("../static/fonts/GothicA1-Black.woff") format("woff");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gothic A1";
+    src: url("../static/fonts/GothicA1-Bold.woff2") format("woff2"),
+        url("../static/fonts/GothicA1-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gothic A1";
+    src: url("../static/fonts/GothicA1-SemiBold.woff2") format("woff2"),
+        url("../static/fonts/GothicA1-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gothic A1";
+    src: url("../static/fonts/GothicA1-Medium.woff2") format("woff2"),
+        url("../static/fonts/GothicA1-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gothic A1";
+    src: url("../static/fonts/GothicA1-Light.woff2") format("woff2"),
+        url("../static/fonts/GothicA1-Light.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gothic A1";
+    src: url("../static/fonts/GothicA1-Regular.woff2") format("woff2"),
+        url("../static/fonts/GothicA1-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Gothic A1";
+    src: url("../static/fonts/GothicA1-Thin.woff2") format("woff2"),
+        url("../static/fonts/GothicA1-Thin.woff") format("woff");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "PP Neue Montreal";
+    src: url("../static/fonts/PPNeueMontreal-Bold.woff2") format("woff2"),
+        url("../static/fonts/PPNeueMontreal-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "PP Neue Montreal Book";
+    src: url("../static/fonts/PPNeueMontreal-Book.woff2") format("woff2"),
+        url("../static/fonts/PPNeueMontreal-Book.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "PP Neue Montreal";
+    src: url("../static/fonts/PPNeueMontreal-Medium.woff2") format("woff2"),
+        url("../static/fonts/PPNeueMontreal-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "PP Neue Montreal";
+    src: url("../static/fonts/PPNeueMontreal-SemiBoldItalic.woff2")
+            format("woff2"),
+        url("../static/fonts/PPNeueMontreal-SemiBoldItalic.woff") format("woff");
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "PP Neue Montreal";
+    src: url("../static/fonts/PPNeueMontreal-Italic.woff2") format("woff2"),
+        url("../static/fonts/PPNeueMontreal-Italic.woff") format("woff");
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "PP Neue Montreal";
+    src: url("../static/fonts/PPNeueMontreal-Thin.woff2") format("woff2"),
+        url("../static/fonts/PPNeueMontreal-Thin.woff") format("woff");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}

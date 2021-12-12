@@ -1,23 +1,29 @@
+import { useRouter } from "next/router";
+import { css } from "@emotion/react";
 import Footer from "./Footer";
 import Header from "./Header";
-import { useRouter } from "next/router";
 
-function PageLayout({ children }) {
-  const router = useRouter();
-  const transparentPage = "/";
-  const includePage = [];
+const layoutStyle = css`
+    margin-left: 21px;
+    margin-right: 21px;
+`;
 
-  return (
-    <div>
-      {transparentPage === router.asPath ? (
-        <Header isTransparent={true} />
-      ) : (
-        <Header isTransparent={false} />
-      )}
-      <div id="body">{children}</div>
-      {includePage.includes(router.asPath) && <Footer />}
-    </div>
-  );
-}
+const PageLayout = ({ children }) => {
+    const router = useRouter();
+    const transparentPage = "/";
+    const includePage = [];
+
+    return (
+        <div css={layoutStyle}>
+            {transparentPage === router.asPath ? (
+                <Header isTransparent />
+            ) : (
+                <Header isTransparent={false} />
+            )}
+            <div>{children}</div>
+            {includePage.includes(router.asPath) && <Footer />}
+        </div>
+    );
+};
 
 export default PageLayout;
