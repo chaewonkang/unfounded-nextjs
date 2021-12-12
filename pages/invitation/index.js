@@ -1,4 +1,4 @@
-import PageLayout from "../components/PageLayout";
+import PageLayout from "../../components/PageLayout";
 import { ThemeProvider } from "styled-components";
 import theme from "../styles/theme";
 import { useRouter } from "next/router";
@@ -9,7 +9,7 @@ const Invitation = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <PageLayout>Invitation.js</PageLayout>
+            <PageLayout></PageLayout>
         </ThemeProvider>
     );
 };
