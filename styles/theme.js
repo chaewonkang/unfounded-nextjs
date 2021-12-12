@@ -1,35 +1,84 @@
 import { css, Global, keyframes } from "@emotion/react";
 
-export const fadeIn = keyframes`
-    0% {
-        opacity: 0;
+export const headerContainer = css`
+    width: 100%;
+    height: 112px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+
+    padding-top: 11px;
+    padding-bottom: 12px;
+
+    & > div:first-of-type {
+        cursor: pointer;
+        height: 100%;
+        & > img {
+            height: 100%;
+        }
     }
 
-    100% {
-        opacity: 1;
+    & > div:last-of-type {
+        cursor: pointer;
+        height: 100%;
+        width: 98px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        & > div {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            div {
+                height: calc(100% / 3);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
     }
 `;
 
-export const slideDown = keyframes`
-	0% {
-		opacity: 0,
-		transform: "translate3d(0, 100%,0)",
-	}
-	100% {
-		opacity: 1,
-		transform: "translate3d(0, 0, 0)",
-	}
-`;
+export const menuWheel = css`
+    width: 100%;
+    background-color: #000;
+    color: #fff;
+    display: flex;
 
-export const slideUp = keyframes`
-	0% {
-		opacity: 1,
-		transform: "translate3d(0, 0, 0)",
-	}
-	100% {
-		opacity: 0,
-		transform: "translate3d(0, -50%, 0)",
-	}
+    & > img:first-of-type {
+        width: 26px;
+        margin-right: 10px;
+    }
+
+    & > img:last-of-type {
+        width: 26px;
+        margin-left: 10px;
+    }
+
+    & > div {
+        cursor: pointer;
+        display: flex;
+        width: calc(100% - 52px);
+        justify-content: space-between;
+
+        span {
+            font-family: "GTFAgentur", serif;
+            font-size: 38px;
+            letter-spacing: -0.2px;
+            line-height: 35px;
+        }
+    }
 `;
 
 export const titleKr = css`
@@ -129,7 +178,8 @@ export const theme = {
     mTitleEn: mTitleEn,
     mTextEn: mTextEn,
     subTitleEn: subTitleEn,
-    fadeIn: fadeIn,
+    headerContainer: headerContainer,
+    menuWheel: menuWheel,
 };
 
 export default theme;
