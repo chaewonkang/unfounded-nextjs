@@ -1,21 +1,56 @@
 import PageLayout from "../components/PageLayout";
 import { ThemeProvider } from "styled-components";
-import theme from "../styles/theme";
+import theme, { downArrowBox } from "../styles/theme";
 import { useRouter } from "next/router";
 import { css } from "@emotion/react";
+import Footer from "../components/Footer";
 import Link from "next/link";
 
 const introContainer = css`
+    position: relative;
+    top: 0;
     width: 100%;
+    height: 100vh;
+    margin-top: 20px;
+`;
+
+const bottomBanner = css`
+    width: 100vw;
+    height: 48px;
+    background-color: #fff;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
 
-    & > div {
+    p {
+        font-size: 32px;
+        font-family: PP Neue Montreal Book, sans-serif;
+        letter-spacing: 0.1px;
+    }
+`;
+
+const downArrowBoxStyle = css`
+    position: absolute;
+    padding-left: 21px;
+    padding-right: 21px;
+    z-index: 1;
+    bottom: 62px;
+`;
+
+const infoText = css`
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div {
         display: flex;
         width: calc((100% / 12) * 8);
+        height: calc(100vh - 230px);
         color: #fff;
+        padding-bottom: 21px;
 
         p:first-of-type {
             width: calc(50% - 9px);
@@ -25,7 +60,7 @@ const introContainer = css`
             font-weight: 500;
             line-height: 40px;
             word-break: keep-all;
-            height: calc(100vh - 200px);
+            height: 100%;
             overflow: auto;
         }
 
@@ -37,7 +72,7 @@ const introContainer = css`
             font-size: 25px;
             line-height: 40px;
             letter-spacing: 0.1px;
-            height: calc(100vh - 200px);
+            height: 100%;
             overflow: auto;
         }
     }
@@ -49,7 +84,7 @@ const Introduction = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <PageLayout>
+            <div css={introContainer}>
                 <div css={theme.headerContainer}>
                     <Link href="/">
                         <div>
@@ -104,7 +139,17 @@ const Introduction = () => {
                         alt="right_arrow"
                     ></img>
                 </div>
-                <div css={introContainer}>
+                <div css={[theme.downArrowBox, downArrowBoxStyle]}>
+                    <img
+                        src="../static/images/downArrowW.png"
+                        alt="down_arrow"
+                    />
+                    <img
+                        src="../static/images/downArrowW.png"
+                        alt="down_arrow"
+                    />
+                </div>
+                <div css={infoText}>
                     <div>
                         <p>
                             언파운디드는 픽션과 큐레토리얼 실천을 함께 탐구하며
@@ -241,7 +286,11 @@ const Introduction = () => {
                         </p>
                     </div>
                 </div>
-            </PageLayout>
+                <div css={bottomBanner}>
+                    <p>FOLLOW US ON INSTAGRAM AT @UNFOUNDED</p>
+                </div>
+                <Footer bgColor={"#000"} color={"#fff"} />
+            </div>
         </ThemeProvider>
     );
 };

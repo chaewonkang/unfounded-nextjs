@@ -119,7 +119,7 @@ const footerRightArea = css`
     }
 `;
 
-const Footer = ({ bgColor, color }) => {
+const Footer = ({ bgColor, color, children }) => {
     return (
         <div
             css={footerContainer}

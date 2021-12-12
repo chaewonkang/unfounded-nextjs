@@ -50,31 +50,8 @@ const mainContainer = css`
     }
 `;
 
-const downArrowBox = css`
-    cursor: pointer;
+const downArrowBoxStyle = css`
     background-color: #ff9d46;
-    width: 100vw;
-    height: 126px;
-    display: flex;
-    flex-direction: row;
-    padding-left: 21px;
-    padding-right: 21px;
-    padding-bottom: 27px;
-    display: flex;
-    justify-content: space-between;
-
-    &:hover {
-        img {
-            transform: rotate(360deg);
-            transition: 1s;
-        }
-    }
-
-    img {
-        width: 4%;
-        height: 126px;
-        object-fit: contain;
-    }
 `;
 
 const Index = () => {
@@ -110,7 +87,7 @@ const Index = () => {
                 }}
             />
             <Link href="/introduction">
-                <div css={downArrowBox}>
+                <div css={[theme.downArrowBox, downArrowBoxStyle]}>
                     <img
                         src="../static/images/downArrow.png"
                         alt="down_arrow"

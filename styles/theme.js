@@ -1,5 +1,31 @@
 import { css, Global, keyframes } from "@emotion/react";
 
+export const downArrowBox = css`
+    cursor: pointer;
+    width: 100vw;
+    height: 126px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 21px;
+    padding-right: 21px;
+    padding-bottom: 27px;
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+        img {
+            transform: rotate(360deg);
+            transition: 1s;
+        }
+    }
+
+    img {
+        width: 4%;
+        height: 126px;
+        object-fit: contain;
+    }
+`;
+
 export const headerContainer = css`
     width: 100%;
     height: 112px;
@@ -180,6 +206,7 @@ export const theme = {
     subTitleEn: subTitleEn,
     headerContainer: headerContainer,
     menuWheel: menuWheel,
+    downArrowBox: downArrowBox,
 };
 
 export default theme;

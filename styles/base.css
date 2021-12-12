@@ -16,14 +16,6 @@
     clear: both;
 }
 
-* {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-}
-
-*::-webkit-scrollbar {
-    display: none;
-}
 html {
     width: 100vw;
     height: 100vh;
@@ -150,25 +142,6 @@ html {
 
 .slideshowDot.active {
     background-color: #fff;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes marquee {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
 }
 
 body,

@@ -17,20 +17,21 @@ export default function TransitionLayout({ children }) {
     }, [children, setDisplayChildren, displayChildren]);
 
     return (
-        <>
-            <div>
-                <div
-                    onAnimationEnd={() => {
-                        if (transitionStage === "slideDown") {
-                            setDisplayChildren(children);
-                            setTransitionStage("slideUp");
-                        }
-                    }}
-                    className={transitionStage}
-                >
-                    {displayChildren}
-                </div>
-            </div>
-        </>
+        <div
+            onAnimationEnd={() => {
+                if (transitionStage === "slideDown") {
+                    setDisplayChildren(children);
+                    setTransitionStage("slideUp");
+                    window.scrollTo({
+                        left: 0,
+                        top: 0,
+                        behavior: "smooth",
+                    });
+                }
+            }}
+            className={transitionStage}
+        >
+            {displayChildren}
+        </div>
     );
 }
