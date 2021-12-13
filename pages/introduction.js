@@ -9,18 +9,14 @@ import Link from "next/link";
 const introContainer = css`
     position: relative;
     top: 0;
-    width: 100%;
-    height: calc(100vh - 20px);
-    margin-top: 20px;
-    padding-left: 21px;
-    padding-right: 21px;
-    // background-color: #f0f;
+    width: 100vw;
+    height: 100vh;
 `;
 
 const bottomBanner = css`
     width: 100vw;
     position: relative;
-    left: -21px;
+    bottom: 0;
     height: 48px;
     background-color: #fff;
 
@@ -37,16 +33,18 @@ const bottomBanner = css`
 
 const downArrowBoxStyle = css`
     position: absolute;
-    width: calc(100% - 42px);
+    width: 100%;
     z-index: 1;
-    bottom: 42px;
-    padding-left: 0;
-    padding-right: 0;
+    bottom: 62px;
+    padding-left: 21px;
+    padding-right: 21px;
 `;
 
 const infoText = css`
     width: 100%;
     margin-top: 20px;
+    padding-left: 21px;
+    padding-right: 21px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -54,7 +52,7 @@ const infoText = css`
     div {
         display: flex;
         width: calc((100% / 12) * 8);
-        height: calc(100vh - 230px);
+        height: calc(100vh - 227px);
         color: #fff;
         padding-bottom: 21px;
 

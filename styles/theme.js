@@ -28,6 +28,8 @@ export const downArrowBox = css`
 
 export const headerContainer = css`
     width: 100%;
+    padding-left: 21px;
+    padding-right: 21px;
     height: 112px;
     display: flex;
     justify-content: space-between;
@@ -79,16 +81,27 @@ export const headerContainer = css`
 export const menuWheel = css`
     width: 100%;
     background-color: #000;
+    padding-left: 21px;
+    padding-right: 21px;
     color: #fff;
     display: flex;
+    height: 46px;
 
     & > img:first-of-type {
+        position: relative;
+        top: 3px;
         width: 26px;
+        height: 28px;
+        object-fit: contain;
         margin-right: 10px;
     }
 
     & > img:last-of-type {
+        position: relative;
+        top: 3px;
         width: 26px;
+        height: 28px;
+        object-fit: contain;
         margin-left: 10px;
     }
 
