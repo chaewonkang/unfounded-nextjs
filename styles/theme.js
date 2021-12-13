@@ -12,16 +12,16 @@ export const downArrowBox = css`
     display: flex;
     justify-content: space-between;
 
-    &:hover {
-        img {
-            transform: rotate(360deg);
-            transition: 1s;
-        }
-    }
+    // &:hover {
+    //     img {
+    //         transform: rotate(10deg);
+    //         transition: 1s;
+    //     }
+    // }
 
     img {
         width: 4%;
-        height: 126px;
+        height: 90%;
         object-fit: contain;
     }
 `;
@@ -76,6 +76,14 @@ export const headerContainer = css`
             }
         }
     }
+`;
+
+export const marquee = css`
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+    padding-top: 10px;
+    white-space: nowrap;
 `;
 
 export const menuWheel = css`
@@ -162,6 +170,7 @@ export const titleEn = css`
 
 export const textEn = css`
     font-family: PP Neue Montreal Book, sans-serif;
+    -webkit-text-stroke: 0.5px #000;
     font-size: 16px;
     letter-spacing: 0.1px;
     line-height: 24px;
@@ -220,6 +229,7 @@ export const theme = {
     headerContainer: headerContainer,
     menuWheel: menuWheel,
     downArrowBox: downArrowBox,
+    marquee: marquee,
 };
 
 export default theme;

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
+
 import TransitionLayout from "../components/TransitionLayout";
 import "../styles/base.css";
 import "../styles/fonts.css";

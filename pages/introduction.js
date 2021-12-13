@@ -82,6 +82,62 @@ const infoText = css`
     }
 `;
 
+const invitationBox = css`
+    width: 100vw;
+    height: 80vh;
+    background-color: #ff9d46;
+    padding-top: 10px;
+    & > div:first-of-type {
+        span {
+            font-family: GTFAgentur, serif;
+            font-size: 86px;
+            letter-spacing: -0.2px;
+            color: #000;
+        }
+    }
+`;
+
+const invitationTextBox = css`
+    display: flex;
+    padding-left: 21px;
+    padding-right: 21px;
+    word-break: keep-all;
+
+    & > div {
+        width: calc(50% - 9px);
+    }
+
+    & > div:first-of-type {
+        margin-right: 9px;
+
+        div {
+            display: flex;
+            p:first-of-type {
+                width: calc((100% / 6) * 2);
+            }
+
+            p:last-of-type {
+                width: calc((100% / 6) * 4);
+            }
+        }
+    }
+
+    & > div:last-of-type {
+        margin-left: 9px;
+    }
+`;
+
+const marqueeBox1 = css`
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+`;
+
+const marqueeBox2 = css`
+    display: inline-block;
+    animation: marquee2 30s linear infinite;
+    animation-delay: 15s;
+`;
+
 const Introduction = () => {
     const router = useRouter();
     console.log(router);
@@ -292,6 +348,77 @@ const Introduction = () => {
                 </div>
                 <div css={bottomBanner}>
                     <p>FOLLOW US ON INSTAGRAM AT @UNFOUNDED</p>
+                </div>
+                <div css={invitationBox}>
+                    <div css={theme.marquee}>
+                        <div css={marqueeBox1}>
+                            <span>
+                                INVITATION I: Conductor’s Lesson INVITATION I:
+                                Conductor’s Lesson INVITATION I: Conductor’s
+                                Lesson&nbsp;
+                            </span>
+                        </div>
+                        <div css={marqueeBox2}>
+                            <span>
+                                INVITATION I: Conductor’s Lesson INVITATION I:
+                                Conductor’s Lesson INVITATION I: Conductor’s
+                                Lesson
+                            </span>
+                        </div>
+                    </div>
+                    <div css={invitationTextBox}>
+                        <div>
+                            <div css={theme.textKr}>
+                                <p style={{ fontWeight: "bold" }}>초대 I:</p>
+                                <p>손님</p>
+                            </div>
+                            <div css={theme.textKr}>
+                                <p style={{ fontWeight: "bold" }}>지휘 수업</p>
+                                <p>유진영, 이미지, 이솜이, 이지우 </p>
+                            </div>
+                            <div css={theme.textEn}>
+                                <p style={{ fontWeight: "bold" }}>
+                                    Invitation I:
+                                </p>
+                                <p>invitee</p>
+                            </div>
+                            <div css={theme.textEn}>
+                                <p style={{ fontWeight: "bold" }}>
+                                    Conductor’s Lesson
+                                </p>
+                                <p>
+                                    Jinyoung Yoo, Miji Lee, Somi Lee, Jiwoo Lee
+                                </p>
+                            </div>
+                        </div>
+                        <div>
+                            <p css={theme.textKr}>
+                                미술 전시 기획자 6인이 모여 픽션-전시의 기획서를
+                                작성한다. 생산될 전시 기획서의 형식에는 따로
+                                제한을 두지 않으며 일반적인 전시 기획서부터
+                                이미지 아카이브까지, 각자의 주제에 맞는 형식을
+                                채택하기로 한다. 이때, 픽션-전시란 픽션으로만
+                                존재할 수 있는 전시, 그 자체로 픽션을 생산하는
+                                전시, 픽션을 주제로 차용하는 전시 등 다양할 수
+                                있다. 이를 통해 전시의 스코어인 전시 기획서와
+                                픽션의 관계를 재고한다.
+                            </p>
+                            <p css={theme.textEn}>
+                                Six art exhibition planners gather to write a
+                                fiction-exhibition plan. There are no
+                                restrictions on the format of the exhibition
+                                plan to be produced, and it is decided to adopt
+                                a format suitable for each subject, from general
+                                exhibition plans to image archives. At this
+                                time, fiction-exhibition can be diverse, such as
+                                an exhibition that can exist only as fiction, an
+                                exhibition that produces fiction itself, and an
+                                exhibition that borrows fiction as a theme.
+                                Through this, the relationship between the
+                                exhibition plan.
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <Footer bgColor={"#000"} color={"#fff"} />
             </div>

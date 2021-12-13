@@ -3,10 +3,8 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 export default function TransitionLayout({ children }) {
-    const router = useRouter();
     const [displayChildren, setDisplayChildren] = useState(children);
     const [transitionStage, setTransitionStage] = useState("slideDown");
-    const excludePage = ["/"];
 
     useEffect(() => {
         setTransitionStage("slideUp");
@@ -22,11 +20,6 @@ export default function TransitionLayout({ children }) {
                 if (transitionStage === "slideDown") {
                     setDisplayChildren(children);
                     setTransitionStage("slideUp");
-                    window.scrollTo({
-                        left: 0,
-                        top: 0,
-                        behavior: "smooth",
-                    });
                 }
             }}
             className={transitionStage}

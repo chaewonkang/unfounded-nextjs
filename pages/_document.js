@@ -9,12 +9,17 @@ const GlobalStyles = createGlobalStyle`
 	   body {
 		  	width: 100vw;
 			height: 100vh;
-			overflow-x: hidden;
-			position: relative;
 			background-color: #000;
 			position: relative;
+			top: 0;
 	   }
 
+	   #__next {
+		    width: 100vw;
+			height: 100vh;
+			position: relative;
+			top: 0;
+	   }
 `;
 
 class MyDocument extends Document {
