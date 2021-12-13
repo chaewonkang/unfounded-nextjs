@@ -10,12 +10,17 @@ const introContainer = css`
     position: relative;
     top: 0;
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 20px);
     margin-top: 20px;
+    padding-left: 21px;
+    padding-right: 21px;
+    // background-color: #f0f;
 `;
 
 const bottomBanner = css`
     width: 100vw;
+    position: relative;
+    left: -21px;
     height: 48px;
     background-color: #fff;
 
@@ -32,10 +37,11 @@ const bottomBanner = css`
 
 const downArrowBoxStyle = css`
     position: absolute;
-    padding-left: 21px;
-    padding-right: 21px;
+    width: calc(100% - 42px);
     z-index: 1;
-    bottom: 62px;
+    bottom: 42px;
+    padding-left: 0;
+    padding-right: 0;
 `;
 
 const infoText = css`
