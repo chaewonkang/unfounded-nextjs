@@ -48,6 +48,46 @@ const mainContainer = css`
         position: absolute;
         bottom: 35px;
     }
+
+    @media (max-width: 781px) {
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+        background-color: #ff9d46;
+
+        & > div {
+            width: 100%;
+            height: 50vh;
+            position: absolute;
+            bottom: 0;
+            top: unset;
+
+            img:first-of-type {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+
+        img:last-of-type {
+            width: calc(100vw - 30px);
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        p {
+            font-family: "GTFAgentur", serif;
+            font-size: 20px;
+            text-align: center;
+            letter-spacing: -0.25px;
+            line-height: 23px;
+            width: calc(100vw - 30px);
+            margin-left: 15px;
+            margin-right: 15px;
+            position: absolute;
+            top: 30%;
+        }
+    }
 `;
 
 const downArrowBoxStyle = css`

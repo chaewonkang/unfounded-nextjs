@@ -1,0 +1,271 @@
+import { ThemeProvider } from "styled-components";
+import theme from "../styles/theme";
+import { useState, useEffect } from "react";
+import { css } from "@emotion/react";
+import Link from "next/link";
+import { useRouter } from "next/router";
+
+import styled from "styled-components";
+
+const menuContainer = css`
+    width: 100vw;
+    height: 112px;
+    background-color: none;
+    position: absolute;
+    left: 0;
+`;
+
+const StyledBurger = styled.button`
+    cursor: pointer;
+    width: 98px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 14;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    div {
+        width: 100%;
+        height: 100%;
+        transition: all 0.3s linear;
+        transform-origin: 0.8px;
+        :first-child {
+            transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
+            opacity: ${({ open }) => (open ? "0" : "1")};
+        }
+
+        :nth-child(2) {
+            opacity: ${({ open }) => (open ? "0" : "1")};
+        }
+
+        :nth-child(3) {
+            transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0)")};
+            opacity: ${({ open }) => (open ? "0" : "1")};
+        }
+    }
+
+    @media (max-width: 781px) {
+        cursor: pointer;
+        width: 50px;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 14;
+        position: absolute;
+        top: 13px;
+        right: 13px;
+
+        div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: space-between;
+
+            transition: all 0.3s linear;
+            transform-origin: 0.8px;
+            :first-of-type {
+                transform: ${({ open }) =>
+                    open ? "rotate(45deg)" : "rotate(0)"};
+                opacity: ${({ open }) => (open ? "0" : "1")};
+            }
+
+            :nth-child(2) {
+                opacity: ${({ open }) => (open ? "0" : "1")};
+            }
+
+            :nth-child(3) {
+                transform: ${({ open }) =>
+                    open ? "rotate(-45deg)" : "rotate(0)"};
+                opacity: ${({ open }) => (open ? "0" : "1")};
+            }
+        }
+    }
+`;
+
+const StyledMenu = styled.nav`
+    display: inline-block;
+    width: 100vw;
+    z-index: 15;
+    background: #ff9d46;
+    height: 100vh;
+    max-height: 100vh;
+    text-align: center;
+    padding-bottom: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+    transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
+
+    padding-top: 25vh;
+
+    & > div > a {
+        text-transform: uppercase;
+        display: block;
+        padding: 0.25em;
+        margin-bottom: 0.5em;
+        color: #2a6eb1;
+        font-size: 19px;
+
+        text-decoration: none;
+        transition: color 0.3s linear;
+
+        @media (max-width: ${({ theme }) => theme.mobile}) {
+            font-size: 20px;
+            text-align: center;
+        }
+    }
+`;
+
+const openMenuHeader = css`
+    width: 100vw;
+    height: 112px;
+    position: absolute;
+    top: 0;
+    display: flex;
+    padding-left: 21px;
+    padding-right: 21px;
+    padding-top: 11px;
+
+    & > div:first-of-type {
+        cursor: pointer;
+        height: 100%;
+
+        & > img {
+            height: 100%;
+        }
+    }
+
+    & > div:last-of-type {
+        cursor: pointer;
+        height: 100%;
+        position: absolute;
+        right: 21px;
+
+        & > img {
+            height: 76px;
+        }
+    }
+`;
+
+const menuTitleContainer = css`
+    width: 100%;
+    height: calc(100vh - 112px);
+
+    & > div:first-of-type {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        span {
+            font-family: GTFAgentur, sans-serif;
+            font-size: 60px;
+            letter-spacing: -0.2px;
+        }
+    }
+
+    & > div:last-of-type {
+        position: absolute;
+        bottom: 21px;
+        padding-left: 21px;
+        padding-right: 21px;
+        text-align: left;
+
+        p {
+            font-family: GTFAgentur, sans-serif;
+            font-size: 23px;
+            letter-spacing: -0.25px;
+        }
+    }
+`;
+
+const Menu = () => {
+    const [open, setOpen] = useState(false);
+    const router = useRouter();
+
+    return (
+        <ThemeProvider theme={theme}>
+            <div css={menuContainer}>
+                <div css={theme.headerContainer}>
+                    <div onClick={() => router.push({ pathname: "/" })}>
+                        <img
+                            src="../static/images/symbolW.png"
+                            alt="symbol_white"
+                        />
+                    </div>
+                    <StyledBurger open={open} onClick={() => setOpen(!open)}>
+                        <div>
+                            <div>
+                                <img
+                                    src="../static/images/menuStroke.png"
+                                    alt="menu_stroke"
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    src="../static/images/menuStroke.png"
+                                    alt="menu_stroke"
+                                />
+                            </div>
+                            <div>
+                                <img
+                                    src="../static/images/menuStroke.png"
+                                    alt="menu_stroke"
+                                />
+                            </div>
+                        </div>
+                    </StyledBurger>
+                </div>
+
+                <StyledMenu open={open} setOpen={setOpen}>
+                    <div css={openMenuHeader}>
+                        <div>
+                            <img
+                                src="../static/images/symbolB.png"
+                                alt="symbol_white"
+                            />
+                        </div>
+                        <div onClick={() => setOpen(!open)}>
+                            <img
+                                src="../static/images/cancelBtn.png"
+                                alt="symbol_white"
+                            />
+                        </div>
+                    </div>
+                    <div css={menuTitleContainer}>
+                        <div>
+                            <span>Introduction</span>
+                            <br />
+                            <br />
+                            <span>Invitation 1</span>
+                            <span>Invitation 2</span>
+                            <span>Invitation 3</span>
+                            <br />
+                            <br />
+                            <span>Exploration</span>
+                        </div>
+                        <div>
+                            <p>
+                                The website Unfounded is a space for researching
+                                fiction-related practices and uploading
+                                Founders’ projects, online exhibitions, and
+                                games related to Founders’ fiction. It is
+                                expected that the website will provide a
+                                discursive foundation for fiction and expand
+                                curatorial practice by seeking ways to consider
+                                fiction in various ways.
+                            </p>
+                        </div>
+                    </div>
+                </StyledMenu>
+            </div>
+        </ThemeProvider>
+    );
+};
+export default Menu;

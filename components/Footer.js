@@ -12,11 +12,15 @@ const footerContainer = css`
     flex-direction: row;
     color: #fff;
 
-    & > div {
-        width: 50%;
-
-        & > div {
-        }
+    @media (max-width: 781px) {
+        width: 100vw;
+        padding-top: 25px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 27px;
+        display: flex;
+        flex-direction: column;
+        color: #fff;
     }
 `;
 
@@ -37,6 +41,7 @@ const footerLeftArea = css`
 
         & > p:first-of-type {
             margin-bottom: 30px;
+
             font-family: Gothic A1, sans-serif;
             font-weight: 500;
             font-size: 14px;
@@ -68,7 +73,70 @@ const footerLeftArea = css`
             }
 
             div:first-of-type {
-                margin-right: 30px;
+                margin-right: 35px;
+            }
+        }
+    }
+
+    @media (max-width: 781px) {
+        width: 100%;
+
+        & > div {
+            & > span {
+                font-family: "GTFAgentur", serif;
+                font-size: 34px;
+                letter-spacing: -0.5px;
+                line-height: 55px;
+            }
+        }
+
+        & > div:first-of-type {
+            padding-bottom: 20px;
+            border-bottom: 1px solid #000;
+            margin-bottom: 0px;
+
+            & > p:first-of-type {
+                font-family: Gothic A1, sans-serif;
+                font-weight: 500;
+                font-size: 14px;
+                letter-spacing: -0.2px;
+                line-height: 23px;
+                word-break: keep-all;
+            }
+
+            & > p:last-of-type {
+                font-family: PP Neue Montreal Book, sans-serif;
+                -webkit-text-stroke: 0.5px;
+                font-size: 15px;
+                line-height: 23px;
+            }
+        }
+
+        & > div:last-of-type {
+            padding-bottom: 20px;
+            border-bottom: 1px solid #000;
+            margin-bottom: 0px;
+            font-family: PP Neue Montreal Book, sans-serif;
+            font-size: 15px;
+            -webkit-text-stroke: 0.5px;
+            line-height: 23px;
+
+            & > div {
+                display: flex;
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                div:first-of-type {
+                    margin-right: 0px;
+                    width: calc(100% / 4);
+                }
+
+                div:last-of-type {
+                    padding-left: 15px;
+                }
             }
         }
     }
@@ -101,7 +169,12 @@ const footerRightArea = css`
         line-height: 23px;
 
         p:first-of-type {
-            width: calc(100% / 5);
+            width: calc(100% / 4);
+        }
+
+        p:last-of-type {
+            width: calc((100% / 4) * 3);
+            padding-left: 15px;
         }
     }
 
@@ -114,7 +187,23 @@ const footerRightArea = css`
         line-height: 23px;
 
         p:first-of-type {
-            width: calc(100% / 5);
+            width: calc(100% / 4);
+        }
+
+        p:last-of-type {
+            width: calc((100% / 4) * 3);
+            padding-left: 15px;
+        }
+    }
+
+    @media (max-width: 781px) {
+        width: 100%;
+        padding: 0;
+
+        span {
+            font-family: "GTFAgentur", serif;
+            font-size: 34px;
+            letter-spacing: -0.5px;
         }
     }
 `;

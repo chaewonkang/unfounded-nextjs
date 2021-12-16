@@ -1,11 +1,12 @@
 import PageLayout from "../components/PageLayout";
 import { useRef, useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
-import theme, { downArrowBox } from "../styles/theme";
+import theme from "../styles/theme";
 import { useRouter } from "next/router";
 import { css } from "@emotion/react";
 import Footer from "../components/Footer";
 import Link from "next/link";
+import Menu from "../components/Menu";
 
 const introContainer = css`
     position: relative;
@@ -30,6 +31,13 @@ const bottomBanner = css`
         font-family: PP Neue Montreal Book, sans-serif;
         letter-spacing: 0.1px;
     }
+
+    @media (max-width: 781px) {
+        height: 32px;
+        p {
+            font-size: 18px;
+        }
+    }
 `;
 
 const downArrowBoxStyle = css`
@@ -43,7 +51,7 @@ const downArrowBoxStyle = css`
 
 const infoText = css`
     width: 100%;
-    margin-top: 20px;
+
     padding-left: 21px;
     padding-right: 21px;
     display: flex;
@@ -54,6 +62,7 @@ const infoText = css`
         display: flex;
         width: calc((100% / 12) * 8);
         height: calc(100vh - 227px);
+        padding-top: 160px;
         color: #fff;
         padding-bottom: 21px;
 
@@ -79,6 +88,59 @@ const infoText = css`
             letter-spacing: 0.1px;
             height: 100%;
             overflow: auto;
+        }
+    }
+
+    @media (max-width: 781px) {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        display: flex;
+        height: calc(100vh - 32px);
+        position: relative;
+
+        align-items: center;
+        justify-content: center;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: calc(100% - 94px);
+            position: relative;
+            top: 35px;
+            padding-top: 10px;
+            color: #fff;
+            padding-bottom: 0px;
+
+            p:first-of-type {
+                width: 100%;
+                margin-right: 9px;
+                font-family: Gothic A1, sans-serif;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 29px;
+                letter-spacing: -0.2px;
+                word-break: keep-all;
+                padding-top: 10px;
+                padding-bottom: 20.5px;
+                height: calc(50% - 20.5px);
+                overflow: auto;
+                border-bottom: 1px solid #fff;
+            }
+
+            p:last-of-type {
+                width: 100%;
+                margin-left: 0px;
+                font-family: PP Neue Montreal Book, sans-serif;
+                -webkit-text-stroke: 0.5px #fff;
+                font-size: 20px;
+                line-height: 29px;
+                letter-spacing: 0px;
+                height: calc(50% - 20.5px);
+                margin-top: 20.5px;
+                overflow: auto;
+            }
         }
     }
 `;
@@ -270,38 +332,8 @@ const Introduction = () => {
     return (
         <ThemeProvider theme={theme}>
             <div css={introContainer}>
-                <div css={theme.headerContainer}>
-                    <Link href="/">
-                        <div>
-                            <img
-                                src="../static/images/symbolW.png"
-                                alt="symbol_white"
-                            />
-                        </div>
-                    </Link>
-                    <div>
-                        <div>
-                            <div>
-                                <img
-                                    src="../static/images/menuStroke.png"
-                                    alt="menu_stroke"
-                                />
-                            </div>
-                            <div>
-                                <img
-                                    src="../static/images/menuStroke.png"
-                                    alt="menu_stroke"
-                                />
-                            </div>
-                            <div>
-                                <img
-                                    src="../static/images/menuStroke.png"
-                                    alt="menu_stroke"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Menu />
+
                 <div css={theme.menuWheel}>
                     <img
                         src="../static/images/leftArrow.png"
@@ -558,6 +590,7 @@ const Introduction = () => {
                                             index: 1,
                                         });
                                     }}
+                                    style={{ cursor: "pointer" }}
                                 >
                                     MORE
                                 </span>
