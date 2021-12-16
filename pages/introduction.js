@@ -35,7 +35,7 @@ const bottomBanner = css`
     @media (max-width: 781px) {
         height: 32px;
         p {
-            font-size: 18px;
+            font-size: 15px;
         }
     }
 `;
@@ -158,6 +158,21 @@ const invitationBox = css`
             color: #000;
         }
     }
+
+    @media (max-width: 781px) {
+        width: 100vw;
+
+        background-color: #ff9d46;
+        padding-top: 0px;
+        & > div:first-of-type {
+            span {
+                font-family: GTFAgentur, serif;
+                font-size: 60px;
+                letter-spacing: -0.2px;
+                color: #000;
+            }
+        }
+    }
 `;
 
 const invitationTextBox = css`
@@ -202,6 +217,10 @@ const invitationTextBox = css`
                 font-size: 15px;
             }
         }
+    }
+
+    @media (max-width: 781px) {
+        display: none;
     }
 `;
 
@@ -265,6 +284,10 @@ const sliderWave = css`
     & > img {
         mix-blend-mode: difference;
     }
+
+    @media (max-width: 781px) {
+        display: none;
+    }
 `;
 
 const sliderContainer = css`
@@ -306,6 +329,10 @@ const sliderContainer = css`
     & > div:last-of-type {
         width: calc((100% / 3) - 9px);
         margin-left: 9px;
+    }
+
+    @media (max-width: 781px) {
+        display: none;
     }
 `;
 
