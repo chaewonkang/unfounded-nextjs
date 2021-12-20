@@ -147,7 +147,7 @@ const infoText = css`
 
 const invitationBox = css`
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #ff9d46;
     padding-top: 10px;
     & > div:first-of-type {
@@ -347,7 +347,7 @@ const slideText = css`
 
 const Introduction = () => {
     const router = useRouter();
-    console.log(router);
+
     const scrollRef = useRef(null);
     const [isMoreOpen, setIsMoreOpen] = useState({
         bool: false,
@@ -359,7 +359,6 @@ const Introduction = () => {
     return (
         <ThemeProvider theme={theme}>
             <div css={introContainer}>
-                <Menu />
                 <div
                     css={[theme.downArrowBox, downArrowBoxStyle]}
                     onClick={() => {

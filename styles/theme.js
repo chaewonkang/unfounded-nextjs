@@ -51,7 +51,7 @@ export const headerContainer = css`
     cursor: pointer;
     padding-top: 11px;
     padding-bottom: 12px;
-    z-index: 10;
+    z-index: 50;
 
     & > div:first-of-type {
         height: 100%;
@@ -62,14 +62,15 @@ export const headerContainer = css`
 
     @media (max-width: 781px) {
         width: 100%;
-        padding-left: 15px;
-        padding-right: 15px;
+
         height: 59px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         background-color: #000;
         cursor: pointer;
+        padding-left: 15px;
+        padding-right: 15px;
         padding-top: 9px;
         padding-bottom: 9px;
         z-index: 10;
@@ -115,10 +116,16 @@ export const menuWheelWrapper = css`
     }
 
     @media (max-width: 781px) {
+        cursor: pointer;
+        display: flex;
+        width: 100%;
+        justify-content: flex;
+        overflow-x: hidden;
+
         & > div {
             cursor: pointer;
             display: flex;
-            width: calc(100% - 52px);
+            width: 100%;
             justify-content: space-between;
 
             & > div:nth-of-type(2) {
@@ -170,9 +177,9 @@ export const menuWheel = css`
     }
 
     @media (max-width: 781px) {
+        width: calc(100% - 30px);
+        position: absolute;
         top: 59px;
-        padding-left: 15px;
-        padding-right: 15px;
 
         & > img:first-of-type {
             position: relative;

@@ -5,8 +5,6 @@ import { useRouter } from "next/router";
 import { css } from "@emotion/react";
 import Footer from "../../../components/Footer";
 
-import Menu from "../../../components/Menu";
-
 const introContainer = css`
     position: relative;
     top: 0;
@@ -347,7 +345,7 @@ const slideText = css`
 
 const InvitationOne = () => {
     const router = useRouter();
-    console.log(router);
+
     const scrollRef = useRef(null);
     const [isMoreOpen, setIsMoreOpen] = useState({
         bool: false,
@@ -359,9 +357,10 @@ const InvitationOne = () => {
     return (
         <ThemeProvider theme={theme}>
             <div css={introContainer}>
-                <Menu />
                 <div css={infoText}>
-                    <div></div>
+                    <div>
+                        <p style={{ color: "#fff" }}>Invitation 1</p>
+                    </div>
                 </div>
                 <div css={bottomBanner}>
                     <p>PROJECT A</p>

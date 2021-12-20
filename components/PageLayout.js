@@ -1,27 +1,19 @@
 import { useRouter } from "next/router";
 import { css } from "@emotion/react";
 import Footer from "./Footer";
-import Header from "./Header";
-
-const layoutStyle = css`
-    margin-left: 21px;
-    margin-right: 21px;
-`;
+import Menu from "./Menu";
 
 const PageLayout = ({ children }) => {
     const router = useRouter();
-    const transparentPage = "/";
-    const includePage = ["/introduction"];
+
+    const excludePage = ["/introduction"];
 
     return (
         <>
-            <div css={layoutStyle}>
-                {transparentPage === router.asPath ? null : (
-                    <Header isTransparent={false} />
-                )}
+            <div>
                 <div>{children}</div>
             </div>
-            {includePage.includes(router.asPath) && <Footer />}
+            {excludePage.includes(router.asPath) && <Footer />}
         </>
     );
 };

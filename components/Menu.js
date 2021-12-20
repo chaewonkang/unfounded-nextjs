@@ -15,7 +15,7 @@ const menuContainer = css`
     left: 0;
 `;
 
-const StyledBurger = styled.button`
+const StyledBurger = css`
     cursor: pointer;
     width: 98px;
     display: flex;
@@ -32,19 +32,6 @@ const StyledBurger = styled.button`
         height: 100%;
         transition: all 0.3s linear;
         transform-origin: 0.8px;
-        :first-child {
-            transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
-            opacity: ${({ open }) => (open ? "0" : "1")};
-        }
-
-        :nth-of-type(2) {
-            opacity: ${({ open }) => (open ? "0" : "1")};
-        }
-
-        :nth-of-type(3) {
-            transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0)")};
-            opacity: ${({ open }) => (open ? "0" : "1")};
-        }
     }
 
     @media (max-width: 781px) {
@@ -69,26 +56,11 @@ const StyledBurger = styled.button`
 
             transition: all 0.3s linear;
             transform-origin: 0.8px;
-            :first-of-type {
-                transform: ${({ open }) =>
-                    open ? "rotate(45deg)" : "rotate(0)"};
-                opacity: ${({ open }) => (open ? "0" : "1")};
-            }
-
-            :nth-of-type(2) {
-                opacity: ${({ open }) => (open ? "0" : "1")};
-            }
-
-            :nth-of-type(3) {
-                transform: ${({ open }) =>
-                    open ? "rotate(-45deg)" : "rotate(0)"};
-                opacity: ${({ open }) => (open ? "0" : "1")};
-            }
         }
     }
 `;
 
-const StyledMenu = styled.nav`
+const StyledMenu = css`
     display: inline-block;
     width: 100vw;
     z-index: 15;
@@ -101,7 +73,6 @@ const StyledMenu = styled.nav`
     top: 0;
     left: 0;
     transition: transform 0.3s ease-in-out;
-    transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
 
     padding-top: 25vh;
 
@@ -115,10 +86,34 @@ const StyledMenu = styled.nav`
 
         text-decoration: none;
         transition: color 0.3s linear;
+    }
 
-        @media (max-width: ${({ theme }) => theme.mobile}) {
-            font-size: 20px;
-            text-align: center;
+    @media (max-width: 781px) {
+        display: inline-block;
+        width: 100vw;
+        z-index: 1000;
+        background: #ff9d46;
+        height: 100vh;
+        max-height: 100vh;
+        text-align: center;
+        padding-bottom: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.3s ease-in-out;
+
+        padding-top: 25vh;
+
+        & > div > a {
+            text-transform: uppercase;
+            display: block;
+            padding: 0.25em;
+            margin-bottom: 0.5em;
+            color: #2a6eb1;
+            font-size: 19px;
+
+            text-decoration: none;
+            transition: color 0.3s linear;
         }
     }
 `;
@@ -152,6 +147,38 @@ const openMenuHeader = css`
             height: 76px;
         }
     }
+
+    @media (max-width: 781px) {
+        width: 100vw;
+        height: 59px;
+        position: absolute;
+        top: 0;
+        display: flex;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 9px;
+        padding-bottom: 9px;
+
+        & > div:first-of-type {
+            cursor: pointer;
+            height: 100%;
+
+            & > img {
+                height: 100%;
+            }
+        }
+
+        & > div:last-of-type {
+            cursor: pointer;
+            height: 100%;
+            position: absolute;
+            right: 21px;
+
+            & > img {
+                height: 34px;
+            }
+        }
+    }
 `;
 
 const menuTitleContainer = css`
@@ -181,6 +208,38 @@ const menuTitleContainer = css`
             font-family: GTFAgentur, sans-serif;
             font-size: 23px;
             letter-spacing: -0.25px;
+        }
+    }
+
+    @media (max-width: 781px) {
+        width: 100%;
+        height: calc(100vh - 59px);
+
+        & > div:first-of-type {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            span {
+                font-family: GTFAgentur, sans-serif;
+                font-size: 30px;
+                letter-spacing: -0.2px;
+            }
+        }
+
+        & > div:last-of-type {
+            position: absolute;
+            bottom: 21px;
+            padding-left: 21px;
+            padding-right: 21px;
+            text-align: left;
+
+            p {
+                font-family: GTFAgentur, sans-serif;
+                font-size: 15px;
+                line-height: 21px;
+                letter-spacing: -0.25px;
+            }
         }
     }
 `;
@@ -223,8 +282,6 @@ const Menu = ({ transX }) => {
     const router = useRouter();
 
     useEffect(() => {
-        console.log(router.pathname);
-
         menuArr
             .filter(el => {
                 if (el.route === router.pathname) return el;
@@ -232,7 +289,7 @@ const Menu = ({ transX }) => {
             .map(e => setCurRoute(menuArr.indexOf(e) + 1));
 
         console.log(curRoute);
-    });
+    }, [curRoute, router]);
 
     return (
         <ThemeProvider theme={theme}>
@@ -241,7 +298,11 @@ const Menu = ({ transX }) => {
                     <div onClick={() => router.push({ pathname: "/" })}>
                         <img src={imgPath[5]} alt="symbol_white" />
                     </div>
-                    <StyledBurger open={open} onClick={() => setOpen(!open)}>
+                    <div
+                        css={StyledBurger}
+                        open={open}
+                        onClick={() => setOpen(!open)}
+                    >
                         <div>
                             <div>
                                 <img src={imgPath[0]} alt="menu_stroke" />
@@ -253,15 +314,22 @@ const Menu = ({ transX }) => {
                                 <img src={imgPath[0]} alt="menu_stroke" />
                             </div>
                         </div>
-                    </StyledBurger>
+                    </div>
                     <div css={theme.menuWheel}>
                         <img
+                            style={{ zIndex: 10 }}
                             src={imgPath[1]}
                             alt="left_arrow"
                             onClick={() => {
-                                router.push({
-                                    pathname: menuArr[curRoute - 2].route,
-                                });
+                                if (curRoute === 1)
+                                    router.push({
+                                        pathname:
+                                            menuArr[menuArr.length - 1].route,
+                                    });
+                                else
+                                    router.push({
+                                        pathname: menuArr[curRoute - 2].route,
+                                    });
                             }}
                         ></img>
                         <div css={theme.menuWheelWrapper}>
@@ -291,18 +359,34 @@ const Menu = ({ transX }) => {
                             )}
                         </div>
                         <img
+                            style={{ zIndex: 10 }}
                             src={imgPath[2]}
                             alt="right_arrow"
                             onClick={() => {
-                                router.push({
-                                    pathname: menuArr[curRoute].route,
-                                });
+                                if (curRoute === 5)
+                                    router.push({
+                                        pathname: menuArr[0].route,
+                                    });
+                                else
+                                    router.push({
+                                        pathname: menuArr[curRoute].route,
+                                    });
                             }}
                         ></img>
                     </div>
                 </div>
 
-                <StyledMenu open={open} setOpen={setOpen}>
+                <nav
+                    css={StyledMenu}
+                    open={open}
+                    style={
+                        open
+                            ? {
+                                  transform: "translateX(0)",
+                              }
+                            : { transform: "translateX(-100%)" }
+                    }
+                >
                     <div css={openMenuHeader}>
                         <div>
                             <img src={imgPath[3]} alt="symbol_white" />
@@ -336,7 +420,7 @@ const Menu = ({ transX }) => {
                             </p>
                         </div>
                     </div>
-                </StyledMenu>
+                </nav>
             </div>
         </ThemeProvider>
     );
