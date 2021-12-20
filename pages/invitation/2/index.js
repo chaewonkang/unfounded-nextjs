@@ -1,12 +1,11 @@
-import PageLayout from "../components/PageLayout";
 import { useRef, useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
-import theme from "../styles/theme";
+import theme from "../../../styles/theme";
 import { useRouter } from "next/router";
 import { css } from "@emotion/react";
-import Footer from "../components/Footer";
-import Link from "next/link";
-import Menu from "../components/Menu";
+import Footer from "../../../components/Footer";
+
+import Menu from "../../../components/Menu";
 
 const introContainer = css`
     position: relative;
@@ -345,7 +344,7 @@ const slideText = css`
     }
 `;
 
-const Introduction = () => {
+const InvitationTwo = () => {
     const router = useRouter();
     console.log(router);
     const scrollRef = useRef(null);
@@ -354,20 +353,17 @@ const Introduction = () => {
         index: 0,
     });
 
-    useEffect(() => {}, [isMoreOpen]);
+    useEffect(() => {
+        scrollRef.current.scrollIntoView({
+            behavior: "smooth",
+        });
+    }, [isMoreOpen]);
 
     return (
         <ThemeProvider theme={theme}>
             <div css={introContainer}>
                 <Menu />
-                <div
-                    css={[theme.downArrowBox, downArrowBoxStyle]}
-                    onClick={() => {
-                        scrollRef.current.scrollIntoView({
-                            behavior: "smooth",
-                        });
-                    }}
-                >
+                <div css={[theme.downArrowBox, downArrowBoxStyle]}>
                     <img
                         src="../static/images/downArrowW.png"
                         alt="down_arrow"
@@ -849,4 +845,4 @@ const Introduction = () => {
     );
 };
 
-export default Introduction;
+export default InvitationTwo;

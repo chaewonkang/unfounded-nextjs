@@ -21,8 +21,7 @@ export const downArrowBox = css`
     }
 
     img {
-        width: 4%;
-        height: 90%;
+        height: 100%;
         object-fit: contain;
     }
 
@@ -92,13 +91,62 @@ export const marquee = css`
     white-space: nowrap;
 `;
 
+export const menuWheelWrapper = css`
+    cursor: pointer;
+    display: flex;
+    width: calc(100vw - 52px);
+    justify-content: flex;
+    overflow-x: hidden;
+
+    & > div {
+        width: 300%;
+        display: flex;
+
+        div {
+            width: calc((100vw - 110px) / 3);
+        }
+    }
+
+    span {
+        font-family: "GTFAgentur", serif;
+        font-size: 38px;
+        letter-spacing: -0.2px;
+        line-height: 35px;
+    }
+
+    @media (max-width: 781px) {
+        & > div {
+            cursor: pointer;
+            display: flex;
+            width: calc(100% - 52px);
+            justify-content: space-between;
+
+            & > div:nth-of-type(2) {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+            }
+
+            span {
+                font-family: "GTFAgentur", serif;
+                font-size: 22px;
+                letter-spacing: -0.2px;
+            }
+
+            & > div:first-of-type,
+            & > div:last-of-type {
+                display: none;
+            }
+        }
+    }
+`;
+
 export const menuWheel = css`
-    width: 100%;
+    width: calc(100% - 42px);
     position: absolute;
     top: 112px;
     background-color: #000;
-    padding-left: 21px;
-    padding-right: 21px;
+
     color: #fff;
     display: flex;
     height: 46px;
@@ -119,20 +167,6 @@ export const menuWheel = css`
         height: 28px;
         object-fit: contain;
         margin-left: 10px;
-    }
-
-    & > div {
-        cursor: pointer;
-        display: flex;
-        width: calc(100% - 52px);
-        justify-content: space-between;
-
-        span {
-            font-family: "GTFAgentur", serif;
-            font-size: 38px;
-            letter-spacing: -0.2px;
-            line-height: 35px;
-        }
     }
 
     @media (max-width: 781px) {
@@ -156,30 +190,6 @@ export const menuWheel = css`
             height: 28px;
             object-fit: contain;
             margin-left: 10px;
-        }
-
-        & > div {
-            cursor: pointer;
-            display: flex;
-            width: calc(100% - 52px);
-            justify-content: space-between;
-
-            & > div:nth-of-type(2) {
-                display: flex;
-                width: 100%;
-                justify-content: center;
-            }
-
-            span {
-                font-family: "GTFAgentur", serif;
-                font-size: 22px;
-                letter-spacing: -0.2px;
-            }
-
-            & > div:first-of-type,
-            & > div:last-of-type {
-                display: none;
-            }
         }
     }
 `;
@@ -254,6 +264,18 @@ export const subTitleEn = css`
     line-height: 55px;
 `;
 
+export const flexCenter = css`
+    display: flex;
+
+    justify-content: center;
+`;
+
+export const flexEnd = css`
+    display: flex;
+
+    justify-content: flex-end;
+`;
+
 export const size = {
     mobile: "781px",
     tabletS: "1023px",
@@ -273,6 +295,8 @@ export const theme = {
     primaryDark: "#0D0C1D",
     primaryLight: "#EFFFFA",
     primaryHover: "#343078",
+    flexCenter: flexCenter,
+    flexEnd: flexEnd,
     titleKr: titleKr,
     textKr: textKr,
     mTitleKr: mTitleKr,
@@ -284,6 +308,7 @@ export const theme = {
     subTitleEn: subTitleEn,
     headerContainer: headerContainer,
     menuWheel: menuWheel,
+    menuWheelWrapper: menuWheelWrapper,
     downArrowBox: downArrowBox,
     marquee: marquee,
 };

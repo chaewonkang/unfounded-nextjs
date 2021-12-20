@@ -37,11 +37,11 @@ const StyledBurger = styled.button`
             opacity: ${({ open }) => (open ? "0" : "1")};
         }
 
-        :nth-child(2) {
+        :nth-of-type(2) {
             opacity: ${({ open }) => (open ? "0" : "1")};
         }
 
-        :nth-child(3) {
+        :nth-of-type(3) {
             transform: ${({ open }) => (open ? "rotate(-45deg)" : "rotate(0)")};
             opacity: ${({ open }) => (open ? "0" : "1")};
         }
@@ -75,11 +75,11 @@ const StyledBurger = styled.button`
                 opacity: ${({ open }) => (open ? "0" : "1")};
             }
 
-            :nth-child(2) {
+            :nth-of-type(2) {
                 opacity: ${({ open }) => (open ? "0" : "1")};
             }
 
-            :nth-child(3) {
+            :nth-of-type(3) {
                 transform: ${({ open }) =>
                     open ? "rotate(-45deg)" : "rotate(0)"};
                 opacity: ${({ open }) => (open ? "0" : "1")};
@@ -185,57 +185,130 @@ const menuTitleContainer = css`
     }
 `;
 
-const Menu = () => {
+const imgPath = [
+    "/static/images/menuStroke.png",
+    "/static/images/leftArrow.png",
+    "/static/images/rightArrow.png",
+    "/static/images/symbolB.png",
+    "/static/images/cancelBtn.png",
+    "/static/images/symbolW.png",
+];
+
+const menuArr = [
+    {
+        title: "Introduction",
+        route: "/introduction",
+    },
+    {
+        title: "Invitation I",
+        route: "/invitation/1",
+    },
+    {
+        title: "Invitation II",
+        route: "/invitation/2",
+    },
+    {
+        title: "Invitation III",
+        route: "/invitation/3",
+    },
+    {
+        title: "Exploration",
+        route: "/exploration",
+    },
+];
+
+const Menu = ({ transX }) => {
     const [open, setOpen] = useState(false);
+    const [curRoute, setCurRoute] = useState("");
     const router = useRouter();
+
+    useEffect(() => {
+        console.log(router.pathname);
+
+        menuArr
+            .filter(el => {
+                if (el.route === router.pathname) return el;
+            })
+            .map(e => setCurRoute(menuArr.indexOf(e) + 1));
+
+        console.log(curRoute);
+    });
 
     return (
         <ThemeProvider theme={theme}>
             <div css={menuContainer}>
                 <div css={theme.headerContainer}>
                     <div onClick={() => router.push({ pathname: "/" })}>
-                        <img
-                            src="../static/images/symbolW.png"
-                            alt="symbol_white"
-                        />
+                        <img src={imgPath[5]} alt="symbol_white" />
                     </div>
                     <StyledBurger open={open} onClick={() => setOpen(!open)}>
                         <div>
                             <div>
-                                <img
-                                    src="../static/images/menuStroke.png"
-                                    alt="menu_stroke"
-                                />
+                                <img src={imgPath[0]} alt="menu_stroke" />
                             </div>
                             <div>
-                                <img
-                                    src="../static/images/menuStroke.png"
-                                    alt="menu_stroke"
-                                />
+                                <img src={imgPath[0]} alt="menu_stroke" />
                             </div>
                             <div>
-                                <img
-                                    src="../static/images/menuStroke.png"
-                                    alt="menu_stroke"
-                                />
+                                <img src={imgPath[0]} alt="menu_stroke" />
                             </div>
                         </div>
                     </StyledBurger>
+                    <div css={theme.menuWheel}>
+                        <img
+                            src={imgPath[1]}
+                            alt="left_arrow"
+                            onClick={() => {
+                                router.push({
+                                    pathname: menuArr[curRoute - 2].route,
+                                });
+                            }}
+                        ></img>
+                        <div css={theme.menuWheelWrapper}>
+                            {curRoute && (
+                                <div>
+                                    <div>
+                                        <span>
+                                            {curRoute === 1
+                                                ? menuArr[menuArr.length - 1]
+                                                      .title
+                                                : menuArr[curRoute - 2].title}
+                                        </span>
+                                    </div>
+                                    <div css={theme.flexCenter}>
+                                        <span>
+                                            {menuArr[curRoute - 1].title}
+                                        </span>
+                                    </div>
+                                    <div css={theme.flexEnd}>
+                                        <span>
+                                            {curRoute === 5
+                                                ? menuArr[0].title
+                                                : menuArr[curRoute].title}
+                                        </span>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                        <img
+                            src={imgPath[2]}
+                            alt="right_arrow"
+                            onClick={() => {
+                                router.push({
+                                    pathname: menuArr[curRoute].route,
+                                });
+                            }}
+                        ></img>
+                    </div>
                 </div>
 
                 <StyledMenu open={open} setOpen={setOpen}>
                     <div css={openMenuHeader}>
                         <div>
-                            <img
-                                src="../static/images/symbolB.png"
-                                alt="symbol_white"
-                            />
+                            <img src={imgPath[3]} alt="symbol_white" />
                         </div>
                         <div onClick={() => setOpen(!open)}>
-                            <img
-                                src="../static/images/cancelBtn.png"
-                                alt="symbol_white"
-                            />
+                            <img src={imgPath[4]} alt="symbol_white" />
                         </div>
                     </div>
                     <div css={menuTitleContainer}>
