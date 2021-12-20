@@ -287,9 +287,10 @@ const Menu = ({ transX }) => {
                 if (el.route === router.pathname) return el;
             })
             .map(e => setCurRoute(menuArr.indexOf(e) + 1));
-
-        console.log(curRoute);
     }, [curRoute, router]);
+
+    // TODO
+    // MenuWheel 이 router이 변경될 때마다 30%씩 오른쪽으로 이동
 
     return (
         <ThemeProvider theme={theme}>

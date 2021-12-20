@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Menu from "../components/Menu";
@@ -6,6 +6,14 @@ import TransitionLayout from "../components/TransitionLayout";
 import "../styles/base.css";
 import "../styles/fonts.css";
 import "../styles/animation.css";
+
+const childrenNameArr = [
+    "Introduction",
+    "ItroductionOne",
+    "IntroductionTwo",
+    "IntroductionThree",
+    "Exploration",
+];
 
 function MyApp({ Component, pageProps }) {
     const router = useRouter();

@@ -150,6 +150,9 @@ const invitationBox = css`
     min-height: 100vh;
     background-color: #ff9d46;
     padding-top: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+
     & > div:first-of-type {
         span {
             font-family: GTFAgentur, serif;
@@ -226,13 +229,13 @@ const invitationTextBox = css`
 
 const marqueeBox1 = css`
     display: inline-block;
-    animation: marquee 30s linear infinite;
+    animation: marquee 20s linear infinite;
 `;
 
 const marqueeBox2 = css`
     display: inline-block;
-    animation: marquee2 30s linear infinite;
-    animation-delay: 15s;
+    animation: marquee2 20s linear infinite;
+    animation-delay: 10s;
 `;
 
 const moreContainer = css`
@@ -312,6 +315,7 @@ const sliderContainer = css`
             width: 100%;
             height: 100%;
             object-fit: cover;
+            mix-blend-mode: difference;
         }
     }
 
@@ -527,9 +531,9 @@ const Introduction = () => {
                         </div>
                         <div css={marqueeBox2}>
                             <span>
+                                &nbsp;&nbsp;INVITATION I: Conductor’s Lesson
                                 INVITATION I: Conductor’s Lesson INVITATION I:
-                                Conductor’s Lesson INVITATION I: Conductor’s
-                                Lesson
+                                Conductor’s Lesson
                             </span>
                         </div>
                     </div>
@@ -774,12 +778,12 @@ const Introduction = () => {
                         </div>
                     ) : (
                         <>
-                            <div css={sliderWave}>
+                            {/* <div css={sliderWave}>
                                 <img
                                     src="../static/images/invitation/wavePath.png"
                                     alt="wave_path"
                                 />
-                            </div>
+                            </div> */}
                             <div css={sliderContainer}>
                                 <div>
                                     <img

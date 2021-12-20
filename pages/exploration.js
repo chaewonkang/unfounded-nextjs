@@ -222,17 +222,6 @@ const invitationTextBox = css`
     }
 `;
 
-const marqueeBox1 = css`
-    display: inline-block;
-    animation: marquee 30s linear infinite;
-`;
-
-const marqueeBox2 = css`
-    display: inline-block;
-    animation: marquee2 30s linear infinite;
-    animation-delay: 15s;
-`;
-
 const moreContainer = css`
     border-top: 1px solid #000;
     width: 100%;
