@@ -7,14 +7,6 @@ import "../styles/base.css";
 import "../styles/fonts.css";
 import "../styles/animation.css";
 
-const childrenNameArr = [
-    "Introduction",
-    "ItroductionOne",
-    "IntroductionTwo",
-    "IntroductionThree",
-    "Exploration",
-];
-
 function MyApp({ Component, pageProps }) {
     const router = useRouter();
 
@@ -40,8 +32,9 @@ function MyApp({ Component, pageProps }) {
                 ></link>
                 <title>Unfounded 2021</title>
             </Head>
-            {!excludePage.includes(router.asPath) ? <Menu /> : null}
+
             <TransitionLayout>
+                {!excludePage.includes(router.asPath) ? <Menu /> : null}
                 <Component {...pageProps} />
             </TransitionLayout>
         </>

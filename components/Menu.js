@@ -10,9 +10,10 @@ import styled from "styled-components";
 const menuContainer = css`
     width: 100vw;
     height: 112px;
-    background-color: none;
-    position: absolute;
+    background-color: #000;
+    position: fixed;
     left: 0;
+    z-index: 100;
 `;
 
 const StyledBurger = css`
@@ -228,18 +229,7 @@ const menuTitleContainer = css`
         }
 
         & > div:last-of-type {
-            position: absolute;
-            bottom: 21px;
-            padding-left: 21px;
-            padding-right: 21px;
-            text-align: left;
-
-            p {
-                font-family: GTFAgentur, sans-serif;
-                font-size: 15px;
-                line-height: 21px;
-                letter-spacing: -0.25px;
-            }
+            display: none;
         }
     }
 `;

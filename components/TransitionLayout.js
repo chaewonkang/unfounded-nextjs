@@ -16,7 +16,7 @@ export default function TransitionLayout({ children }) {
     const [prevRouter, setPrevRouter] = useState("");
     const storage = globalThis?.sessionStorage;
 
-    const [transitionStage, setTransitionStage] = useState("slideRight");
+    const [transitionStage, setTransitionStage] = useState("slideUp");
 
     useEffect(() => storePathValues(storage), [router.asPath]);
 
@@ -39,19 +39,33 @@ export default function TransitionLayout({ children }) {
     }
 
     useEffect(() => {
-        setTransitionStage("slideLeft");
+        if (router.pathname === "/") setTransitionStage("");
+        else setTransitionStage("slideLeft");
+        console.log(transitionStage);
     }, []);
 
     useEffect(() => {
-        if (children !== displayChildren) setTransitionStage("slideRight");
+        if (children !== displayChildren) {
+            if (router.pathname === "/" || router.pathname === "/introduction")
+                setTransitionStage("slideDown");
+            else setTransitionStage("slideRight");
+        }
     }, [children, setDisplayChildren, displayChildren]);
 
     return (
         <div
             onAnimationEnd={() => {
-                if (transitionStage === "slideRight") {
+                if (
+                    transitionStage === "slideRight" ||
+                    transitionStage === "slideDown"
+                ) {
                     setDisplayChildren(children);
-                    setTransitionStage("slideLeft");
+                    if (
+                        router.pathname === "/introduction" ||
+                        router.pathname === "/"
+                    )
+                        setTransitionStage("slideUp");
+                    else setTransitionStage("slideLeft");
                 }
             }}
             className={transitionStage}

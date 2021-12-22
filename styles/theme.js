@@ -40,7 +40,7 @@ export const downArrowBox = css`
 `;
 
 export const headerContainer = css`
-    width: 100%;
+    width: 100vw;
     padding-left: 21px;
     padding-right: 21px;
     height: 112px;
@@ -149,8 +149,11 @@ export const menuWheelWrapper = css`
 `;
 
 export const menuWheel = css`
-    width: calc(100% - 42px);
+    width: 100vw;
     position: absolute;
+    left: 0;
+    padding-left: -21px;
+    padding-right: 21px;
     top: 112px;
     background-color: #000;
 
@@ -299,7 +302,7 @@ export const theme = {
     tabletL: `(max-width: ${size.tabletL})`,
     laptop: `(max-width: ${size.laptop})`,
     desktop: `(max-width: ${size.desktop})`,
-    primaryDark: "#0D0C1D",
+    Orange: "#0D0C1D",
     primaryLight: "#EFFFFA",
     primaryHover: "#343078",
     flexCenter: flexCenter,
