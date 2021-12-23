@@ -152,7 +152,7 @@ export const menuWheel = css`
     width: 100vw;
     position: absolute;
     left: 0;
-    padding-left: -21px;
+    padding-left: 21px;
     padding-right: 21px;
     top: 112px;
     background-color: #000;
