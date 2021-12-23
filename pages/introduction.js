@@ -1,15 +1,10 @@
-import {
-    useTransition,
-    animated,
-    AnimatedProps,
-    useSpringRef,
-} from "@react-spring/web";
 import { useRef, useEffect, useState, useCallback } from "react";
 import { ThemeProvider } from "styled-components";
 import theme from "../styles/theme";
 import { useRouter } from "next/router";
 import { css } from "@emotion/react";
 import Footer from "../components/Footer";
+import "scroll-behavior-polyfill";
 
 const introContainer = css`
     position: relative;
@@ -19,10 +14,6 @@ const introContainer = css`
 `;
 
 const outer = css``;
-
-const inner = css`
-    height: 100vh;
-`;
 
 const bottomBanner = css`
     width: 100vw;
@@ -507,7 +498,7 @@ const Introduction = () => {
     useEffect(() => {
         resetTimeout();
 
-        return () => {
+        https: return () => {
             resetTimeout();
         };
     }, []);

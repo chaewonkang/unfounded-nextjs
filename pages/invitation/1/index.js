@@ -4,7 +4,7 @@ import theme from "../../../styles/theme";
 import { useRouter } from "next/router";
 import { css } from "@emotion/react";
 import Footer from "../../../components/Footer";
-import InvitationSlider from "../../../components/InvitationSlider";
+import InvitationOneData from "../../../data/InvitationOneData";
 
 const sliderArrow = css`
     position: absolute;
@@ -38,7 +38,6 @@ const sliderContainer = css`
     height: calc(100vh - 48px);
     overflow: hidden;
     display: flex;
-
     padding-bottom: 21px;
     position: relative;
 
@@ -60,7 +59,6 @@ const sliderWrapper = css`
         height: 100vh;
         width: 100vw;
         display: inline-block;
-        flex-direction: column;
     }
 `;
 
@@ -71,6 +69,8 @@ const sliderBGWrapper = css`
     position: absolute;
     z-index: 1;
     white-space: nowrap;
+    overflow: hidden;
+
     transition: ease 1000ms;
 
     & > div {
@@ -91,6 +91,7 @@ const sliderContent = css`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 `;
 
 const sliderContentWrapper = css`
@@ -100,14 +101,49 @@ const sliderContentWrapper = css`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+`;
+
+const iframeContainer = css`
+    width: calc((100% / 12) * 8);
+    height: 90%;
+    position: relative;
+`;
+
+const iframeWrapper = css`
+    width: 100%;
+    height: 100%;
+`;
+
+const startImageWrapper = css`
+    width: 100%;
+    height: 100%;
 
     & > div:first-of-type {
-        width: calc((100% / 12) * 8);
-        height: 90%;
+        width: 100%;
+        height: 100%;
+
         & > img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+    }
+
+    & > div:last-of-type {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+
+        & > img {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
         }
     }
 `;
@@ -131,22 +167,45 @@ const introContainer = css`
     height: 100vh;
 `;
 
-const bottomBanner = css`
-    width: 100vw;
+const bottomBannerContainer = css`
+    width: 100%;
     position: relative;
     bottom: 0;
     height: 48px;
     background-color: #fff;
-    padding-left: 21px;
-    padding-right: 21px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: inline-block;
+    overflow: hidden;
+`;
 
-    p {
-        font-size: 32px;
-        font-family: PP Neue Montreal Book, sans-serif;
-        letter-spacing: 0.1px;
+const bottomBannerWrapper = css`
+	width: 100%;
+	padding
+    height: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    transition: ease 1000ms;
+
+    & > div {
+		margin-left: 21px;
+		margin-right: 21px;
+        width: calc(100% - 42px);
+        height: 100%;
+        display: inline-block;
+
+        div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+			justify-content: space-between;
+			position: relative;
+
+            p {
+                font-size: 32px;
+                font-family: PP Neue Montreal Book, sans-serif;
+				letter-spacing: 0.1px;
+				margin-top: 3px;
+            }
+        }
     }
 
     @media (max-width: 781px) {
@@ -227,42 +286,37 @@ const moreTextBox = css`
     }
 `;
 
-const invitation1 = [
-    {
-        src: "/static/images/invitation/1/1_1.png",
-        title: "프로젝트 A Project A",
-        partici: "김얼터 Nahyun Kim",
-        link: "",
-    },
-    {
-        src: "/static/images/invitation/1/1_2.png",
-        title: "프로젝트 A Project A",
-        partici: "김얼터 Nahyun Kim",
-        link: "",
-    },
-    {
-        src: "/static/images/invitation/1/1_3.jpg",
-        title: "프로젝트 A Project A",
-        partici: "김얼터 Nahyun Kim",
-        link: "",
-    },
-    {
-        src: "/static/images/invitation/1/1_4.png",
-        title: "프로젝트 A Project A",
-        partici: "김얼터 Nahyun Kim",
-        link: "",
-    },
-    {
-        src: "/static/images/invitation/1/1_5.jpg",
-        title: "프로젝트 A Project A",
-        partici: "김얼터 Nahyun Kim",
-        link: "",
-    },
-];
+const marquee = css`
+    position: absolute;
+    width: 100%;
+
+    top: calc(50% - 43px);
+    overflow: hidden;
+    padding-top: 10px;
+    white-space: nowrap;
+    font-family: "GTFAgentur", serif;
+    font-size: 86px;
+    color: #ff9d46;
+`;
+
+const marqueeBox1 = css`
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+`;
+
+const marqueeBox2 = css`
+    display: inline-block;
+    animation: marquee2 20s linear infinite;
+    animation-delay: 10s;
+`;
 
 const InvitationOne = () => {
     const router = useRouter();
     const [index, setIndex] = useState(0);
+    const [coverIsShow, setCoverIsShow] = useState({
+        index: 0,
+        open: false,
+    });
 
     const scrollRef = useRef(null);
     const [isMoreOpen, setIsMoreOpen] = useState({
@@ -270,7 +324,7 @@ const InvitationOne = () => {
         index: 0,
     });
 
-    useEffect(() => {}, [isMoreOpen]);
+    useEffect(() => {}, [isMoreOpen, coverIsShow]);
 
     return (
         <ThemeProvider theme={theme}>
@@ -279,11 +333,15 @@ const InvitationOne = () => {
                     <div css={sliderArrow}>
                         <div
                             onClick={() => {
+                                setCoverIsShow({ index: 0 });
                                 if (index === 0) {
-                                    setIndex(invitation1.length - 1);
+                                    setIndex(InvitationOneData.length - 1);
                                 } else if (index === 1) {
                                     setIndex(0);
-                                } else if (index < invitation1.length - 1) {
+                                } else if (
+                                    index <
+                                    InvitationOneData.length - 1
+                                ) {
                                     setIndex(index - 1);
                                 } else {
                                     setIndex(index - 1);
@@ -294,9 +352,16 @@ const InvitationOne = () => {
                         </div>
                         <div
                             onClick={() => {
-                                if (index < invitation1.length - 1) {
+                                setCoverIsShow({
+                                    index: 0,
+                                });
+
+                                if (index < InvitationOneData.length - 1) {
                                     setIndex(index + 1);
-                                } else if (index == invitation1.length - 1)
+                                } else if (
+                                    index ==
+                                    InvitationOneData.length - 1
+                                )
                                     setIndex(0);
                                 else if (index == 1) setIndex(index + 1);
                             }}
@@ -308,18 +373,20 @@ const InvitationOne = () => {
                         css={sliderBGWrapper}
                         style={{
                             transform: `translate3d(${
-                                (invitation1.length * 100 - index * 100) * -1
+                                (InvitationOneData.length * 100 - index * 100) *
+                                -1
                             }%, 0, 0)`,
                             backgroundColor: "red",
                         }}
                     >
-                        {invitation1.map(el => {
+                        {InvitationOneData.map(el => {
                             return (
                                 <div>
                                     <div
                                         css={sliderContent}
                                         style={
-                                            (invitation1.indexOf(el) + 2) %
+                                            (InvitationOneData.indexOf(el) +
+                                                2) %
                                                 2 ===
                                             1
                                                 ? {
@@ -338,13 +405,99 @@ const InvitationOne = () => {
                             transform: `translate3d(${-index * 100}%, 0, 0)`,
                         }}
                     >
-                        {invitation1.map(el => {
+                        {InvitationOneData.map(el => {
                             return (
                                 <div>
                                     <div css={sliderContent}>
                                         <div css={sliderContentWrapper}>
-                                            <div>
-                                                <img src={el.src} />
+                                            <div css={iframeContainer}>
+                                                {coverIsShow.index ===
+                                                el.index + 1 ? (
+                                                    <div css={iframeWrapper}>
+                                                        <iframe
+                                                            width="100%"
+                                                            style={{
+                                                                height: "56vh",
+                                                                zIndex: 30,
+                                                            }}
+                                                            src="https://miro.com/app/embed/uXjVOfjPqzE=/?pres=1&frameId=3458764515672111349"
+                                                            frameBorder="0"
+                                                            scrolling="no"
+                                                            allowFullScreen
+                                                        ></iframe>
+                                                    </div>
+                                                ) : (
+                                                    <div
+                                                        css={startImageWrapper}
+                                                        onClick={() => {
+                                                            setCoverIsShow({
+                                                                index:
+                                                                    el.index +
+                                                                    1,
+                                                            });
+                                                        }}
+                                                    >
+                                                        <div>
+                                                            <img src={el.src} />
+                                                            <div css={marquee}>
+                                                                <div
+                                                                    css={
+                                                                        marqueeBox1
+                                                                    }
+                                                                >
+                                                                    <span>
+                                                                        CLICK to
+                                                                        START
+                                                                        CLICK to
+                                                                        START
+                                                                        CLICK to
+                                                                        START
+                                                                        CLICK to
+                                                                        START
+                                                                        CLICK to
+                                                                        START
+                                                                        CLICK to
+                                                                        START
+                                                                        CLICK to
+                                                                        START
+                                                                        &nbsp;
+                                                                        &nbsp;
+                                                                    </span>
+                                                                </div>
+                                                                <div
+                                                                    css={
+                                                                        marqueeBox2
+                                                                    }
+                                                                >
+                                                                    <span>
+                                                                        CLICK to
+                                                                        START
+                                                                        CLICK to
+                                                                        START
+                                                                        CLICK to
+                                                                        START
+                                                                        CLICK to
+                                                                        START
+                                                                        CLICK to
+                                                                        START
+                                                                        CLICK to
+                                                                        START
+                                                                        CLICK to
+                                                                        START
+                                                                        &nbsp;
+                                                                        &nbsp;
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>{" "}
+                                                        <div>
+                                                            <img
+                                                                src="../../../static/images/expansionIcon.png"
+                                                                alt="expansion"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
                                             </div>
                                             <div css={slideText}>
                                                 <p css={[theme.textKr]}>
@@ -358,10 +511,25 @@ const InvitationOne = () => {
                         })}
                     </div>
                 </div>
-                <div css={bottomBanner}>
-                    <p>PROJECT A</p>
-                    <p>01</p>
-                    <p>NAHYUN KIM</p>
+                <div css={bottomBannerContainer}>
+                    <div
+                        css={bottomBannerWrapper}
+                        style={{
+                            transform: `translate3d(${-index * 100}%, 0, 0)`,
+                        }}
+                    >
+                        {InvitationOneData.map(el => {
+                            return (
+                                <div>
+                                    <div>
+                                        <p>{el.title}</p>
+                                        <p>{el.no}</p>
+                                        <p>{el.partici}</p>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
                 <div css={invitationBox} ref={scrollRef}>
                     <div css={moreContainer}>

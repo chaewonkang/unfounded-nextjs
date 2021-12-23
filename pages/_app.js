@@ -31,6 +31,10 @@ function MyApp({ Component, pageProps }) {
                     rel="stylesheet"
                 ></link>
                 <title>Unfounded 2021</title>
+                <script
+                    defer
+                    src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+                ></script>
             </Head>
 
             <TransitionLayout>

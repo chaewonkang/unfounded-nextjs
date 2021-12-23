@@ -15,8 +15,6 @@ export const downArrowBox = css`
 
     &:hover {
         img {
-            transform: rotate(10deg);
-            transition: 1s;
         }
     }
 

@@ -45,7 +45,7 @@ export default function TransitionLayout({ children }) {
 
     useEffect(() => {
         if (children !== displayChildren) {
-            setTransitionStage("slideRight");
+            setTransitionStage("slideDown");
         }
     }, [children, setDisplayChildren, displayChildren]);
 
