@@ -69,7 +69,6 @@ const sliderBGWrapper = css`
     position: absolute;
     z-index: 1;
     white-space: nowrap;
-    overflow: hidden;
 
     transition: ease 1000ms;
 
@@ -112,6 +111,7 @@ const iframeContainer = css`
 const iframeWrapper = css`
     width: 100%;
     height: 100%;
+    transition: ease 1000ms;
 `;
 
 const startImageWrapper = css`
@@ -249,7 +249,7 @@ const invitationBox = css`
 const moreContainer = css`
     border-top: 1px solid #000;
     width: 100%;
-    height: 55vh;
+    height: 50vh;
     transition: 3s ease-in;
     padding-left: 21px;
     padding-right: 21px;
