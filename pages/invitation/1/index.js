@@ -128,24 +128,6 @@ const startImageWrapper = css`
             object-fit: cover;
         }
     }
-
-    & > div:last-of-type {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        cursor: pointer;
-
-        & > img {
-            position: absolute;
-            right: 20px;
-            bottom: 20px;
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-        }
-    }
 `;
 
 const slideText = css`
@@ -178,16 +160,15 @@ const bottomBannerContainer = css`
 `;
 
 const bottomBannerWrapper = css`
-	width: 100%;
-	padding
+    width: 100%;
     height: 100%;
     display: inline-block;
     white-space: nowrap;
     transition: ease 1000ms;
 
     & > div {
-		margin-left: 21px;
-		margin-right: 21px;
+        margin-left: 21px;
+        margin-right: 21px;
         width: calc(100% - 42px);
         height: 100%;
         display: inline-block;
@@ -196,14 +177,23 @@ const bottomBannerWrapper = css`
             width: 100%;
             height: 100%;
             display: flex;
-			justify-content: space-between;
-			position: relative;
+            justify-content: space-between;
+            position: relative;
 
             p {
+                width: calc(100% / 3);
                 font-size: 32px;
                 font-family: PP Neue Montreal Book, sans-serif;
-				letter-spacing: 0.1px;
-				margin-top: 3px;
+                letter-spacing: 0.1px;
+                margin-top: 3px;
+            }
+
+            p:nth-of-type(2) {
+                text-align: center;
+            }
+
+            p:last-of-type {
+                text-align: right;
             }
         }
     }
@@ -216,19 +206,11 @@ const bottomBannerWrapper = css`
     }
 `;
 
-const invitationBox = css`
+const EachTextBox = css`
     width: 100vw;
     height: 100vh;
     background-color: #ff9d46;
-    padding-top: 10px;
-    & > div:first-of-type {
-        span {
-            font-family: GTFAgentur, serif;
-            font-size: 86px;
-            letter-spacing: -0.2px;
-            color: #000;
-        }
-    }
+    margin-top: -10px;
 
     @media (max-width: 781px) {
         width: 100vw;
@@ -249,17 +231,56 @@ const invitationBox = css`
 const moreContainer = css`
     border-top: 1px solid #000;
     width: 100%;
-    height: 50vh;
+    height: auto;
     transition: 3s ease-in;
-    padding-left: 21px;
-    padding-right: 21px;
-    padding-top: 25.3px;
-    padding-bottom: 10px;
     display: flex;
+`;
+
+const ArtistInfoBox = css`
+    width: 100%;
+    height: 100%;
+    word-break: keep-all;
+    display: inline-block;
+`;
+
+const ArtistInfoText = css`
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    transition: ease 1000ms;
+    white-space: nowrap;
 
     & > div {
-        width: calc(50% - 9px);
+        width: 100%;
+        display: inline-block;
+    }
+`;
+
+const ArtistInfoTextContent = css`
+    width: 100%;
+    display: flex;
+    white-space: pre-wrap;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+
+    & > div {
+        width: 50%;
         display: flex;
+
+        & > p:first-of-type {
+            width: calc((100% / 6) * 2);
+            max-width: calc((100% / 6) * 2);
+            padding-right: 9px;
+        }
+
+        & > p:last-of-type {
+            width: calc((100% / 6) * 4);
+            max-width: calc((100% / 6) * 4);
+
+            padding-right: 9px;
+        }
     }
 `;
 
@@ -420,7 +441,7 @@ const InvitationOne = () => {
                                                                 height: "56vh",
                                                                 zIndex: 30,
                                                             }}
-                                                            src="https://miro.com/app/embed/uXjVOfjPqzE=/?pres=1&frameId=3458764515672111349"
+                                                            src={el.iframeSrc}
                                                             frameBorder="0"
                                                             scrolling="no"
                                                             allowFullScreen
@@ -490,12 +511,6 @@ const InvitationOne = () => {
                                                                 </div>
                                                             </div>
                                                         </div>{" "}
-                                                        <div>
-                                                            <img
-                                                                src="../../../static/images/expansionIcon.png"
-                                                                alt="expansion"
-                                                            />
-                                                        </div>
                                                     </div>
                                                 )}
                                             </div>
@@ -524,33 +539,48 @@ const InvitationOne = () => {
                                     <div>
                                         <p>{el.title}</p>
                                         <p>{el.no}</p>
-                                        <p>{el.partici}</p>
+                                        <p>{el.particiEn}</p>
                                     </div>
                                 </div>
                             );
                         })}
                     </div>
                 </div>
-                <div css={invitationBox} ref={scrollRef}>
+                <div css={EachTextBox} ref={scrollRef}>
                     <div css={moreContainer}>
-                        <div css={moreTextBox}>
-                            <div>
-                                <p css={theme.textKr}>
-                                    초대 I: 지휘 수업指揮 受業을 위한 안내
-                                </p>
-                            </div>
-                            <div>
-                                <p css={theme.textKr}>텍스트</p>
-                            </div>
-                        </div>
-                        <div css={moreTextBox}>
-                            <div>
-                                <p css={theme.textEn}>
-                                    Invitation I: A Guide to Conductor’s Lesson
-                                </p>
-                            </div>
-                            <div>
-                                <p css={theme.textEn}>Text</p>
+                        <div css={ArtistInfoBox}>
+                            <div
+                                css={ArtistInfoText}
+                                style={{
+                                    transform: `translate3d(${
+                                        -index * 100
+                                    }%, 0, 0)`,
+                                }}
+                            >
+                                {InvitationOneData.map(el => {
+                                    return (
+                                        <div>
+                                            <div css={ArtistInfoTextContent}>
+                                                <div>
+                                                    <p css={theme.textKr}>
+                                                        {el.particiKr}
+                                                    </p>
+                                                    <p css={theme.textKr}>
+                                                        {el.artistInfoKr}
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <p css={theme.textKr}>
+                                                        {el.particiEn}
+                                                    </p>
+                                                    <p css={theme.textKr}>
+                                                        {el.artistInfoEn}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    );
+                                })}{" "}
                             </div>
                         </div>
                     </div>

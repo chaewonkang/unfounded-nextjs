@@ -4,7 +4,7 @@ import theme from "../styles/theme";
 import { useRouter } from "next/router";
 import { css } from "@emotion/react";
 import Footer from "../components/Footer";
-import "scroll-behavior-polyfill";
+import InvitationOneData from "../data/InvitationOneData";
 
 const introContainer = css`
     position: relative;
@@ -346,34 +346,8 @@ const sliderWrapper = css`
     width: 100vw;
     height: 100%;
     display: inline-block;
-
     white-space: nowrap;
     transition: ease 1000ms;
-
-    & > div {
-        height: calc(100% - 21px);
-        width: calc(((100vw - 42px) / 3));
-        display: inline-block;
-        flex-direction: column;
-
-        :hover {
-            cursor: pointer;
-
-            & > img {
-                mix-blend-mode: difference;
-            }
-        }
-
-        & > img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-
-            :hover {
-                mix-blend-mode: difference;
-            }
-        }
-    }
 
     & > div:nth-of-type(3n + 1) {
         padding-right: 9px;
@@ -393,6 +367,27 @@ const sliderWrapper = css`
     }
 `;
 
+const eachSlide = css`
+    height: calc(100% - 21px);
+    width: calc(((100vw - 42px) / 3));
+    display: inline-block;
+    flex-direction: column;
+    background-color: #ff9d46;
+
+    :hover {
+        & > img {
+            mix-blend-mode: difference;
+        }
+    }
+
+    & > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+    }
+`;
+
 const slideText = css`
     width: 100%;
 
@@ -401,72 +396,6 @@ const slideText = css`
         width: 50%;
     }
 `;
-
-const invitation1 = [
-    {
-        src: "/static/images/invitation/1/1_1.png",
-        title: "프로젝트 A Project A",
-        partici: "김얼터 Nahyun Kim",
-        link: "",
-    },
-    {
-        src: "/static/images/invitation/1/1_2.png",
-        title: "프로젝트 A Project A",
-        partici: "김얼터 Nahyun Kim",
-        link: "",
-    },
-    {
-        src: "/static/images/invitation/1/1_3.jpg",
-        title: "프로젝트 A Project A",
-        partici: "김얼터 Nahyun Kim",
-        link: "",
-    },
-    {
-        src: "/static/images/invitation/1/1_4.png",
-        title: "프로젝트 A Project A",
-        partici: "김얼터 Nahyun Kim",
-        link: "",
-    },
-    {
-        src: "/static/images/invitation/1/1_5.jpg",
-        title: "프로젝트 A Project A",
-        partici: "김얼터 Nahyun Kim",
-        link: "",
-    },
-];
-
-const invitation2 = [
-    {
-        src: "/static/images/invitation/2/2_1.jpg",
-        title: "프로젝트 A Project A",
-        partici: "김얼터 Nahyun Kim",
-        link: "",
-    },
-    {
-        src: "/static/images/invitation/2/2_2.jpg",
-        title: "프로젝트 A Project A",
-        partici: "김얼터 Nahyun Kim",
-        link: "",
-    },
-    {
-        src: "/static/images/invitation/2/2_3.jpg",
-        title: "프로젝트 A Project A",
-        partici: "김얼터 Nahyun Kim",
-        link: "",
-    },
-    {
-        src: "/static/images/invitation/2/2_4.jpg",
-        title: "프로젝트 A Project A",
-        partici: "김얼터 Nahyun Kim",
-        link: "",
-    },
-    {
-        src: "/static/images/invitation/2/2_5.jpg",
-        title: "프로젝트 A Project A",
-        partici: "김얼터 Nahyun Kim",
-        link: "",
-    },
-];
 
 const Introduction = () => {
     const router = useRouter();
@@ -504,7 +433,7 @@ const Introduction = () => {
     }, []);
 
     useEffect(() => {
-        shuffle(invitation1);
+        shuffle(InvitationOneData);
     }, []);
 
     // useEffect(() => {
@@ -1077,7 +1006,7 @@ const Introduction = () => {
                                             setIndex(0);
                                         } else if (
                                             index <
-                                            invitation1.length / 3 - 1
+                                            InvitationOneData.length / 3 - 1
                                         ) {
                                             setIndex(index - 1);
                                         }
@@ -1089,12 +1018,12 @@ const Introduction = () => {
                                     onClick={() => {
                                         if (
                                             index <
-                                            invitation1.length / 3 - 1
+                                            InvitationOneData.length / 3 - 1
                                         ) {
                                             setIndex(index + 1);
                                         } else if (
                                             index ==
-                                            invitation1.length / 3 - 1
+                                            InvitationOneData.length / 3 - 1
                                         )
                                             setIndex(0);
                                         else if (index == 1) setIndex(0);
@@ -1111,9 +1040,9 @@ const Introduction = () => {
                                     }%, 0, 0)`,
                                 }}
                             >
-                                {invitation1.map(el => {
+                                {InvitationOneData.map(el => {
                                     return (
-                                        <div>
+                                        <div css={eachSlide}>
                                             <img src={el.src} />
                                             <div css={slideText}>
                                                 <span
@@ -1130,7 +1059,7 @@ const Introduction = () => {
                                                         theme.textEn,
                                                     ]}
                                                 >
-                                                    {el.partici}
+                                                    {el.particiEn}
                                                 </span>
                                             </div>
                                         </div>
@@ -1139,7 +1068,7 @@ const Introduction = () => {
                             </div>
                         </div>
                     </div>
-                    <div
+                    {/* <div
                         css={invitationBox}
                         style={{ backgroundColor: "#000", color: "#fff" }}
                     >
@@ -1505,7 +1434,7 @@ const Introduction = () => {
                                 })}
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <Footer bgColor={"#000"} color={"#fff"} />
                 </div>
             </div>

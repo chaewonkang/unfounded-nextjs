@@ -65,7 +65,7 @@ const StyledMenu = css`
     display: inline-block;
     width: 100vw;
     z-index: 15;
-    background: #ff9d46;
+    background-color: #ff9d46;
     height: 100vh;
     max-height: 100vh;
     text-align: center;
@@ -74,19 +74,22 @@ const StyledMenu = css`
     top: 0;
     left: 0;
     transition: transform 0.3s ease-in-out;
-
     padding-top: 25vh;
 
-    & > div > a {
-        text-transform: uppercase;
-        display: block;
-        padding: 0.25em;
-        margin-bottom: 0.5em;
-        color: #2a6eb1;
-        font-size: 19px;
+    & > div:first-of-type {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+        background-color: #ff9d46;
 
-        text-decoration: none;
-        transition: color 0.3s linear;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            mix-blend-mode: multiply;
+        }
     }
 
     @media (max-width: 781px) {
@@ -104,18 +107,6 @@ const StyledMenu = css`
         transition: transform 0.3s ease-in-out;
 
         padding-top: 25vh;
-
-        & > div > a {
-            text-transform: uppercase;
-            display: block;
-            padding: 0.25em;
-            margin-bottom: 0.5em;
-            color: #2a6eb1;
-            font-size: 19px;
-
-            text-decoration: none;
-            transition: color 0.3s linear;
-        }
     }
 `;
 
@@ -195,6 +186,11 @@ const menuTitleContainer = css`
             font-family: GTFAgentur, sans-serif;
             font-size: 60px;
             letter-spacing: -0.2px;
+            cursor: pointer;
+
+            :hover {
+                color: #fff;
+            }
         }
     }
 
@@ -266,10 +262,17 @@ const menuArr = [
     },
 ];
 
+const menuBgArr = [
+    "../static/images/menuBg1.png",
+    "../static/images/menuBg2.png",
+    "../static/images/menuBg3.png",
+];
+
 const Menu = ({ transX }) => {
     const [open, setOpen] = useState(false);
     const [curRoute, setCurRoute] = useState("");
     const router = useRouter();
+    const [menuBg, setMenuBg] = useState(0);
 
     useEffect(() => {
         menuArr
@@ -279,8 +282,7 @@ const Menu = ({ transX }) => {
             .map(e => setCurRoute(menuArr.indexOf(e) + 1));
     }, [curRoute, router]);
 
-    // TODO
-    // MenuWheel 이 router이 변경될 때마다 30%씩 오른쪽으로 이동
+    useEffect(() => {}, [menuBg, open]);
 
     return (
         <ThemeProvider theme={theme}>
@@ -378,25 +380,76 @@ const Menu = ({ transX }) => {
                             : { transform: "translateX(-100%)" }
                     }
                 >
+                    <div>
+                        <img
+                            src={`../static/images/menuBg${menuBg + 1}.png`}
+                            alt="menu_background"
+                        />
+                    </div>
                     <div css={openMenuHeader}>
-                        <div>
-                            <img src={imgPath[3]} alt="symbol_white" />
-                        </div>
                         <div onClick={() => setOpen(!open)}>
                             <img src={imgPath[4]} alt="symbol_white" />
                         </div>
                     </div>
                     <div css={menuTitleContainer}>
                         <div>
-                            <span>Introduction</span>
+                            <span
+                                onMouseOver={() => setMenuBg(0)}
+                                onClick={() => {
+                                    setOpen(!open);
+                                    router.push({
+                                        pathname: "/introduction",
+                                    });
+                                }}
+                            >
+                                Introduction
+                            </span>
                             <br />
                             <br />
-                            <span>Invitation 1</span>
-                            <span>Invitation 2</span>
-                            <span>Invitation 3</span>
+                            <span
+                                onMouseOver={() => setMenuBg(1)}
+                                onClick={() => {
+                                    setOpen(!open);
+                                    router.push({
+                                        pathname: "/invitation/1",
+                                    });
+                                }}
+                            >
+                                Invitation 1
+                            </span>
+                            <span
+                                onMouseOver={() => setMenuBg(2)}
+                                onClick={() => {
+                                    setOpen(!open);
+                                    router.push({
+                                        pathname: "/invitation/2",
+                                    });
+                                }}
+                            >
+                                Invitation 2
+                            </span>
+                            <span
+                                onClick={() => {
+                                    setOpen(!open);
+                                    router.push({
+                                        pathname: "/invitation/3",
+                                    });
+                                }}
+                            >
+                                Invitation 3
+                            </span>
                             <br />
                             <br />
-                            <span>Exploration</span>
+                            <span
+                                onClick={() => {
+                                    setOpen(!open);
+                                    router.push({
+                                        pathname: "/exploration",
+                                    });
+                                }}
+                            >
+                                Exploration
+                            </span>
                         </div>
                         <div>
                             <p>

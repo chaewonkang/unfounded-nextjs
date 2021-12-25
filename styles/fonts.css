@@ -18,8 +18,8 @@
 
 @font-face {
     font-family: "GTFAgentur";
-    src: url("../static/fonts/GTFAgenturTRIAL-Regular.woff2") format("woff2"),
-        url("../static/fonts/GTFAgenturTRIAL-Regular.woff") format("woff");
+    src: url("../static/fonts/Agentur-Regular.woff2") format("woff2"),
+        url("../static/fonts/Agentur-Regular.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
