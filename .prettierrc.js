@@ -9,4 +9,5 @@ module.exports = {
     singleQuote: false,
     bracketSpacing: true,
     trailingComma: "all",
+    printWidth: 120,
 };

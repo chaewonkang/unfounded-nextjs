@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import theme from "../styles/theme";
 import { useRouter } from "next/router";
@@ -247,7 +247,14 @@ const invitationText2 = css`
             span {
                 font-family: Union, sans-serif;
                 font-weight: 500;
-                font-size: 15px;
+				font-size: 15px;
+				border-bottom: 1px solid #000;
+				cursor: pointer;
+
+				:hover {
+					color: #fff;
+					border-bottom: 1px solid #fff;
+				}
             }
         }
 
@@ -405,6 +412,9 @@ const Introduction = () => {
     const scrollRef = useRef(null);
     const outerDivRef = useRef();
     const DIVIDER_HEIGHT = 5;
+    const textBoxRef1 = useRef();
+    const [sliderBoxHeight, setSliderBoxHeight] = useState(0);
+
     const [isMoreOpen, setIsMoreOpen] = useState({
         bool: false,
         index: 0,
@@ -434,7 +444,8 @@ const Introduction = () => {
 
     useEffect(() => {
         shuffle(InvitationOneData);
-    }, []);
+        setSliderBoxHeight(textBoxRef1.current.offsetHeight);
+    }, [sliderBoxHeight]);
 
     // useEffect(() => {
     //     const wheelHandler = e => {
@@ -756,7 +767,7 @@ const Introduction = () => {
                                     </p>
                                 </div>
                             </div>
-                            <div css={invitationText2}>
+                            <div css={invitationText2} ref={textBoxRef1}>
                                 <div>
                                     <p css={theme.textKr}>
                                         미술 전시 기획자 6인이 모여 픽션-전시의
@@ -797,7 +808,15 @@ const Introduction = () => {
                                                 index: 1,
                                             });
                                         }}
-                                        style={{ cursor: "pointer" }}
+                                        style={
+                                            isMoreOpen.bool
+                                                ? {
+                                                      color: "#fff",
+                                                      borderBottom:
+                                                          "1px solid #fff",
+                                                  }
+                                                : null
+                                        }
                                     >
                                         MORE
                                     </span>

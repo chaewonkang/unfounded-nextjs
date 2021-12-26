@@ -274,13 +274,11 @@ export const subTitleEn = css`
 
 export const flexCenter = css`
     display: flex;
-
     justify-content: center;
 `;
 
 export const flexEnd = css`
     display: flex;
-
     justify-content: flex-end;
 `;
 
