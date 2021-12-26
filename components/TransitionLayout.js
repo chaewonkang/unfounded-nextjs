@@ -2,13 +2,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-const menuArr = [
-    "/introduction",
-    "/invitation/1",
-    "/invitation/2",
-    "/invitation/3",
-    "/exploration",
-];
+const menuArr = ["/introduction", "/invitation/1", "/invitation/2", "/invitation/3", "/exploration"];
 
 export default function TransitionLayout({ children }) {
     const [displayChildren, setDisplayChildren] = useState(children);
@@ -29,12 +23,8 @@ export default function TransitionLayout({ children }) {
         storage.setItem("currentPath", globalThis.location.pathname);
 
         console.log("---------------------");
-        console.log(
-            `currPath: ${menuArr.indexOf(storage.getItem("currentPath"))}`,
-        );
-        console.log(
-            `prevPath: ${menuArr.indexOf(storage.getItem("prevPath"))}`,
-        );
+        console.log(`currPath: ${menuArr.indexOf(storage.getItem("currentPath"))}`);
+        console.log(`prevPath: ${menuArr.indexOf(storage.getItem("prevPath"))}`);
         console.log("---------------------");
     }
 

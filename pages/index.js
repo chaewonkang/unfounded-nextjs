@@ -97,6 +97,9 @@ const downArrowBoxStyle = css`
 const Index = () => {
     const router = useRouter();
     const [delay, setDelay] = useState(1);
+    const [isArrowWhite, setIsArrowWhite] = useState(false);
+
+    useEffect(() => {}, [isArrowWhite]);
 
     return (
         <ThemeProvider theme={theme}>
@@ -104,6 +107,7 @@ const Index = () => {
                 css={mainContainer}
                 style={{
                     animation: `fadeIn ${delay}s ease-in`,
+                    borderBottom: "1px solid #000",
                 }}
             >
                 <div>
@@ -111,12 +115,10 @@ const Index = () => {
                 </div>
                 <img src="../static/images/textLogo.png" alt="mainTextLogo" />
                 <p>
-                    The website Unfounded is a space for researching
-                    fiction-related practices and uploading Founders’ projects,
-                    online exhibitions, and games related to Founders’ fiction.
-                    It is expected that the website will provide a discursive
-                    foundation for fiction and expand curatorial practice by
-                    seeking ways to consider fiction in various ways.
+                    The website Unfounded is a space for researching fiction-related practices and uploading Founders’
+                    projects, online exhibitions, and games related to Founders’ fiction. It is expected that the
+                    website will provide a discursive foundation for fiction and expand curatorial practice by seeking
+                    ways to consider fiction in various ways.
                 </p>
             </div>
             <Footer
@@ -127,21 +129,50 @@ const Index = () => {
                 }}
             />
             <Link href="/introduction">
-                <div css={[theme.downArrowBox, downArrowBoxStyle]}>
-                    <img
-                        src="../static/images/downArrow.png"
-                        alt="down_arrow"
-                        style={{
-                            animation: `fadeIn ${delay * 3}s ease-in`,
-                        }}
-                    />
-                    <img
-                        src="../static/images/downArrow.png"
-                        alt="down_arrow"
-                        style={{
-                            animation: `fadeIn ${delay * 3}s ease-in`,
-                        }}
-                    />
+                <div
+                    css={[theme.downArrowBox, downArrowBoxStyle]}
+                    onMouseOver={() => {
+                        setIsArrowWhite(true);
+                    }}
+                    onMouseLeave={() => {
+                        setIsArrowWhite(false);
+                    }}
+                >
+                    {isArrowWhite ? (
+                        <>
+                            <img
+                                src="../static/images/downArrowW.png"
+                                alt="down_arrow"
+                                style={{
+                                    animation: `fadeIn ${delay * 3}s ease-in`,
+                                }}
+                            />
+                            <img
+                                src="../static/images/downArrowW.png"
+                                alt="down_arrow"
+                                style={{
+                                    animation: `fadeIn ${delay * 3}s ease-in`,
+                                }}
+                            />
+                        </>
+                    ) : (
+                        <>
+                            <img
+                                src="../static/images/downArrow.png"
+                                alt="down_arrow"
+                                style={{
+                                    animation: `fadeIn ${delay * 3}s ease-in`,
+                                }}
+                            />
+                            <img
+                                src="../static/images/downArrow.png"
+                                alt="down_arrow"
+                                style={{
+                                    animation: `fadeIn ${delay * 3}s ease-in`,
+                                }}
+                            />
+                        </>
+                    )}
                 </div>
             </Link>
         </ThemeProvider>
