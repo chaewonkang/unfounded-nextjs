@@ -281,21 +281,47 @@ const moreContainer = css`
     }
 `;
 
-const sliderArrow = css`
+const sliderArrowL = css`
     position: absolute;
-    width: calc(100vw - 42px);
+    width: 70px;
     height: 70px;
     top: calc(35vh - 164.5px);
-    padding-left: 16px;
-    padding-right: 16px;
+    left: 21px;
     display: flex;
-    justify-content: space-between;
+
     align-items: center;
     z-index: 2;
 
     & > div {
-        width: 70px;
-        height: 70px;
+        width: 100%;
+        height: 100%;
+        :hover {
+            cursor: pointer;
+        }
+
+        & > img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+`;
+
+const sliderArrowR = css`
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: calc(35vh - 164.5px);
+    right: 21px;
+
+    display: flex;
+
+    align-items: center;
+    z-index: 2;
+
+    & > div {
+        width: 100%;
+        height: 100%;
         :hover {
             cursor: pointer;
         }
@@ -426,6 +452,8 @@ const Introduction = () => {
     const textBoxRef1 = useRef();
     const [sliderBoxHeight, setSliderBoxHeight] = useState(0);
 
+    const [isArrowO, setIsArrowO] = useState(false);
+
     const [isMoreOpen, setIsMoreOpen] = useState({
         bool: false,
         index: 0,
@@ -454,6 +482,8 @@ const Introduction = () => {
     }, [sliderBoxHeight]);
 
     useEffect(() => {}, [isMoreOpen, isMoreOpen2]);
+
+    useEffect(() => {}, [isArrowO]);
 
     return (
         <ThemeProvider theme={theme}>
@@ -822,7 +852,15 @@ const Introduction = () => {
                             </div>
                         )}
                         <div css={sliderContainer}>
-                            <div css={sliderArrow}>
+                            <div
+                                css={sliderArrowL}
+                                onMouseOver={() => {
+                                    setIsArrowO(true);
+                                }}
+                                onMouseLeave={() => {
+                                    setIsArrowO(false);
+                                }}
+                            >
                                 <div
                                     onClick={() => {
                                         if (index === 0) {
@@ -834,8 +872,22 @@ const Introduction = () => {
                                         }
                                     }}
                                 >
-                                    <img src="/static/images/sliderLeft.png" />
+                                    {isArrowO ? (
+                                        <img src="/static/images/sliderLeftO.png" />
+                                    ) : (
+                                        <img src="/static/images/sliderLeft.png" />
+                                    )}
                                 </div>
+                            </div>
+                            <div
+                                css={sliderArrowR}
+                                onMouseOver={() => {
+                                    setIsArrowO(true);
+                                }}
+                                onMouseLeave={() => {
+                                    setIsArrowO(false);
+                                }}
+                            >
                                 <div
                                     onClick={() => {
                                         if (index < InvitationOneData.length / 3 - 1) {
@@ -844,7 +896,11 @@ const Introduction = () => {
                                         else if (index == 1) setIndex(0);
                                     }}
                                 >
-                                    <img src="/static/images/sliderRight.png" />
+                                    {isArrowO ? (
+                                        <img src="/static/images/sliderRightO.png" />
+                                    ) : (
+                                        <img src="/static/images/sliderRight.png" />
+                                    )}
                                 </div>
                             </div>
                             <div
@@ -853,7 +909,7 @@ const Introduction = () => {
                                     transform: `translate3d(${-index * 100}%, 0, 0)`,
                                 }}
                             >
-                                {InvitationOneData.sort(() => Math.random() - 0.5).map(el => {
+                                {InvitationOneData.map(el => {
                                     return (
                                         <div css={eachSlide}>
                                             <img src={el.src} />
