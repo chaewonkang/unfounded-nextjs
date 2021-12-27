@@ -262,12 +262,6 @@ const menuArr = [
     },
 ];
 
-const menuBgArr = [
-    "../static/images/menuBg1.png",
-    "../static/images/menuBg2.png",
-    "../static/images/menuBg3.png",
-];
-
 const Menu = ({ transX }) => {
     const [open, setOpen] = useState(false);
     const [curRoute, setCurRoute] = useState("");
@@ -289,13 +283,9 @@ const Menu = ({ transX }) => {
             <div css={menuContainer}>
                 <div css={theme.headerContainer}>
                     <div onClick={() => router.push({ pathname: "/" })}>
-                        <img src={imgPath[5]} alt="symbol_white" />
+                        <img src={imgPath[5]} alt="cancel_button" />
                     </div>
-                    <div
-                        css={StyledBurger}
-                        open={open}
-                        onClick={() => setOpen(!open)}
-                    >
+                    <div css={StyledBurger} open={open} onClick={() => setOpen(!open)}>
                         <div>
                             <div>
                                 <img src={imgPath[0]} alt="menu_stroke" />
@@ -316,8 +306,7 @@ const Menu = ({ transX }) => {
                             onClick={() => {
                                 if (curRoute === 1)
                                     router.push({
-                                        pathname:
-                                            menuArr[menuArr.length - 1].route,
+                                        pathname: menuArr[menuArr.length - 1].route,
                                     });
                                 else
                                     router.push({
@@ -331,22 +320,15 @@ const Menu = ({ transX }) => {
                                     <div>
                                         <span>
                                             {curRoute === 1
-                                                ? menuArr[menuArr.length - 1]
-                                                      .title
+                                                ? menuArr[menuArr.length - 1].title
                                                 : menuArr[curRoute - 2].title}
                                         </span>
                                     </div>
                                     <div css={theme.flexCenter}>
-                                        <span>
-                                            {menuArr[curRoute - 1].title}
-                                        </span>
+                                        <span>{menuArr[curRoute - 1].title}</span>
                                     </div>
                                     <div css={theme.flexEnd}>
-                                        <span>
-                                            {curRoute === 5
-                                                ? menuArr[0].title
-                                                : menuArr[curRoute].title}
-                                        </span>
+                                        <span>{curRoute === 5 ? menuArr[0].title : menuArr[curRoute].title}</span>
                                     </div>
                                 </div>
                             )}
@@ -381,10 +363,7 @@ const Menu = ({ transX }) => {
                     }
                 >
                     <div>
-                        <img
-                            src={`../static/images/menuBg${menuBg + 1}.png`}
-                            alt="menu_background"
-                        />
+                        <img src={`../static/images/menuBg${menuBg + 1}.png`} alt="menu_background" />
                     </div>
                     <div css={openMenuHeader}>
                         <div onClick={() => setOpen(!open)}>
@@ -453,14 +432,10 @@ const Menu = ({ transX }) => {
                         </div>
                         <div>
                             <p>
-                                The website Unfounded is a space for researching
-                                fiction-related practices and uploading
-                                Founders’ projects, online exhibitions, and
-                                games related to Founders’ fiction. It is
-                                expected that the website will provide a
-                                discursive foundation for fiction and expand
-                                curatorial practice by seeking ways to consider
-                                fiction in various ways.
+                                The website Unfounded is a space for researching fiction-related practices and uploading
+                                Founders’ projects, online exhibitions, and games related to Founders’ fiction. It is
+                                expected that the website will provide a discursive foundation for fiction and expand
+                                curatorial practice by seeking ways to consider fiction in various ways.
                             </p>
                         </div>
                     </div>

@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { css } from "@emotion/react";
 import Footer from "../components/Footer";
 import InvitationOneData from "../data/InvitationOneData";
+import { route } from "next/dist/next-server/server/router";
 
 const introContainer = css`
     position: relative;
@@ -911,11 +912,25 @@ const Introduction = () => {
                             >
                                 {InvitationOneData.map(el => {
                                     return (
-                                        <div css={eachSlide}>
+                                        <div
+                                            css={eachSlide}
+                                            onClick={() => {
+                                                router.push({
+                                                    pathname: "/invitation/1",
+                                                    query: {
+                                                        index: el.index,
+                                                    },
+                                                });
+                                            }}
+                                        >
                                             <img src={el.src} />
                                             <div css={slideText}>
-                                                <span css={[theme.textKr, theme.textEn]}>{el.title}</span>
-                                                <span css={[theme.textKr, theme.textEn]}>{el.particiEn}</span>
+                                                <span css={[theme.textKr, theme.textEn]}>
+                                                    {el.title} {el.titleKr}
+                                                </span>
+                                                <span css={[theme.textKr, theme.textEn]}>
+                                                    {el.particiEn} {el.particiKr}
+                                                </span>
                                             </div>
                                         </div>
                                     );

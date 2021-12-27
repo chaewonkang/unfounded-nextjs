@@ -210,15 +210,31 @@ const bottomBannerWrapper = css`
     }
 `;
 
+const introductionContainer = css`
+    width: 100%;
+
+    border-top: 1px solid #000;
+    overflow: auto;
+    word-break: keep-all;
+
+    & > div {
+        width: 100%;
+        height: 100%;
+
+        p {
+            overflow: auto;
+        }
+    }
+`;
+
 const EachTextBox = css`
     width: 100vw;
-    height: auto;
+    height: calc(100vh - 159px);
     background-color: #ff9d46;
     margin-top: -10px;
 
     @media (max-width: 781px) {
         width: 100vw;
-
         background-color: #ff9d46;
         padding-top: 0px;
         & > div:first-of-type {
@@ -250,7 +266,7 @@ const ArtistInfoBox = css`
 
 const ArtistInfoText = css`
     width: 100%;
-    height: 100%;
+    height: auto;
     display: inline-block;
     transition: ease 1000ms;
     white-space: nowrap;
@@ -263,6 +279,8 @@ const ArtistInfoText = css`
 
 const ArtistInfoTextContent = css`
     width: 100%;
+    height: 100%;
+
     display: flex;
     white-space: pre-wrap;
     padding-top: 20px;
@@ -272,6 +290,7 @@ const ArtistInfoTextContent = css`
 
     & > div {
         width: calc(50% - 9px);
+        height: 100%;
         display: flex;
 
         & > p:first-of-type {
@@ -321,26 +340,10 @@ const marqueeBox2 = css`
     animation-delay: 10s;
 `;
 
-const introductionContainer = css`
-    width: 100%;
-    height: auto;
-    border-top: 1px solid #000;
-    overflow: auto;
-    word-break: keep-all;
-
-    & > div {
-        width: 100%;
-        height: 100%;
-
-        p {
-            overflow: auto;
-        }
-    }
-`;
-
 const InvitationOne = () => {
     const router = useRouter();
-    const [index, setIndex] = useState(0);
+    const query = router.query;
+    const [index, setIndex] = useState(query ? parseInt(query.index) : 0);
     const [coverIsShow, setCoverIsShow] = useState({
         index: 0,
         open: false,
@@ -351,6 +354,16 @@ const InvitationOne = () => {
         bool: false,
         index: 0,
     });
+
+    const artistInfoBoxRef = useRef();
+    const [artistInfoBoxHeight, setArtistInfoBoxHeight] = useState(0);
+
+    useEffect(() => {
+        setArtistInfoBoxHeight(artistInfoBoxRef.current.offsetHeight);
+        console.log(query);
+        console.log(typeof query.index);
+        console.log(parseInt(query.index));
+    }, [artistInfoBoxHeight]);
 
     useEffect(() => {}, [isMoreOpen, coverIsShow]);
 
@@ -504,7 +517,7 @@ const InvitationOne = () => {
                     </div>
                 </div>
                 <div css={EachTextBox} ref={scrollRef}>
-                    <div css={moreContainer}>
+                    <div css={moreContainer} ref={artistInfoBoxRef}>
                         <div css={ArtistInfoBox}>
                             <div
                                 css={ArtistInfoText}
@@ -535,7 +548,12 @@ const InvitationOne = () => {
                             </div>
                         </div>
                     </div>
-                    <div css={introductionContainer}>
+                    <div
+                        css={introductionContainer}
+                        style={{
+                            height: `calc((100% - ${artistInfoBoxHeight}px))`,
+                        }}
+                    >
                         <div>
                             <div css={ArtistInfoTextContent}>
                                 <div>
