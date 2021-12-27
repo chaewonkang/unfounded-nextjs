@@ -24,15 +24,31 @@ export const downArrowBox = css`
     }
 
     @media (max-width: 781px) {
+        cursor: pointer;
+        width: 100vw;
+        height: 70px;
+        display: flex;
+        flex-direction: row;
+        margin-top: -1px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        display: flex;
         justify-content: flex-end;
-        img {
-            width: 25%;
-            height: 90%;
-            object-fit: contain;
+
+        &:hover {
+            img {
+            }
         }
 
         img:first-of-type {
             display: none;
+        }
+
+        img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
         }
     }
 `;
@@ -178,7 +194,7 @@ export const menuWheel = css`
     }
 
     @media (max-width: 781px) {
-        width: calc(100% - 30px);
+        width: 100vw;
         position: absolute;
         top: 59px;
 

@@ -140,10 +140,7 @@ function InvitationSlider({ imgArr }) {
     useEffect(() => {
         resetTimeout();
         timeoutRef.current = setTimeout(
-            () =>
-                setIndex(prevIndex =>
-                    prevIndex === imgArr.length - 1 ? 0 : prevIndex + 1,
-                ),
+            () => setIndex(prevIndex => (prevIndex === imgArr.length - 1 ? 0 : prevIndex + 1)),
             delay,
         );
 
@@ -173,20 +170,16 @@ function InvitationSlider({ imgArr }) {
                         onClick={() => {
                             if (index < invitation1.length - 1) {
                                 setIndex(index + 1);
-                            } else if (index == invitation1.length - 1)
-                                setIndex(0);
+                            } else if (index == invitation1.length - 1) setIndex(0);
                             else if (index == 1) setIndex(0);
                         }}
                     >
                         <img src={rightArrow} />
                     </div>
                 </div>
-                <div
-                    css={sliderWrapper}
-                    style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}
-                >
-                    {imgArr.map((image, index) => (
-                        <div className="slide" key={index}>
+                <div css={sliderWrapper} style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}>
+                    {imgArr.map(image => (
+                        <div className="slide" key={image.src}>
                             <img src={image.src}></img>
                         </div>
                     ))}

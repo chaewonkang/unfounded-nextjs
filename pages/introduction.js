@@ -14,7 +14,10 @@ const introContainer = css`
     height: 100vh;
 `;
 
-const outer = css``;
+const outer = css`
+    width: 100vw;
+    height: 100vh;
+`;
 
 const bottomBanner = css`
     width: 100vw;
@@ -35,6 +38,7 @@ const bottomBanner = css`
 
     @media (max-width: 781px) {
         height: 32px;
+
         p {
             font-size: 15px;
         }
@@ -59,7 +63,7 @@ const infoText = css`
     align-items: center;
     justify-content: center;
 
-    div {
+    & > div {
         display: flex;
         width: calc((100% / 12) * 8);
         height: 100%;
@@ -94,55 +98,65 @@ const infoText = css`
 
     @media (max-width: 781px) {
         width: 100%;
-        padding-left: 15px;
-        padding-right: 15px;
-        display: flex;
         height: calc(100vh - 32px);
-        position: relative;
-
+        padding-left: 0px;
+        padding-right: 0px;
+        display: flex;
         align-items: center;
         justify-content: center;
 
-        div {
+        & > div {
             display: flex;
-            flex-direction: column;
             width: 100%;
-            height: calc(100% - 94px);
-            position: relative;
-            top: 35px;
-            padding-top: 10px;
+            flex-direction: column;
+            height: 100%;
+            padding-top: calc(59px + 46px);
             color: #fff;
-            padding-bottom: 0px;
+            padding-bottom: 21px;
 
             p:first-of-type {
                 width: 100%;
-                margin-right: 9px;
+                padding-top: 20px;
+                padding-left: 15px;
+                padding-right: 15px;
+                margin-right: 0px;
                 font-family: Gothic A1, sans-serif;
                 font-size: 18px;
                 font-weight: 500;
                 line-height: 29px;
                 letter-spacing: -0.2px;
                 word-break: keep-all;
-                padding-top: 10px;
-                padding-bottom: 20.5px;
-                height: calc(50% - 20.5px);
+                height: 100%;
                 overflow: auto;
-                border-bottom: 1px solid #fff;
             }
 
             p:last-of-type {
+                padding-left: 15px;
+                padding-right: 15px;
                 width: 100%;
                 margin-left: 0px;
                 font-family: PP Neue Montreal Book, sans-serif;
                 -webkit-text-stroke: 0.5px #fff;
                 font-size: 20px;
                 line-height: 29px;
-                letter-spacing: 0px;
-                height: calc(50% - 20.5px);
-                margin-top: 20.5px;
+                letter-spacing: 0.1px;
+                height: 100%;
                 overflow: auto;
             }
         }
+    }
+`;
+
+const borderMobile = css`
+    display: none;
+
+    @media (max-width: 781px) {
+        height: 1px;
+        border-top: 1px solid #fff;
+        display: block;
+        width: 100vw;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 `;
 
@@ -164,9 +178,11 @@ const invitationBox = css`
 
     @media (max-width: 781px) {
         width: 100vw;
-
+        height: calc(100vh - (59px + 46px));
         background-color: #ff9d46;
         padding-top: 0px;
+        overflow: hidden;
+
         & > div:first-of-type {
             span {
                 font-family: GTFAgentur, serif;
@@ -188,7 +204,14 @@ const invitationTextBox = css`
     height: 30%;
 
     @media (max-width: 781px) {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        padding-left: 15px;
+        padding-right: 15px;
+        word-break: keep-all;
+        position: relative;
+        margin-bottom: 15px;
+        height: auto;
     }
 `;
 
@@ -221,24 +244,69 @@ const invitationText1 = css`
             height: 100%;
         }
     }
+
+    @media (max-width: 781px) {
+        width: 100%;
+        height: 100%;
+        margin-right: 9px;
+        height: 100%;
+
+        div {
+            display: flex;
+            p:first-of-type {
+                width: calc((100vw / 6) * 2);
+                height: 100%;
+            }
+
+            p:last-of-type {
+                width: calc((100vw / 6) * 4);
+                height: 100%;
+            }
+        }
+    }
 `;
 
 const invitationText2 = css`
-        margin-left: 9px;
-        width: calc(50% - 9px);
+    margin-left: 9px;
+    width: calc(50% - 9px);
+
+    div:first-of-type {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        p {
+            width: 100%;
+            height: 50%;
+            max-width: 100%;
+        }
+    }
+
+    div:last-of-type {
+        display: flex;
+        justify-content: flex-end;
+
+        span {
+            font-family: Union, sans-serif;
+            font-weight: 500;
+            font-size: 15px;
+            border-bottom: 1px solid #000;
+            cursor: pointer;
+
+            :hover {
+                color: #fff;
+                border-bottom: 1px solid #fff;
+            }
+        }
+    }
+
+    @media (max-width: 781px) {
+        margin-left: 0px;
+        width: 100%;
 
         div:first-of-type {
-			width: 100%;
-
-
-            display: flex;
-            flex-direction: column;
-
-            p {
-          		width: 100%;
-                height: 50%;
-                max-width: 100%;
-            }
+            display: none;
         }
 
         div:last-of-type {
@@ -248,18 +316,16 @@ const invitationText2 = css`
             span {
                 font-family: Union, sans-serif;
                 font-weight: 500;
-				font-size: 15px;
-				border-bottom: 1px solid #000;
-				cursor: pointer;
+                font-size: 15px;
+                border-bottom: 1px solid #000;
+                cursor: pointer;
 
-				:hover {
-					color: #fff;
-					border-bottom: 1px solid #fff;
-				}
+                :hover {
+                    color: #fff;
+                    border-bottom: 1px solid #fff;
+                }
             }
         }
-
-
     }
 `;
 
@@ -279,6 +345,25 @@ const moreContainer = css`
     & > div {
         width: 100%;
         display: flex;
+    }
+
+    @media (max-width: 781px) {
+        border-top: 1px solid #000;
+        width: 100%;
+        height: calc(100vh - (82px + 138px + 105px));
+        background-color: #ff9d46;
+        position: absolute;
+        transition: 3s ease-in;
+
+        padding-bottom: 10px;
+        display: flex;
+        animation: slideUp 1s;
+        z-index: 3;
+
+        & > div {
+            width: 100%;
+            display: flex;
+        }
     }
 `;
 
@@ -304,6 +389,32 @@ const sliderArrowL = css`
             width: 100%;
             height: 100%;
             object-fit: contain;
+        }
+    }
+
+    @media (max-width: 781px) {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top: calc(((100vh - (82px + 138px + 105px)) / 2) - 40px);
+        left: 21px;
+        display: flex;
+
+        align-items: center;
+        z-index: 2;
+
+        & > div {
+            width: 100%;
+            height: 100%;
+            :hover {
+                cursor: pointer;
+            }
+
+            & > img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
         }
     }
 `;
@@ -333,6 +444,32 @@ const sliderArrowR = css`
             object-fit: contain;
         }
     }
+
+    @media (max-width: 781px) {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top: calc(((100vh - (82px + 138px + 105px)) / 2) - 40px);
+        right: 21px;
+
+        display: flex;
+        align-items: center;
+        z-index: 2;
+
+        & > div {
+            width: 100%;
+            height: 100%;
+            :hover {
+                cursor: pointer;
+            }
+
+            & > img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+    }
 `;
 
 const sliderContainer = css`
@@ -346,7 +483,14 @@ const sliderContainer = css`
     position: relative;
 
     @media (max-width: 781px) {
-        display: none;
+        width: 100%;
+        height: calc(100vh - (82px + 138px + 105px));
+        overflow: hidden;
+        display: flex;
+        margin-left: 0px;
+        margin-right: 15px;
+        padding-bottom: 21px;
+        position: relative;
     }
 `;
 
@@ -373,6 +517,31 @@ const sliderWrapper = css`
     & > div:nth-of-type(4n) {
         margin-left: 42px;
     }
+
+    @media (max-width: 781px) {
+        width: 100vw;
+        height: calc(100% - 20px);
+        display: inline-block;
+        white-space: nowrap;
+        transition: ease 1000ms;
+
+        & > div:nth-of-type(3n + 1) {
+            padding-right: 0px;
+        }
+
+        & > div:nth-of-type(3n + 2) {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        & > div:nth-of-type(3n + 3) {
+            padding-left: 0px;
+        }
+
+        & > div:nth-of-type(4n) {
+            margin-left: 15px;
+        }
+    }
 `;
 
 const eachSlide = css`
@@ -393,6 +562,29 @@ const eachSlide = css`
         height: 100%;
         object-fit: cover;
         cursor: pointer;
+    }
+
+    @media (max-width: 781px) {
+        height: calc(100% - 21px);
+        width: calc(100% - 30px);
+        margin-right: 15px;
+        margin-left: 15px;
+        display: inline-block;
+        flex-direction: column;
+        background-color: #ff9d46;
+
+        :hover {
+            & > img {
+                mix-blend-mode: difference;
+            }
+        }
+
+        & > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
     }
 `;
 
@@ -440,6 +632,47 @@ const ArtistInfoTextContent = css`
     & > div:last-of-type {
         margin-left: 9px;
     }
+
+    @media (max-width: 781px) {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        white-space: pre-wrap;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+
+        & > div {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            & > p:first-of-type {
+                width: 100%;
+                max-width: 100%;
+                padding-right: 0;
+            }
+
+            & > p:last-of-type {
+                width: 100%;
+                max-width: 100%;
+                padding-right: 0px;
+                overflow: auto;
+            }
+        }
+
+        & > div:first-of-type {
+            margin-right: 0px;
+        }
+
+        & > div:last-of-type {
+            padding-top: 20px;
+            margin-left: 0px;
+        }
+    }
 `;
 
 const Introduction = () => {
@@ -452,9 +685,10 @@ const Introduction = () => {
     const DIVIDER_HEIGHT = 5;
     const textBoxRef1 = useRef();
     const [sliderBoxHeight, setSliderBoxHeight] = useState(0);
+    const [headerHeight, setHeaderHeight] = useState(0);
+    const [perSlide, setPerSlide] = useState(0);
 
     const [isArrowO, setIsArrowO] = useState(false);
-
     const [isMoreOpen, setIsMoreOpen] = useState({
         bool: false,
         index: 0,
@@ -480,7 +714,14 @@ const Introduction = () => {
 
     useEffect(() => {
         setSliderBoxHeight(textBoxRef1.current.offsetHeight);
-    }, [sliderBoxHeight]);
+        if (window.innerWidth < 782) {
+            setHeaderHeight(105);
+            setPerSlide(1);
+        } else {
+            setHeaderHeight(158);
+            setPerSlide(3);
+        }
+    }, [sliderBoxHeight, headerHeight, perSlide]);
 
     useEffect(() => {}, [isMoreOpen, isMoreOpen2]);
 
@@ -494,7 +735,7 @@ const Introduction = () => {
                         css={[theme.downArrowBox, downArrowBoxStyle]}
                         onClick={() => {
                             window.scrollTo({
-                                top: scrollRef.current.offsetTop - 158,
+                                top: scrollRef.current.offsetTop - headerHeight,
                                 behavior: "smooth",
                             });
                         }}
@@ -539,6 +780,7 @@ const Introduction = () => {
                                 도움이 되길 바라는 마음으로. 그러나 어쩐지, 그것은 또 다른 수수께끼를 불러 오기만 하는
                                 것 같기도 하다.
                             </p>
+                            <div css={borderMobile}></div>
                             <p>
                                 Unfounded is a name for a pile of documents discovered at the beginning of the 21st
                                 century. Likewise, the meaning rootless, vain, and nonsense, Unfounded is full of
@@ -865,10 +1107,12 @@ const Introduction = () => {
                                 <div
                                     onClick={() => {
                                         if (index === 0) {
-                                            setIndex(1);
+                                            setIndex(InvitationOneData.length / perSlide - 1);
                                         } else if (index === 1) {
                                             setIndex(0);
-                                        } else if (index < InvitationOneData.length / 3 - 1) {
+                                        } else if (index < InvitationOneData.length / perSlide - 1) {
+                                            setIndex(index - 1);
+                                        } else if (index === InvitationOneData.length / perSlide - 1) {
                                             setIndex(index - 1);
                                         }
                                     }}
@@ -891,9 +1135,9 @@ const Introduction = () => {
                             >
                                 <div
                                     onClick={() => {
-                                        if (index < InvitationOneData.length / 3 - 1) {
+                                        if (index < InvitationOneData.length / perSlide - 1) {
                                             setIndex(index + 1);
-                                        } else if (index == InvitationOneData.length / 3 - 1) setIndex(0);
+                                        } else if (index == InvitationOneData.length / perSlide - 1) setIndex(0);
                                         else if (index == 1) setIndex(0);
                                     }}
                                 >
@@ -913,6 +1157,7 @@ const Introduction = () => {
                                 {InvitationOneData.map(el => {
                                     return (
                                         <div
+                                            key={el.titleEn}
                                             css={eachSlide}
                                             onClick={() => {
                                                 router.push({

@@ -343,7 +343,7 @@ const marqueeBox2 = css`
 const InvitationOne = () => {
     const router = useRouter();
     const query = router.query;
-    const [index, setIndex] = useState(query ? parseInt(query.index) : 0);
+    const [index, setIndex] = useState(query.index ? parseInt(query.index) : 0);
     const [coverIsShow, setCoverIsShow] = useState({
         index: 0,
         open: false,

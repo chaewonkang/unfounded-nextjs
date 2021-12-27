@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { css } from "@emotion/react";
 
 const footerContainer = css`
