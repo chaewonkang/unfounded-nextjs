@@ -185,7 +185,7 @@ const bottomBannerWrapper = css`
             p {
                 width: calc(100% / 3);
                 font-size: 32px;
-                font-family: PP Neue Montreal Book, sans-serif;
+                font-family: PP Neue Montreal Regular, sans-serif;
                 letter-spacing: 0.1px;
                 margin-top: 3px;
                 text-transform: uppercase;

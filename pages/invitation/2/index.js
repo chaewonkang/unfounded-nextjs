@@ -86,7 +86,7 @@ const bottomBanner = css`
 
     p {
         font-size: 32px;
-        font-family: PP Neue Montreal Book, sans-serif;
+        font-family: PP Neue Montreal Regular, sans-serif;
         letter-spacing: 0.1px;
     }
 
@@ -218,10 +218,7 @@ const InvitationTwo = () => {
             <div css={introContainer}>
                 <div css={comingSoonContainer}>
                     <div>
-                        <img
-                            src="/static/images/comingSoon.png"
-                            alt="coming_soon"
-                        />
+                        <img src="/static/images/comingSoon.png" alt="coming_soon" />
                     </div>
                 </div>
                 <div css={bottomBanner}>

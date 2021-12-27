@@ -1,4 +1,8 @@
 import { css } from "@emotion/react";
+import { useRef, useEffect, useState } from "react";
+import { ThemeProvider } from "styled-components";
+import theme from "../styles/theme";
+import { useRouter } from "next/router";
 
 const footerContainer = css`
     width: 100vw;
@@ -12,14 +16,10 @@ const footerContainer = css`
     color: #fff;
 
     @media (max-width: 781px) {
-        width: 100vw;
-        padding-top: 25px;
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-bottom: 27px;
         display: flex;
         flex-direction: column;
-        color: #fff;
+        padding: 15px;
+        display: none;
     }
 `;
 
@@ -40,7 +40,6 @@ const footerLeftArea = css`
 
         & > p:first-of-type {
             margin-bottom: 30px;
-
             font-family: Gothic A1, sans-serif;
             font-weight: 500;
             font-size: 14px;
@@ -51,7 +50,6 @@ const footerLeftArea = css`
 
         & > p:last-of-type {
             font-family: PP Neue Montreal Book, sans-serif;
-            -webkit-text-stroke: 0.5px;
             font-size: 15px;
             line-height: 23px;
         }
@@ -60,7 +58,6 @@ const footerLeftArea = css`
     & > div:last-of-type {
         font-family: PP Neue Montreal Book, sans-serif;
         font-size: 15px;
-        -webkit-text-stroke: 0.5px;
         line-height: 23px;
 
         & > div {
@@ -105,7 +102,6 @@ const footerLeftArea = css`
 
             & > p:last-of-type {
                 font-family: PP Neue Montreal Book, sans-serif;
-                -webkit-text-stroke: 0.5px;
                 font-size: 15px;
                 line-height: 23px;
             }
@@ -117,7 +113,7 @@ const footerLeftArea = css`
             margin-bottom: 0px;
             font-family: PP Neue Montreal Book, sans-serif;
             font-size: 15px;
-            -webkit-text-stroke: 0.5px;
+
             line-height: 23px;
 
             & > div {
@@ -130,11 +126,11 @@ const footerLeftArea = css`
 
                 div:first-of-type {
                     margin-right: 0px;
-                    width: calc(100% / 4);
+                    width: 40%;
                 }
 
                 div:last-of-type {
-                    padding-left: 15px;
+                    width: 60%;
                 }
             }
         }
@@ -168,12 +164,11 @@ const footerRightArea = css`
         line-height: 23px;
 
         p:first-of-type {
-            width: calc(100% / 4);
+            width: 40%;
         }
 
         p:last-of-type {
-            width: calc((100% / 4) * 3);
-            padding-left: 15px;
+            width: 60%;
         }
     }
 
@@ -181,17 +176,16 @@ const footerRightArea = css`
         display: flex;
         flex-direction: column;
         font-family: PP Neue Montreal Book, sans-serif;
-        -webkit-text-stroke: 0.5px;
+
         font-size: 15px;
         line-height: 23px;
 
         p:first-of-type {
-            width: calc(100% / 4);
+            width: 40%;
         }
 
         p:last-of-type {
-            width: calc((100% / 4) * 3);
-            padding-left: 15px;
+            width: 60%;
         }
     }
 
@@ -207,77 +201,175 @@ const footerRightArea = css`
     }
 `;
 
+const footerContainerMobile = css`
+    width: 100%;
+    display: none;
+    color: #fff;
+
+    @media (max-width: 781px) {
+        width: 100%;
+        display: block;
+        position: relative;
+
+        & > div {
+            border-top: 1px solid #fff;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+
+            & > div:first-of-type {
+                position: relative;
+                width: 100%;
+
+                span {
+                    font-family: "GTFAgentur", serif;
+                    font-size: 34px;
+                    letter-spacing: -0.5px;
+                }
+            }
+        }
+    }
+`;
+
+const collapsibleContainer = css`
+    width: 100%;
+    background-color: #000;
+`;
+
+const collapsible = css`
+    display: flex;
+    flex-direction: column;
+    transition: 3s ease-in;
+    animation: slideUp 1s;
+    background-color: #000;
+    margin-top: 8px;
+`;
+
+const creditBox = css`
+    width: 100%;
+
+    & > div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        div {
+            display: flex;
+            flex-direction: row;
+
+            p:first-of-type {
+                width: 40%;
+            }
+
+            p:last-of-type {
+                width: 60%;
+            }
+        }
+    }
+`;
+
+const contactBox = css`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    & > div:first-of-type {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    & > div:last-of-type {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+    }
+`;
+
 const Footer = ({ bgColor, color, children }) => {
+    const [isCreditOpen, setIsCreditOpen] = useState(false);
+    const [isAboutOpen, setIsAboutOpen] = useState(false);
+    const [isContactOpen, setIsContactOpen] = useState(false);
+    const router = useRouter();
+
+    useEffect(() => {}, [isCreditOpen]);
+
     return (
-        <div css={footerContainer} style={bgColor ? { backgroundColor: bgColor, color: color } : null}>
-            <div css={footerLeftArea}>
-                <div>
-                    <span>Unfounded</span>
-                    <p>
-                        언파운디드는 큐레토리얼 실천이 생산한 가상이 현실에 개입하는 현상을 탐구한다. 가상은 오랫동안
-                        문학적 내러티브나 허구, 거짓말, 가짜, 속임수, 환상처럼 물질적 현실 세계로부터 분리된 대상을
-                        지칭해 왔다. 그러나 가상과 현실의 관계는 이중 나선 구조와 같다. 큐레토리얼 실천은 이 이중 나선
-                        구조를 풀고 감는 일이다. 이 이중 나선 구조가 회전할 때, 우리는 그 현상을 픽션이라고 부른다.
-                        언파운디드는 ‘초대’와 ‘탐험’으로 구성된다. ‘초대’는 다양한 사람들과 함께 큐레토리얼 실천의
-                        재료와 도구들을 분석하고 실험한다. ‘탐험’은 큐레토리얼 실천이 이중 나선 구조를 풀고 감는 형세를
-                        탐침하고 그 결과를 글쓰기로 생산한다. 제목인 unfounded는 무근無根하다, 헛되다, 이유 없다라는
-                        뜻이며, 이 이름 안에서 김얼터와 박유진이 함께 일한다.
-                    </p>
-                    <p>
-                        Unfounded speculates the phenomenon in which the virtual produced by curatorial practice
-                        intervenes into the real. The virtual has been considered as a literary narrative or
-                        fabrication, falsehood, lie, fake, deception, fantasy separated from the real. However, the
-                        relationship between virtual and real is like a double helix. Curatorial practice is winding and
-                        rewinding this double helix. Fiction is the rotation of this double helix. The project has two
-                        parts: “Invitation” and "Exploration." "Invitation" invites diverse practitioners to experiment
-                        with ingredients and tools of curatorial practices. "Exploration" probes the topography of how
-                        the curatorial practices twist and untwist the double helix and produces writing as an outcome.
-                        Alter Kim and Eugene Hannah Park practice around the title unfounded, which stands for rootless,
-                        vain, nonsense.
-                    </p>
+        <ThemeProvider theme={theme}>
+            <div
+                css={footerContainer}
+                style={router.pathname === "/" ? { backgroundColor: bgColor, color: color, display: "block" } : null}
+            >
+                <div css={footerLeftArea}>
+                    <div>
+                        <span>Unfounded</span>
+                        <p>
+                            언파운디드는 큐레토리얼 실천이 생산한 가상이 현실에 개입하는 현상을 탐구한다. 가상은
+                            오랫동안 문학적 내러티브나 허구, 거짓말, 가짜, 속임수, 환상처럼 물질적 현실 세계로부터
+                            분리된 대상을 지칭해 왔다. 그러나 가상과 현실의 관계는 이중 나선 구조와 같다. 큐레토리얼
+                            실천은 이 이중 나선 구조를 풀고 감는 일이다. 이 이중 나선 구조가 회전할 때, 우리는 그 현상을
+                            픽션이라고 부른다. 언파운디드는 ‘초대’와 ‘탐험’으로 구성된다. ‘초대’는 다양한 사람들과 함께
+                            큐레토리얼 실천의 재료와 도구들을 분석하고 실험한다. ‘탐험’은 큐레토리얼 실천이 이중 나선
+                            구조를 풀고 감는 형세를 탐침하고 그 결과를 글쓰기로 생산한다. 제목인 unfounded는
+                            무근無根하다, 헛되다, 이유 없다라는 뜻이며, 이 이름 안에서 김얼터와 박유진이 함께 일한다.
+                        </p>
+                        <p>
+                            Unfounded speculates the phenomenon in which the virtual produced by curatorial practice
+                            intervenes into the real. The virtual has been considered as a literary narrative or
+                            fabrication, falsehood, lie, fake, deception, fantasy separated from the real. However, the
+                            relationship between virtual and real is like a double helix. Curatorial practice is winding
+                            and rewinding this double helix. Fiction is the rotation of this double helix. The project
+                            has two parts: “Invitation” and "Exploration." "Invitation" invites diverse practitioners to
+                            experiment with ingredients and tools of curatorial practices. "Exploration" probes the
+                            topography of how the curatorial practices twist and untwist the double helix and produces
+                            writing as an outcome. Alter Kim and Eugene Hannah Park practice around the title unfounded,
+                            which stands for rootless, vain, nonsense.
+                        </p>
+                    </div>
+                    <div>
+                        <span>Contact</span>
+                        <div>
+                            <div>
+                                <span>E-Mail</span>
+                                <span>Instagram</span>
+                            </div>
+                            <div>
+                                <span>unfounded.info@gmail.com</span>
+                                <span>@unfounded</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <span>Contact</span>
+                <div css={footerRightArea}>
+                    <span>Credit</span>
+
                     <div>
                         <div>
-                            <span>E-Mail</span>
-                            <span>Instagram</span>
+                            <p>기획</p>
+                            <p>박유진 김얼터</p>
                         </div>
                         <div>
-                            <span>unfounded.info@gmail.com</span>
-                            <span>@unfounded</span>
+                            <p>웹 개발</p>
+                            <p>강채원</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div css={footerRightArea}>
-                <span>Credit</span>
-                <div>
-                    <div>
-                        <p>기획</p>
-                        <p>박유진 김얼터</p>
-                    </div>
-                    <div>
-                        <p>웹 개발</p>
-                        <p>강채원</p>
-                    </div>
-                    <div>
-                        <p>그래픽 디자인</p>
-                        <p>염조흔</p>
-                    </div>
-                    <div>
-                        <p>후원</p>
-                        <p>서울문화재단</p>
-                    </div>
-                    <div>
-                        <p>참여자</p>
-                        <p></p>
-                    </div>
-                    <div>
-                        <p>● 초대 I</p>
-                        <p>유진영, 이미지, 이솜이, 이지우</p>
-                    </div>
-                    {/* <div>
+                        <div>
+                            <p>그래픽 디자인</p>
+                            <p>염조흔</p>
+                        </div>
+                        <div>
+                            <p>후원</p>
+                            <p>서울문화재단</p>
+                        </div>
+                        <div>
+                            <p>참여자</p>
+                            <p></p>
+                        </div>
+                        <div>
+                            <p>● 초대 I</p>
+                            <p>유진영, 이미지, 이솜이, 이지우</p>
+                        </div>
+                        {/* <div>
                         <p>● 초대 II</p>
                         <p>이영주(룹앤테일) | 박선호, 박이선, 정여름, 황재민</p>
                     </div>
@@ -285,33 +377,34 @@ const Footer = ({ bgColor, color, children }) => {
                         <p>● 초대 III</p>
                         <p>Meltmirror(ISVN) | 박지성, 홍명보, 안정환, 김남길</p>
                     </div> */}
-                </div>
-                <div>
-                    <div>
-                        <p>Directed by</p>
-                        <p>Yoojin Park, Nahyun Kim</p>
                     </div>
+
                     <div>
-                        <p>Web Development</p>
-                        <p>Chaewon Kang</p>
-                    </div>
-                    <div>
-                        <p>Graphic Design</p>
-                        <p>Joheun Yeom</p>
-                    </div>
-                    <div>
-                        <p>Funding</p>
-                        <p>SFAC</p>
-                    </div>
-                    <div>
-                        <p>Participants</p>
-                        <p></p>
-                    </div>
-                    <div>
-                        <p>● Invitation I</p>
-                        <p>Jinyoung Yoo, Miji Lee, Somi Lee, Jiwoo Lee</p>
-                    </div>
-                    {/* <div>
+                        <div>
+                            <p>Directed by</p>
+                            <p>Yoojin Park, Nahyun Kim</p>
+                        </div>
+                        <div>
+                            <p>Web Development</p>
+                            <p>Chaewon Kang</p>
+                        </div>
+                        <div>
+                            <p>Graphic Design</p>
+                            <p>Joheun Yeom</p>
+                        </div>
+                        <div>
+                            <p>Funding</p>
+                            <p>SFAC</p>
+                        </div>
+                        <div>
+                            <p>Participants</p>
+                            <p></p>
+                        </div>
+                        <div>
+                            <p>● Invitation I</p>
+                            <p>Jinyoung Yoo, Miji Lee, Somi Lee, Jiwoo Lee</p>
+                        </div>
+                        {/* <div>
                         <p>● Invitation II</p>
                         <p>Youngju Lee(Loopntale) | Sunho Park, Leesun Park, Yeoreum Jeong, Jaemin Hwang</p>
                     </div>
@@ -319,9 +412,147 @@ const Footer = ({ bgColor, color, children }) => {
                         <p>● Invitation III</p>
                         <p>Meltmirror(ISVN) | Jisung Park, Myungbo Hong, Jeonghwan Ahn, Namgil Kim</p>
                     </div> */}
+                    </div>
                 </div>
             </div>
-        </div>
+            <div css={footerContainerMobile} style={router.pathname === "/" ? { display: "none" } : null}>
+                <div onClick={() => setIsAboutOpen(!isAboutOpen)}>
+                    <div>
+                        <span>Unfounded</span>
+                    </div>
+                    <div css={collapsibleContainer}>
+                        {isAboutOpen ? (
+                            <div css={collapsible}>
+                                <p css={[theme.mTextKr]}>
+                                    언파운디드는 큐레토리얼 실천이 생산한 가상이 현실에 개입하는 현상을 탐구한다. 가상은
+                                    오랫동안 문학적 내러티브나 허구, 거짓말, 가짜, 속임수, 환상처럼 물질적 현실
+                                    세계로부터 분리된 대상을 지칭해 왔다. 그러나 가상과 현실의 관계는 이중 나선 구조와
+                                    같다. 큐레토리얼 실천은 이 이중 나선 구조를 풀고 감는 일이다. 이 이중 나선 구조가
+                                    회전할 때, 우리는 그 현상을 픽션이라고 부른다. 언파운디드는 ‘초대’와 ‘탐험’으로
+                                    구성된다. ‘초대’는 다양한 사람들과 함께 큐레토리얼 실천의 재료와 도구들을 분석하고
+                                    실험한다. ‘탐험’은 큐레토리얼 실천이 이중 나선 구조를 풀고 감는 형세를 탐침하고 그
+                                    결과를 글쓰기로 생산한다. 제목인 unfounded는 무근無根하다, 헛되다, 이유 없다라는
+                                    뜻이며, 이 이름 안에서 김얼터와 박유진이 함께 일한다.
+                                </p>
+                                <p css={[theme.mTextEn]} style={{ marginTop: "30px" }}>
+                                    Unfounded speculates the phenomenon in which the virtual produced by curatorial
+                                    practice intervenes into the real. The virtual has been considered as a literary
+                                    narrative or fabrication, falsehood, lie, fake, deception, fantasy separated from
+                                    the real. However, the relationship between virtual and real is like a double helix.
+                                    Curatorial practice is winding and rewinding this double helix. Fiction is the
+                                    rotation of this double helix. The project has two parts: “Invitation” and
+                                    "Exploration." "Invitation" invites diverse practitioners to experiment with
+                                    ingredients and tools of curatorial practices. "Exploration" probes the topography
+                                    of how the curatorial practices twist and untwist the double helix and produces
+                                    writing as an outcome. Alter Kim and Eugene Hannah Park practice around the title
+                                    unfounded, which stands for rootless, vain, nonsense.
+                                </p>
+                            </div>
+                        ) : null}
+                    </div>
+                </div>
+
+                <div onClick={() => setIsCreditOpen(!isCreditOpen)}>
+                    <div>
+                        <span>Credit</span>
+                    </div>
+                    <div css={collapsibleContainer}>
+                        {isCreditOpen ? (
+                            <div css={[collapsible, creditBox]}>
+                                <div css={theme.mTextKr}>
+                                    <div>
+                                        <p>기획</p>
+                                        <p>박유진 김얼터</p>
+                                    </div>
+                                    <div>
+                                        <p>웹 개발</p>
+                                        <p>강채원</p>
+                                    </div>
+                                    <div>
+                                        <p>그래픽 디자인</p>
+                                        <p>염조흔</p>
+                                    </div>
+                                    <div>
+                                        <p>후원</p>
+                                        <p>서울문화재단</p>
+                                    </div>
+                                    <div>
+                                        <p>참여자</p>
+                                        <p></p>
+                                    </div>
+                                    <div>
+                                        <p>● 초대 I</p>
+                                        <p>유진영, 이미지, 이솜이, 이지우</p>
+                                    </div>
+                                    {/* <div>
+                        <p>● 초대 II</p>
+                        <p>이영주(룹앤테일) | 박선호, 박이선, 정여름, 황재민</p>
+                    </div>
+                    <div>
+                        <p>● 초대 III</p>
+                        <p>Meltmirror(ISVN) | 박지성, 홍명보, 안정환, 김남길</p>
+                    </div> */}
+                                </div>
+                                <div css={theme.mTextEn} style={{ marginTop: "30px" }}>
+                                    <div>
+                                        <p>Directed by</p>
+                                        <p>Yoojin Park, Nahyun Kim</p>
+                                    </div>
+                                    <div>
+                                        <p>Web Development</p>
+                                        <p>Chaewon Kang</p>
+                                    </div>
+                                    <div>
+                                        <p>Graphic Design</p>
+                                        <p>Joheun Yeom</p>
+                                    </div>
+                                    <div>
+                                        <p>Funding</p>
+                                        <p>SFAC</p>
+                                    </div>
+                                    <div>
+                                        <p>Participants</p>
+                                        <p></p>
+                                    </div>
+                                    <div>
+                                        <p>● Invitation I</p>
+                                        <p>Jinyoung Yoo, Miji Lee, Somi Lee, Jiwoo Lee</p>
+                                    </div>
+                                    {/* <div>
+                        <p>● Invitation II</p>
+                        <p>Youngju Lee(Loopntale) | Sunho Park, Leesun Park, Yeoreum Jeong, Jaemin Hwang</p>
+                    </div>
+                    <div>
+                        <p>● Invitation III</p>
+                        <p>Meltmirror(ISVN) | Jisung Park, Myungbo Hong, Jeonghwan Ahn, Namgil Kim</p>
+                    </div> */}
+                                </div>
+                            </div>
+                        ) : null}
+                    </div>
+                </div>
+
+                <div onClick={() => setIsContactOpen(!isContactOpen)}>
+                    <div>
+                        <span>Contact</span>
+                    </div>
+                    <div css={collapsibleContainer}>
+                        {isContactOpen ? (
+                            <div css={[collapsible, theme.mTextEn, contactBox]}>
+                                <div>
+                                    <span>E-Mail</span>
+                                    <span>Instagram</span>
+                                </div>
+                                <div>
+                                    <span>unfounded.info@gmail.com</span>
+                                    <span>@unfounded</span>
+                                </div>
+                            </div>
+                        ) : null}
+                    </div>
+                </div>
+            </div>
+        </ThemeProvider>
     );
 };
 

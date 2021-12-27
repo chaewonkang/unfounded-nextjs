@@ -46,8 +46,7 @@ export const downArrowBox = css`
         }
 
         img {
-            width: 70px;
-            height: 70px;
+            height: 100%;
             object-fit: contain;
         }
     }
@@ -146,6 +145,7 @@ export const menuWheelWrapper = css`
                 display: flex;
                 width: 100%;
                 justify-content: center;
+                align-items: center;
             }
 
             span {
@@ -224,6 +224,12 @@ export const titleKr = css`
     font-size: 15px;
     letter-spacing: -0.2px;
     line-height: 24px;
+
+    @media (max-width: 781px) {
+        font-size: 14px;
+        letter-spacing: -0.2px;
+        line-height: 23px;
+    }
 `;
 
 export const textKr = css`
@@ -232,6 +238,12 @@ export const textKr = css`
     font-size: 15px;
     letter-spacing: -0.2px;
     line-height: 24px;
+
+    @media (max-width: 781px) {
+        font-size: 14px;
+        letter-spacing: -0.2px;
+        line-height: 23px;
+    }
 `;
 
 export const mTitleKr = css`
@@ -251,31 +263,40 @@ export const mTextKr = css`
 `;
 
 export const titleEn = css`
-    font-family: PP Neue Montreal Book, sans-serif;
-    -webkit-text-stroke: 0.5px #000;
+    font-family: PP Neue Montreal Regular, sans-serif;
     font-size: 16px;
     letter-spacing: 0.1px;
     line-height: 24px;
+
+    @media (max-width: 781px) {
+        font-size: 15px;
+        letter-spacing: 0.1px;
+        line-height: 23px;
+    }
 `;
 
 export const textEn = css`
-    font-family: PP Neue Montreal Book, sans-serif;
-    -webkit-text-stroke: 0.5px #000;
+    font-family: PP Neue Montreal Regular, sans-serif;
     font-size: 16px;
     letter-spacing: 0.1px;
     line-height: 24px;
+
+    @media (max-width: 781px) {
+        font-size: 15px;
+        letter-spacing: 0.1px;
+        line-height: 23px;
+    }
 `;
 
 export const mTitleEn = css`
-    font-family: PP Neue Montreal Book, sans-serif;
-    -webkit-text-stroke: 0.5px #000;
+    font-family: PP Neue Montreal Regular, sans-serif;
     font-size: 15px;
     letter-spacing: 0.1px;
     line-height: 23px;
 `;
 
 export const mTextEn = css`
-    font-family: PP Neue Montreal Book, sans-serif;
+    font-family: PP Neue Montreal Regular, sans-serif;
     font-size: 15px;
     letter-spacing: 0.1px;
     line-height: 23px;

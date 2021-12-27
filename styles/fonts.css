@@ -9,8 +9,7 @@
 
 @font-face {
     font-family: "Union Bold";
-    src: url("../static/fonts/Union-Bold.woff2") format("woff2"),
-        url("../static/fonts/Union-Bold.woff") format("woff");
+    src: url("../static/fonts/Union-Bold.woff2") format("woff2"), url("../static/fonts/Union-Bold.woff") format("woff");
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -116,7 +115,7 @@
 }
 
 @font-face {
-    font-family: "PP Neue Montreal Book";
+    font-family: "PP Neue Montreal";
     src: url("../static/fonts/PPNeueMontreal-Book.woff2") format("woff2"),
         url("../static/fonts/PPNeueMontreal-Book.woff") format("woff");
     font-weight: normal;
@@ -124,10 +123,19 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: "PP Neue Montreal";
+/* @font-face {
+    font-family: "PP Neue Montreal Book";
     src: url("../static/fonts/PPNeueMontreal-Medium.woff2") format("woff2"),
         url("../static/fonts/PPNeueMontreal-Medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+} */
+
+@font-face {
+    font-family: "PP Neue Montreal Regular";
+    src: url("../static/fonts/PPNeueMontreal-Regular.woff") format("woff2"),
+        url("../static/fonts/PPNeueMontreal-Regular.woff2") format("woff");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -135,8 +143,7 @@
 
 @font-face {
     font-family: "PP Neue Montreal";
-    src: url("../static/fonts/PPNeueMontreal-SemiBoldItalic.woff2")
-            format("woff2"),
+    src: url("../static/fonts/PPNeueMontreal-SemiBoldItalic.woff2") format("woff2"),
         url("../static/fonts/PPNeueMontreal-SemiBoldItalic.woff") format("woff");
     font-weight: 600;
     font-style: italic;

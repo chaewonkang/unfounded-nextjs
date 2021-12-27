@@ -32,7 +32,7 @@ const bottomBanner = css`
 
     p {
         font-size: 32px;
-        font-family: PP Neue Montreal Book, sans-serif;
+        font-family: PP Neue Montreal Regular, sans-serif;
         letter-spacing: 0.1px;
     }
 
@@ -86,8 +86,7 @@ const infoText = css`
         p:last-of-type {
             width: calc(50% - 9px);
             margin-left: 9px;
-            font-family: PP Neue Montreal Book, sans-serif;
-            -webkit-text-stroke: 0.5px #fff;
+            font-family: PP Neue Montreal Regular, sans-serif;
             font-size: 25px;
             line-height: 40px;
             letter-spacing: 0.1px;
@@ -135,8 +134,7 @@ const infoText = css`
                 padding-right: 15px;
                 width: 100%;
                 margin-left: 0px;
-                font-family: PP Neue Montreal Book, sans-serif;
-                -webkit-text-stroke: 0.5px #fff;
+                font-family: PP Neue Montreal Regular, sans-serif;
                 font-size: 20px;
                 line-height: 29px;
                 letter-spacing: 0.1px;
