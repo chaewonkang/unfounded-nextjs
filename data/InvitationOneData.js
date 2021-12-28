@@ -2,7 +2,7 @@ const InvitationOneData = [
     {
         index: 0,
         src: "/static/images/invitation/1/1_1.png",
-        iframeSrc: "https://miro.com/app/live-embed/uXjVOfjPq-8=/?moveToViewport=-459,-300,916,600",
+        iframeSrc: "https://miro.com/app/live-embed/uXjVOfjPq-8=/?moveToViewport=-476,-312,950,624",
         title: "Project A",
         titleKr: "프로젝트 A",
         particiEn: "Kim Alter",
