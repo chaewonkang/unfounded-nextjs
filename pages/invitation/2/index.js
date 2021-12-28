@@ -61,7 +61,7 @@ const comingSoonContainer = css`
     }
 
     @media (max-width: 781px) {
-        display: none;
+        height: calc(100vh - 32px);
     }
 `;
 
@@ -91,9 +91,21 @@ const bottomBanner = css`
     }
 
     @media (max-width: 781px) {
+        width: 100vw;
+        position: relative;
+        bottom: 0;
         height: 32px;
+        background-color: #fff;
+        padding-left: 15px;
+        padding-right: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         p {
             font-size: 15px;
+            font-family: PP Neue Montreal Regular, sans-serif;
+            letter-spacing: 0.1px;
         }
     }
 `;

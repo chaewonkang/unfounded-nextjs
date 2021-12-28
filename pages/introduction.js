@@ -639,8 +639,8 @@ const ArtistInfoTextContent = css`
         flex-direction: column;
         white-space: pre-wrap;
         padding-top: 20px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
         padding-bottom: 20px;
 
         & > div {

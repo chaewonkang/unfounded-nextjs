@@ -108,13 +108,11 @@ const sliderBGWrapper = css`
     position: absolute;
     z-index: 1;
     white-space: nowrap;
-
     transition: ease 1000ms;
 
     & > div {
-        height: 100vh;
+        height: 100%;
         width: 100vw;
-
         display: inline-block;
         flex-direction: column;
     }
@@ -135,6 +133,29 @@ const sliderContent = css`
         width: 100vw;
         height: calc(100vh - 32px);
         padding-top: 105px;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+`;
+
+const sliderContentBg = css`
+    width: 100vw;
+    height: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    @media (max-width: 781px) {
+        width: 100vw;
+        height: 100%;
+
         color: #fff;
         display: flex;
         flex-direction: column;
@@ -221,7 +242,9 @@ const bottomBannerContainer = css`
     position: relative;
     bottom: 0;
     overflow: hidden;
-    height: 48px;
+    height: 52px;
+    margin: 0;
+    padding: 0;
     background-color: #fff;
     display: inline-block;
 
@@ -247,6 +270,7 @@ const bottomBannerWrapper = css`
     & > div {
         margin-left: 21px;
         margin-right: 21px;
+        padding-top: 4px;
         width: calc(100% - 42px);
         height: 100%;
         display: inline-block;
@@ -324,10 +348,11 @@ const bottomBannerWrapper = css`
 
 const introductionContainer = css`
     width: 100%;
-    height: 100%;
+    height: auto;
     border-top: 1px solid #000;
     overflow: auto;
     word-break: keep-all;
+    background-color: #ff9d46;
 
     & > div {
         width: 100%;
@@ -342,13 +367,13 @@ const introductionContainer = css`
 const EachTextBox = css`
     width: 100vw;
     height: calc(100vh - 159px);
-    background-color: #ff9d46;
+
     margin-top: -10px;
 
     @media (max-width: 781px) {
         width: 100vw;
         height: auto;
-        background-color: #ff9d46;
+
         padding-top: 0px;
         display: flex;
         flex-direction: column;
@@ -382,6 +407,7 @@ const ArtistInfoBox = css`
     word-break: keep-all;
     display: inline-block;
     overflow: hidden;
+    z-index: 2;
 
     @media (max-width: 781px) {
         height: 50%;
@@ -573,7 +599,6 @@ const InvitationOne = () => {
                         css={sliderBGWrapper}
                         style={{
                             transform: `translate3d(${(InvitationOneData.length * 100 - index * 100) * -1}%, 0, 0)`,
-                            backgroundColor: "red",
                         }}
                     >
                         {InvitationOneData.map(el => {
@@ -630,7 +655,7 @@ const InvitationOne = () => {
                                                     >
                                                         <div>
                                                             <img src={el.src} />
-                                                            <div css={marquee}>
+                                                            {/* <div css={marquee}>
                                                                 <div css={marqueeBox1}>
                                                                     <span>
                                                                         CLICK to START CLICK to START CLICK to START
@@ -645,14 +670,23 @@ const InvitationOne = () => {
                                                                         CLICK to START &nbsp; &nbsp;
                                                                     </span>
                                                                 </div>
-                                                            </div>
+                                                            </div> */}
                                                         </div>{" "}
                                                     </div>
                                                 )}
                                             </div>
                                             <div css={slideText}>
-                                                <p css={[theme.textKr]}>
-                                                    {el.artistInfoKr.slice(0, el.artistInfoKr.indexOf("."))}.
+                                                <p
+                                                    css={[theme.textEn]}
+                                                    style={
+                                                        (InvitationOneData.indexOf(el) + 1) % 2 === 1
+                                                            ? {
+                                                                  color: "#fff",
+                                                              }
+                                                            : { color: "#000" }
+                                                    }
+                                                >
+                                                    CLICK TO START
                                                 </p>
                                             </div>
                                         </div>
@@ -683,6 +717,30 @@ const InvitationOne = () => {
                     </div>
                 </div>
                 <div css={EachTextBox} ref={scrollRef}>
+                    <div
+                        css={sliderBGWrapper}
+                        style={{
+                            transform: `translate3d(${(InvitationOneData.length * 100 - index * 100) * -1}%, 0, 0)`,
+                            height: `${artistInfoBoxHeight}px`,
+                        }}
+                    >
+                        {InvitationOneData.map(el => {
+                            return (
+                                <div>
+                                    <div
+                                        css={sliderContentBg}
+                                        style={
+                                            (InvitationOneData.indexOf(el) + 1) % 2 === 1
+                                                ? {
+                                                      backgroundColor: "#000",
+                                                  }
+                                                : { backgroundColor: "#FF9D46" }
+                                        }
+                                    ></div>
+                                </div>
+                            );
+                        })}
+                    </div>
                     <div css={moreContainer} ref={artistInfoBoxRef}>
                         <div css={ArtistInfoBox}>
                             <div
@@ -694,7 +752,16 @@ const InvitationOne = () => {
                                 {InvitationOneData.map(el => {
                                     return (
                                         <div>
-                                            <div css={ArtistInfoTextContent}>
+                                            <div
+                                                css={ArtistInfoTextContent}
+                                                style={
+                                                    (InvitationOneData.indexOf(el) + 1) % 2 === 1
+                                                        ? {
+                                                              color: "#fff",
+                                                          }
+                                                        : { color: "#000" }
+                                                }
+                                            >
                                                 <div>
                                                     <p css={theme.textKr} style={{ fontWeight: "bold" }}>
                                                         {el.particiKr}
