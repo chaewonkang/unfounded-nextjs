@@ -367,6 +367,7 @@ const introductionContainer = css`
 const EachTextBox = css`
     width: 100vw;
     height: calc(100vh - 159px);
+    overflow: hidden;
 
     margin-top: -10px;
 

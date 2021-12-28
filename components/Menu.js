@@ -108,8 +108,34 @@ const StyledMenu = css`
         padding-top: 25vh;
 
         & > div:first-of-type {
-            display: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            z-index: -1;
+            background-color: #ff9d46;
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+                mix-blend-mode: multiply;
+            }
         }
+    }
+`;
+
+const openMenuSymbol = css`
+    height: 88px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    & > img {
+        height: 100%;
     }
 `;
 
@@ -122,13 +148,16 @@ const openMenuHeader = css`
     padding-left: 21px;
     padding-right: 21px;
     padding-top: 11px;
+    justify-content: space-between;
 
     & > div:first-of-type {
         cursor: pointer;
         height: 100%;
+        padding-top: 11px;
+        padding-left: 21px;
 
         & > img {
-            height: 100%;
+            height: 88px;
         }
     }
 
@@ -157,9 +186,11 @@ const openMenuHeader = css`
         & > div:first-of-type {
             cursor: pointer;
             height: 100%;
+            padding-top: 11px;
+            padding-left: 15px;
 
             & > img {
-                height: 100%;
+                height: 34px;
             }
         }
 
@@ -238,7 +269,7 @@ const imgPath = [
     "/static/images/leftArrow.png",
     "/static/images/rightArrow.png",
     "/static/images/symbolB.png",
-    "/static/images/cancelBtn.png",
+    "/static/images/cancelButton.png",
     "/static/images/symbolW.png",
 ];
 
@@ -368,7 +399,11 @@ const Menu = ({ transX }) => {
                     <div>
                         <img src={`../static/images/menuBg${menuBg + 1}.png`} alt="menu_background" />
                     </div>
+
                     <div css={openMenuHeader}>
+                        <div css={openMenuSymbol}>
+                            <img src={imgPath[3]} alt="symbol_black" />
+                        </div>
                         <div onClick={() => setOpen(!open)}>
                             <img src={imgPath[4]} alt="symbol_white" />
                         </div>
