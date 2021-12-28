@@ -20,7 +20,7 @@ const InvitationOneData = [
         iframeSrc: "https://miro.com/app/live-embed/uXjVOfjPq_M=/?moveToViewport=-794,-559,1450,949",
         title: "Project A",
         titleKr: "프로젝트 A",
-        particiEn: "Eugene Hannah Park",
+        particiEn: "Eugene Park",
         particiKr: "박유진",
         link: "",
         no: "02",

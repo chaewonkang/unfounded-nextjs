@@ -22,15 +22,15 @@ export default function TransitionLayout({ children }) {
         // Set the current path value by looking at the browser's location object.
         storage.setItem("currentPath", globalThis.location.pathname);
 
-        console.log("---------------------");
-        console.log(`currPath: ${menuArr.indexOf(storage.getItem("currentPath"))}`);
-        console.log(`prevPath: ${menuArr.indexOf(storage.getItem("prevPath"))}`);
-        console.log("---------------------");
+        // console.log("---------------------");
+        // console.log(`currPath: ${menuArr.indexOf(storage.getItem("currentPath"))}`);
+        // console.log(`prevPath: ${menuArr.indexOf(storage.getItem("prevPath"))}`);
+        // console.log("---------------------");
     }
 
     useEffect(() => {
         setTransitionStage("slideUp");
-        console.log(transitionStage);
+        // console.log(transitionStage);
     }, []);
 
     useEffect(() => {

@@ -6,13 +6,25 @@ import { css } from "@emotion/react";
 import Footer from "../components/Footer";
 import Link from "next/link";
 
+const mobileBottomMargin = css`
+    display: none;
+    background-color: #ff9d46;
+
+    @media (max-width: 781px) {
+        display: block;
+        height: 300px;
+        z-index: -1;
+        width: 100%;
+    }
+`;
+
 const mainContainer = css`
     width: 100vw;
     height: 100vh;
     position: relative;
     background-color: #ff9d46;
 
-    & > div {
+    & > div:first-of-type {
         width: 100%;
         height: 100%;
         position: absolute;
@@ -29,24 +41,31 @@ const mainContainer = css`
         }
     }
 
-    img:last-of-type {
-        position: absolute;
-        top: 38px;
-        width: calc(100vw - 57px);
-        margin-left: 28.5px;
-        margin-right: 28.5px;
+    & > div:nth-of-type(2) {
+        img:last-of-type {
+            position: absolute;
+            top: 38px;
+            width: calc(100vw - 57px);
+            margin-left: 28.5px;
+            margin-right: 28.5px;
+        }
     }
 
-    p {
-        font-family: "GTFAgentur", serif;
-        font-size: 23px;
-        letter-spacing: -0.25px;
-        line-height: 28px;
-        width: calc(100vw - 36px);
-        margin-left: 21px;
-        margin-right: 25px;
-        position: absolute;
-        bottom: 35px;
+    & > div:last-of-type {
+        br {
+            display: none;
+        }
+        p {
+            font-family: "GTFAgentur", serif;
+            font-size: 23px;
+            letter-spacing: -0.25px;
+            line-height: 28px;
+            width: calc(100vw - 36px);
+            margin-left: 21px;
+            margin-right: 25px;
+            position: absolute;
+            bottom: 35px;
+        }
     }
 
     @media (max-width: 781px) {
@@ -55,37 +74,60 @@ const mainContainer = css`
         position: relative;
         background-color: #ff9d46;
 
-        & > div {
+        & > div:first-of-type {
             width: 100%;
-            height: 50vh;
-            position: absolute;
+            height: 100%;
+            position: fixed;
             bottom: 0;
             top: unset;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            overflow: hidden;
 
             img:first-of-type {
+                z-index: -1;
                 width: 100%;
                 height: 100%;
                 object-fit: contain;
+                object-position: bottom;
             }
         }
 
-        img:last-of-type {
-            width: calc(100vw - 30px);
-            margin-left: 15px;
-            margin-right: 15px;
+        & > div:nth-of-type(2) {
+            z-index: 10;
+            img:last-of-type {
+                position: absolute;
+                top: 38px;
+                width: calc(100vw - 57px);
+                margin-left: 28.5px;
+                margin-right: 28.5px;
+            }
         }
 
-        p {
-            font-family: "GTFAgentur", serif;
-            font-size: 20px;
-            text-align: center;
-            letter-spacing: -0.25px;
-            line-height: 23px;
-            width: calc(100vw - 30px);
-            margin-left: 15px;
-            margin-right: 15px;
-            position: absolute;
-            top: 30%;
+        & > div:last-of-type {
+            z-index: 10;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            p {
+                br {
+                    display: block;
+                }
+                font-family: "GTFAgentur", serif;
+                font-size: 20px;
+                letter-spacing: -0.25px;
+                line-height: 25px;
+                width: calc(100vw - 30px);
+                margin-left: 15px;
+                margin-right: 15px;
+                position: relative;
+                bottom: unset;
+                text-align: center;
+            }
         }
     }
 `;
@@ -113,13 +155,19 @@ const Index = () => {
                 <div>
                     <img src="../static/images/main.gif" alt="mainImage" />
                 </div>
-                <img src="../static/images/textLogo.png" alt="mainTextLogo" />
-                <p>
-                    The website Unfounded is a space for researching fiction-related practices and uploading Founders’
-                    projects, online exhibitions, and games related to Founders’ fiction. It is expected that the
-                    website will provide a discursive foundation for fiction and expand curatorial practice by seeking
-                    ways to consider fiction in various ways.
-                </p>
+                <div>
+                    <img src="../static/images/textLogo.png" alt="mainTextLogo" />
+                </div>
+                <div>
+                    <p>
+                        The website Unfounded is a space for researching fiction-related practices and uploading
+                        Founders’ projects, online exhibitions, and games related to Founders’ fiction.
+                        <br />
+                        <br />
+                        It is expected that the website will provide a discursive foundation for fiction and expand
+                        curatorial practice by seeking ways to consider fiction in various ways.
+                    </p>
+                </div>
             </div>
             <Footer
                 bgColor={"#FF9D46"}
@@ -175,6 +223,7 @@ const Index = () => {
                     )}
                 </div>
             </Link>
+            <div css={mobileBottomMargin}></div>
         </ThemeProvider>
     );
 };

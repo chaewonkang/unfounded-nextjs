@@ -105,8 +105,11 @@ const StyledMenu = css`
         top: 0;
         left: 0;
         transition: transform 0.3s ease-in-out;
-
         padding-top: 25vh;
+
+        & > div:first-of-type {
+            display: none;
+        }
     }
 `;
 

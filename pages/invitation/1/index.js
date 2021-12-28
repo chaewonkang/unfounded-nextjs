@@ -31,6 +31,40 @@ const sliderArrow = css`
             object-fit: contain;
         }
     }
+
+    @media (max-width: 781px) {
+        position: absolute;
+        width: 100vw;
+        height: 41px;
+        top: unset;
+        bottom: 15px;
+        padding-left: 16px;
+        padding-right: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 3;
+
+        & > div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+
+            :hover {
+                cursor: pointer;
+            }
+
+            & > img {
+                width: 40px;
+                height: 40px;
+                object-fit: contain;
+            }
+        }
+
+        & > div:last-of-type {
+            justify-content: flex-end;
+        }
+    }
 `;
 
 const sliderContainer = css`
@@ -42,7 +76,12 @@ const sliderContainer = css`
     position: relative;
 
     @media (max-width: 781px) {
-        display: none;
+        width: 100vw;
+        height: calc(100vh - 32px);
+        overflow: hidden;
+        display: flex;
+        padding-bottom: 21px;
+        position: relative;
     }
 `;
 
@@ -91,6 +130,18 @@ const sliderContent = css`
     align-items: center;
     justify-content: center;
     overflow: hidden;
+
+    @media (max-width: 781px) {
+        width: 100vw;
+        height: calc(100vh - 32px);
+        padding-top: 105px;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
 `;
 
 const sliderContentWrapper = css`
@@ -100,12 +151,27 @@ const sliderContentWrapper = css`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 781px) {
+        width: calc(100vw - 30px);
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 `;
 
 const iframeContainer = css`
     width: calc((100% / 12) * 8);
     height: 90%;
     position: relative;
+
+    @media (max-width: 781px) {
+        width: 100%;
+        height: 90%;
+        position: relative;
+    }
 `;
 
 const iframeWrapper = css`
@@ -158,6 +224,16 @@ const bottomBannerContainer = css`
     height: 48px;
     background-color: #fff;
     display: inline-block;
+
+    @media (max-width: 781px) {
+        width: 100%;
+        position: relative;
+        bottom: 0;
+        overflow: hidden;
+        height: 32px;
+        background-color: #fff;
+        display: inline-block;
+    }
 `;
 
 const bottomBannerWrapper = css`
@@ -203,16 +279,52 @@ const bottomBannerWrapper = css`
     }
 
     @media (max-width: 781px) {
-        height: 32px;
-        p {
-            font-size: 15px;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        white-space: nowrap;
+
+        transition: ease 1000ms;
+
+        & > div {
+            margin-left: 15px;
+            margin-right: 15px;
+            width: calc(100% - 30px);
+            height: 100%;
+            display: inline-block;
+
+            div {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+
+                p {
+                    width: calc(100% / 3);
+                    font-size: 15px;
+                    font-family: PP Neue Montreal Regular, sans-serif;
+                    letter-spacing: 0.1px;
+                    margin-top: 3px;
+                    text-transform: uppercase;
+                }
+
+                p:nth-of-type(2) {
+                    text-align: center;
+                }
+
+                p:last-of-type {
+                    text-align: right;
+                    text-transform: uppercase;
+                }
+            }
         }
     }
 `;
 
 const introductionContainer = css`
     width: 100%;
-
+    height: 100%;
     border-top: 1px solid #000;
     overflow: auto;
     word-break: keep-all;
@@ -235,8 +347,12 @@ const EachTextBox = css`
 
     @media (max-width: 781px) {
         width: 100vw;
+        height: auto;
         background-color: #ff9d46;
         padding-top: 0px;
+        display: flex;
+        flex-direction: column;
+
         & > div:first-of-type {
             span {
                 font-family: GTFAgentur, serif;
@@ -254,6 +370,10 @@ const moreContainer = css`
     height: auto;
     transition: 3s ease-in;
     display: flex;
+
+    @media (max-width: 781px) {
+        height: auto;
+    }
 `;
 
 const ArtistInfoBox = css`
@@ -262,6 +382,10 @@ const ArtistInfoBox = css`
     word-break: keep-all;
     display: inline-block;
     overflow: hidden;
+
+    @media (max-width: 781px) {
+        height: 50%;
+    }
 `;
 
 const ArtistInfoText = css`
@@ -274,6 +398,10 @@ const ArtistInfoText = css`
     & > div {
         width: 100%;
         display: inline-block;
+    }
+
+    @media (max-width: 781px) {
+        height: 50%;
     }
 `;
 
@@ -313,6 +441,47 @@ const ArtistInfoTextContent = css`
 
     & > div:last-of-type {
         margin-left: 9px;
+    }
+
+    @media (max-width: 781px) {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        white-space: pre-wrap;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+
+        & > div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            & > p:first-of-type {
+                width: 100%;
+                max-width: 100%;
+                padding-right: 9px;
+            }
+
+            & > p:last-of-type {
+                width: 100%;
+                max-width: 100%;
+                oberflow: auto;
+                padding-right: 9px;
+            }
+        }
+
+        & > div:first-of-type {
+            margin-right: 0px;
+        }
+
+        & > div:last-of-type {
+            margin-top: 30px;
+            margin-left: 0px;
+        }
     }
 `;
 
@@ -360,9 +529,6 @@ const InvitationOne = () => {
 
     useEffect(() => {
         setArtistInfoBoxHeight(artistInfoBoxRef.current.offsetHeight);
-        console.log(query);
-        console.log(typeof query.index);
-        console.log(parseInt(query.index));
     }, [artistInfoBoxHeight]);
 
     useEffect(() => {}, [isMoreOpen, coverIsShow]);

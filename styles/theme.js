@@ -35,6 +35,7 @@ export const downArrowBox = css`
         padding-bottom: 15px;
         display: flex;
         justify-content: flex-end;
+        z-index: 10;
 
         &:hover {
             img {

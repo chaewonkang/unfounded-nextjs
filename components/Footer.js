@@ -13,6 +13,7 @@ const footerContainer = css`
     padding-bottom: 27px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     color: #fff;
 
     @media (max-width: 781px) {
@@ -32,26 +33,6 @@ const footerLeftArea = css`
             font-size: 38px;
             letter-spacing: -0.5px;
             line-height: 55px;
-        }
-    }
-
-    & > div:first-of-type {
-        margin-bottom: 64px;
-
-        & > p:first-of-type {
-            margin-bottom: 30px;
-            font-family: Gothic A1, sans-serif;
-            font-weight: 500;
-            font-size: 14px;
-            letter-spacing: -0.2px;
-            line-height: 23px;
-            word-break: keep-all;
-        }
-
-        & > p:last-of-type {
-            font-family: PP Neue Montreal Book, sans-serif;
-            font-size: 15px;
-            line-height: 23px;
         }
     }
 
@@ -106,10 +87,49 @@ const footerLeftArea = css`
                 line-height: 23px;
             }
         }
+    }
+`;
+
+const footerBottomArea = css`
+    width: 50%;
+    order: 3;
+
+    & > div {
+        & > span {
+            font-family: "GTFAgentur", serif;
+            font-size: 38px;
+            letter-spacing: -0.5px;
+            line-height: 55px;
+        }
+
+        div {
+            display: flex;
+            font-family: PP Neue Montreal Book, sans-serif;
+            font-size: 15px;
+            line-height: 23px;
+
+            div:first-of-type {
+                diplay: flex;
+                flex-direction: column;
+                margin-right: 0px;
+                width: 40%;
+            }
+
+            div:last-of-type {
+                diplay: flex;
+                flex-direction: column;
+                width: 60%;
+            }
+        }
+    }
+
+    @media (max-width: 781px) {
+        width: 100%;
+        border-top: 1px solid #000;
 
         & > div:last-of-type {
             padding-bottom: 20px;
-            border-bottom: 1px solid #000;
+
             margin-bottom: 0px;
             font-family: PP Neue Montreal Book, sans-serif;
             font-size: 15px;
@@ -192,6 +212,7 @@ const footerRightArea = css`
     @media (max-width: 781px) {
         width: 100%;
         padding: 0;
+        padding-bottom: 20px;
 
         span {
             font-family: "GTFAgentur", serif;
@@ -299,7 +320,7 @@ const Footer = ({ bgColor, color, children }) => {
         <ThemeProvider theme={theme}>
             <div
                 css={footerContainer}
-                style={router.pathname === "/" ? { backgroundColor: bgColor, color: color, display: "block" } : null}
+                style={router.pathname === "/" ? { backgroundColor: bgColor, color: color, display: "flex" } : null}
             >
                 <div css={footerLeftArea}>
                     <div>
@@ -327,16 +348,18 @@ const Footer = ({ bgColor, color, children }) => {
                             which stands for rootless, vain, nonsense.
                         </p>
                     </div>
+                </div>
+                <div css={footerBottomArea}>
                     <div>
                         <span>Contact</span>
                         <div>
                             <div>
-                                <span>E-Mail</span>
-                                <span>Instagram</span>
+                                <p>E-Mail</p>
+                                <p>Instagram</p>
                             </div>
                             <div>
-                                <span>unfounded.info@gmail.com</span>
-                                <span>@unfounded</span>
+                                <p>unfounded.info@gmail.com</p>
+                                <p>@unfounded</p>
                             </div>
                         </div>
                     </div>
