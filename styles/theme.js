@@ -57,7 +57,7 @@ export const headerContainer = css`
     width: 100vw;
     padding-left: 21px;
     padding-right: 21px;
-    height: 112px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -102,7 +102,7 @@ export const marquee = css`
     position: relative;
     width: 100vw;
     overflow: hidden;
-    padding-top: 10px;
+
     white-space: nowrap;
 `;
 
@@ -169,7 +169,7 @@ export const menuWheel = css`
     left: 0;
     padding-left: 21px;
     padding-right: 21px;
-    top: 112px;
+    top: 80px;
     background-color: #000;
 
     color: #fff;

@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { css } from "@emotion/react";
 import Footer from "../../../components/Footer";
 import InvitationOneData from "../../../data/InvitationOneData";
+import parse from "html-react-parser";
 
 const sliderArrow = css`
     position: absolute;
@@ -108,6 +109,7 @@ const sliderBGWrapper = css`
     position: absolute;
     z-index: 1;
     white-space: nowrap;
+
     transition: ease 1000ms;
 
     & > div {
@@ -115,13 +117,14 @@ const sliderBGWrapper = css`
         width: 100vw;
         display: inline-block;
         flex-direction: column;
+        overflow: hidden;
     }
 `;
 
 const sliderContent = css`
     width: 100vw;
     height: calc(100vh - 48px);
-    padding-top: 169px;
+    padding-top: 120px;
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -132,7 +135,7 @@ const sliderContent = css`
     @media (max-width: 781px) {
         width: 100vw;
         height: calc(100vh - 32px);
-        padding-top: 105px;
+        padding-top: 45px;
         color: #fff;
         display: flex;
         flex-direction: column;
@@ -146,11 +149,10 @@ const sliderContentBg = css`
     width: 100vw;
     height: 100%;
     color: #fff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: inline-block;
+
     overflow: hidden;
+    white-space: nowrap;
 
     @media (max-width: 781px) {
         width: 100vw;
@@ -166,8 +168,8 @@ const sliderContentBg = css`
 `;
 
 const sliderContentWrapper = css`
-    width: 80%;
-    height: 80%;
+    width: 85%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -185,7 +187,7 @@ const sliderContentWrapper = css`
 
 const iframeContainer = css`
     width: calc((100% / 12) * 8);
-    height: 90%;
+    height: 100%;
     position: relative;
 
     @media (max-width: 781px) {
@@ -287,7 +289,6 @@ const bottomBannerWrapper = css`
                 font-size: 32px;
                 font-family: PP Neue Montreal Regular, sans-serif;
                 letter-spacing: 0.1px;
-                margin-top: 3px;
                 text-transform: uppercase;
             }
 
@@ -349,26 +350,43 @@ const bottomBannerWrapper = css`
 const introductionContainer = css`
     width: 100%;
     height: auto;
-    border-top: 1px solid #000;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
     overflow: auto;
     word-break: keep-all;
-    background-color: #ff9d46;
 
     & > div {
         width: 100%;
-        height: 100%;
+        height: auto;
 
         p {
             overflow: auto;
+        }
+    }
+
+    @media (max-width: 781px) {
+        width: 100%;
+        height: 100vh;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        overflow: auto;
+        word-break: keep-all;
+
+        & > div {
+            width: 100%;
+            height: 100%;
+
+            p {
+                overflow: auto;
+            }
         }
     }
 `;
 
 const EachTextBox = css`
     width: 100vw;
-    height: calc(100vh - 159px);
+    height: auto;
     overflow: hidden;
-
     margin-top: -10px;
 
     @media (max-width: 781px) {
@@ -404,26 +422,29 @@ const moreContainer = css`
 
 const ArtistInfoBox = css`
     width: 100%;
-    height: 100%;
+    height: 50vh;
+
     word-break: keep-all;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     z-index: 2;
 
     @media (max-width: 781px) {
-        height: 50%;
+        height: 100vh;
     }
 `;
 
 const ArtistInfoText = css`
     width: 100%;
-    height: auto;
+    height: 100vh;
     display: inline-block;
     transition: ease 1000ms;
     white-space: nowrap;
 
     & > div {
         width: 100%;
+        height: 100%;
         display: inline-block;
     }
 
@@ -434,14 +455,15 @@ const ArtistInfoText = css`
 
 const ArtistInfoTextContent = css`
     width: 100%;
-    height: 100%;
-
+    height: 25vh;
     display: flex;
     white-space: pre-wrap;
     padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
+    align-items: flex-start;
+    justify-content: center;
 
     & > div {
         width: calc(50% - 9px);
@@ -457,7 +479,7 @@ const ArtistInfoTextContent = css`
         & > p:last-of-type {
             width: calc((100% / 6) * 4);
             max-width: calc((100% / 6) * 4);
-            oberflow: auto;
+            overflow: auto;
             padding-right: 9px;
         }
     }
@@ -473,6 +495,7 @@ const ArtistInfoTextContent = css`
     @media (max-width: 781px) {
         width: 100%;
         height: 100%;
+
         display: flex;
         flex-direction: column;
         white-space: pre-wrap;
@@ -508,6 +531,78 @@ const ArtistInfoTextContent = css`
         & > div:last-of-type {
             margin-top: 30px;
             margin-left: 0px;
+        }
+    }
+`;
+
+const ProjectInfoTextContent = css`
+    width: 100%;
+    height: 25vh;
+    display: flex;
+    white-space: pre-wrap;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid;
+
+    & > div {
+        width: calc(100%);
+        height: 100%;
+        display: flex;
+
+        & > p:first-of-type {
+            width: calc((50% / 6) * 2);
+            max-width: calc((50% / 6) * 2);
+            padding-right: 9px;
+        }
+
+        & > p:last-of-type {
+            width: calc((50% / 6) * 4 + 50%);
+            width: calc((50% / 6) * 4 + 50%);
+            oberflow: auto;
+            padding-right: 9px;
+        }
+    }
+
+    & > div:first-of-type {
+        margin-right: 9px;
+    }
+
+    @media (max-width: 781px) {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        white-space: pre-wrap;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+
+        & > div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: auto;
+
+            & > p:first-of-type {
+                width: 100%;
+                max-width: 100%;
+                padding-right: 9px;
+            }
+
+            & > p:last-of-type {
+                width: 100%;
+                max-width: 100%;
+                oberflow: auto;
+                padding-right: 9px;
+            }
+        }
+
+        & > div:first-of-type {
+            margin-right: 0px;
         }
     }
 `;
@@ -558,7 +653,9 @@ const InvitationOne = () => {
         setArtistInfoBoxHeight(artistInfoBoxRef.current.offsetHeight);
     }, [artistInfoBoxHeight]);
 
-    useEffect(() => {}, [isMoreOpen, coverIsShow]);
+    useEffect(() => {
+        console.log(index);
+    }, [isMoreOpen, coverIsShow, index]);
 
     return (
         <ThemeProvider theme={theme}>
@@ -656,7 +753,7 @@ const InvitationOne = () => {
                                                     >
                                                         <div>
                                                             <img src={el.src} />
-                                                            {/* <div css={marquee}>
+                                                            <div css={marquee}>
                                                                 <div css={marqueeBox1}>
                                                                     <span>
                                                                         CLICK to START CLICK to START CLICK to START
@@ -671,24 +768,10 @@ const InvitationOne = () => {
                                                                         CLICK to START &nbsp; &nbsp;
                                                                     </span>
                                                                 </div>
-                                                            </div> */}
-                                                        </div>{" "}
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 )}
-                                            </div>
-                                            <div css={slideText}>
-                                                <p
-                                                    css={[theme.textEn]}
-                                                    style={
-                                                        (InvitationOneData.indexOf(el) + 1) % 2 === 1
-                                                            ? {
-                                                                  color: "#fff",
-                                                              }
-                                                            : { color: "#000" }
-                                                    }
-                                                >
-                                                    CLICK TO START
-                                                </p>
                                             </div>
                                         </div>
                                     </div>
@@ -752,17 +835,24 @@ const InvitationOne = () => {
                             >
                                 {InvitationOneData.map(el => {
                                     return (
-                                        <div>
-                                            <div
-                                                css={ArtistInfoTextContent}
-                                                style={
-                                                    (InvitationOneData.indexOf(el) + 1) % 2 === 1
-                                                        ? {
-                                                              color: "#fff",
-                                                          }
-                                                        : { color: "#000" }
-                                                }
-                                            >
+                                        <div
+                                            style={
+                                                (InvitationOneData.indexOf(el) + 1) % 2 === 1
+                                                    ? {
+                                                          color: "#fff",
+                                                      }
+                                                    : { color: "#000" }
+                                            }
+                                        >
+                                            <div css={ProjectInfoTextContent}>
+                                                <div>
+                                                    <p css={theme.textKr} style={{ fontWeight: "bold" }}>
+                                                        {el.title}
+                                                    </p>
+                                                    <p css={theme.textKr}>{parse(el.projectInfo)}</p>
+                                                </div>
+                                            </div>
+                                            <div css={ArtistInfoTextContent}>
                                                 <div>
                                                     <p css={theme.textKr} style={{ fontWeight: "bold" }}>
                                                         {el.particiKr}
@@ -778,18 +868,23 @@ const InvitationOne = () => {
                                             </div>
                                         </div>
                                     );
-                                })}{" "}
+                                })}
                             </div>
                         </div>
                     </div>
                     <div
                         css={introductionContainer}
-                        style={{
-                            height: `calc((100% - ${artistInfoBoxHeight}px))`,
-                        }}
+                        style={
+                            (index + 1) % 2 === 1
+                                ? {
+                                      color: "#fff",
+                                      backgroundColor: "#000",
+                                  }
+                                : { color: "#000", backgroundColor: "#FF9D46" }
+                        }
                     >
                         <div>
-                            <div css={ArtistInfoTextContent}>
+                            <div css={ArtistInfoTextContent} style={{ height: "50vh" }}>
                                 <div>
                                     <p css={theme.textKr} style={{ fontWeight: "bold" }}>
                                         초대 I: 지휘 수업 指揮 受業{" "}

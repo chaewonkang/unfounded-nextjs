@@ -334,6 +334,7 @@ const Footer = ({ bgColor, color, children }) => {
                             큐레토리얼 실천의 재료와 도구들을 분석하고 실험한다. ‘탐험’은 큐레토리얼 실천이 이중 나선
                             구조를 풀고 감는 형세를 탐침하고 그 결과를 글쓰기로 생산한다. 제목인 unfounded는
                             무근無根하다, 헛되다, 이유 없다라는 뜻이며, 이 이름 안에서 김얼터와 박유진이 함께 일한다.
+                            <br /> <br />
                         </p>
                         <p>
                             Unfounded speculates the phenomenon in which the virtual produced by curatorial practice
@@ -370,7 +371,7 @@ const Footer = ({ bgColor, color, children }) => {
                     <div>
                         <div>
                             <p>기획</p>
-                            <p>박유진 김얼터</p>
+                            <p>김얼터 박유진</p>
                         </div>
                         <div>
                             <p>웹 개발</p>
@@ -385,7 +386,7 @@ const Footer = ({ bgColor, color, children }) => {
                             <p>서울문화재단</p>
                         </div>
                         <div>
-                            <p>참여자</p>
+                            <p>손님 목록</p>
                             <p></p>
                         </div>
                         <div>
@@ -425,7 +426,7 @@ const Footer = ({ bgColor, color, children }) => {
                         </div>
                         <div>
                             <p>● Invitation I</p>
-                            <p>Jinyoung Yoo, Miji Lee, Somi Lee, Jiwoo Lee</p>
+                            <p>Jinyoung You, Miji Lee, Somi Lee, Jiwoo Lee</p>
                         </div>
                         {/* <div>
                         <p>● Invitation II</p>
@@ -456,6 +457,8 @@ const Footer = ({ bgColor, color, children }) => {
                                     실험한다. ‘탐험’은 큐레토리얼 실천이 이중 나선 구조를 풀고 감는 형세를 탐침하고 그
                                     결과를 글쓰기로 생산한다. 제목인 unfounded는 무근無根하다, 헛되다, 이유 없다라는
                                     뜻이며, 이 이름 안에서 김얼터와 박유진이 함께 일한다.
+                                    <br />
+                                    <br />
                                 </p>
                                 <p css={[theme.mTextEn]} style={{ marginTop: "30px" }}>
                                     Unfounded speculates the phenomenon in which the virtual produced by curatorial
@@ -485,7 +488,7 @@ const Footer = ({ bgColor, color, children }) => {
                                 <div css={theme.mTextKr}>
                                     <div>
                                         <p>기획</p>
-                                        <p>박유진 김얼터</p>
+                                        <p>김얼터 박유진</p>
                                     </div>
                                     <div>
                                         <p>웹 개발</p>
@@ -500,7 +503,7 @@ const Footer = ({ bgColor, color, children }) => {
                                         <p>서울문화재단</p>
                                     </div>
                                     <div>
-                                        <p>참여자</p>
+                                        <p>손님 목록</p>
                                         <p></p>
                                     </div>
                                     <div>
@@ -519,7 +522,7 @@ const Footer = ({ bgColor, color, children }) => {
                                 <div css={theme.mTextEn} style={{ marginTop: "30px" }}>
                                     <div>
                                         <p>Directed by</p>
-                                        <p>Yoojin Park, Nahyun Kim</p>
+                                        <p>Alter Kim, Eugene Hannah Park</p>
                                     </div>
                                     <div>
                                         <p>Web Development</p>
@@ -539,7 +542,7 @@ const Footer = ({ bgColor, color, children }) => {
                                     </div>
                                     <div>
                                         <p>● Invitation I</p>
-                                        <p>Jinyoung Yoo, Miji Lee, Somi Lee, Jiwoo Lee</p>
+                                        <p>Jinyoung You, Miji Lee, Somi Lee, Jiwoo Lee</p>
                                     </div>
                                     {/* <div>
                         <p>● Invitation II</p>

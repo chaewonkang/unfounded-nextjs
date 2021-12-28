@@ -9,7 +9,7 @@ import styled from "styled-components";
 
 const menuContainer = css`
     width: 100vw;
-    height: 112px;
+    height: 80px;
     background-color: #000;
     position: fixed;
     left: 0;
@@ -18,14 +18,16 @@ const menuContainer = css`
 
 const StyledBurger = css`
     cursor: pointer;
-    width: 98px;
+    width: 90px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 14;
     position: absolute;
-    top: 20px;
+    top: 5px;
     right: 20px;
 
     div {

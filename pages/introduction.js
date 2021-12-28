@@ -67,7 +67,7 @@ const infoText = css`
         display: flex;
         width: calc((100% / 12) * 8);
         height: 100%;
-        padding-top: 160px;
+        padding-top: 120px;
         color: #fff;
         padding-bottom: 21px;
 
@@ -75,9 +75,9 @@ const infoText = css`
             width: calc(50% - 9px);
             margin-right: 9px;
             font-family: Gothic A1, sans-serif;
-            font-size: 24px;
+            font-size: 21px;
             font-weight: 500;
-            line-height: 40px;
+            line-height: 37px;
             word-break: keep-all;
             height: 100%;
             overflow: auto;
@@ -87,8 +87,8 @@ const infoText = css`
             width: calc(50% - 9px);
             margin-left: 9px;
             font-family: PP Neue Montreal Regular, sans-serif;
-            font-size: 25px;
-            line-height: 40px;
+            font-size: 23px;
+            line-height: 34px;
             letter-spacing: 0.1px;
             height: 100%;
             overflow: auto;
@@ -160,15 +160,14 @@ const borderMobile = css`
 
 const invitationBox = css`
     width: 100vw;
-    height: calc(100vh - 158px);
+    height: calc(100vh - 120px);
     background-color: #ff9d46;
-    padding-top: 10px;
     overflow: hidden;
 
     & > div:first-of-type {
         span {
             font-family: GTFAgentur, serif;
-            font-size: 86px;
+            font-size: 65px;
             letter-spacing: -0.2px;
             color: #000;
         }
@@ -199,7 +198,7 @@ const invitationTextBox = css`
     word-break: keep-all;
     position: relative;
     margin-bottom: 15px;
-    height: 30%;
+    height: auto;
 
     @media (max-width: 781px) {
         display: flex;
@@ -225,13 +224,14 @@ const marqueeBox2 = css`
 `;
 
 const invitationText1 = css`
-    width: calc(50% - 9px);
+    width: calc((100% / 3) - 9px);
     height: 100%;
     margin-right: 9px;
     height: 100%;
 
     div {
         display: flex;
+
         p:first-of-type {
             width: calc((100vw / 6) * 2);
             height: 100%;
@@ -266,7 +266,7 @@ const invitationText1 = css`
 
 const invitationText2 = css`
     margin-left: 9px;
-    width: calc(50% - 9px);
+    width: calc(((100% / 3) * 2)- 9px);
 
     div:first-of-type {
         width: 100%;
@@ -330,18 +330,16 @@ const invitationText2 = css`
 const moreContainer = css`
     border-top: 1px solid #000;
     width: 100%;
-    height: calc(70vh - 250px);
     background-color: #ff9d46;
     position: absolute;
     transition: 3s ease-in;
-
-    padding-bottom: 10px;
     display: flex;
     animation: slideUp 1s;
     z-index: 3;
 
     & > div {
         width: 100%;
+        height: 100%;
         display: flex;
     }
 
@@ -369,7 +367,7 @@ const sliderArrowL = css`
     position: absolute;
     width: 70px;
     height: 70px;
-    top: calc(35vh - 164.5px);
+    top: calc(50% - 105px);
     left: 21px;
     display: flex;
 
@@ -421,7 +419,7 @@ const sliderArrowR = css`
     position: absolute;
     width: 70px;
     height: 70px;
-    top: calc(35vh - 164.5px);
+    top: calc(50% - 105px);
     right: 21px;
 
     display: flex;
@@ -472,17 +470,15 @@ const sliderArrowR = css`
 
 const sliderContainer = css`
     width: calc(100vw - 42px);
-    height: calc(70% - 129px);
     overflow: hidden;
     display: flex;
     margin-left: 21px;
     margin-right: 21px;
-    padding-bottom: 21px;
     position: relative;
 
     @media (max-width: 781px) {
         width: 100%;
-        height: calc(100vh - (82px + 138px + 105px));
+        height: calc(100vh - 310px) !important;
         overflow: hidden;
         display: flex;
         margin-left: 0px;
@@ -494,7 +490,7 @@ const sliderContainer = css`
 
 const sliderWrapper = css`
     width: 100vw;
-    height: 100%;
+    height: calc(100% - 110px);
     display: inline-block;
     white-space: nowrap;
     transition: ease 1000ms;
@@ -680,11 +676,12 @@ const Introduction = () => {
     const timeoutRef = useRef(null);
     const scrollRef = useRef(null);
     const outerDivRef = useRef();
-    const DIVIDER_HEIGHT = 5;
-    const textBoxRef1 = useRef();
-    const [sliderBoxHeight, setSliderBoxHeight] = useState(0);
+
     const [headerHeight, setHeaderHeight] = useState(0);
     const [perSlide, setPerSlide] = useState(0);
+    const moreBoxRef = useRef();
+    const InvitationTextBoxRef = useRef();
+    const [sliderHeight, setSliderHeight] = useState(0);
 
     const [isArrowO, setIsArrowO] = useState(false);
     const [isMoreOpen, setIsMoreOpen] = useState({
@@ -711,15 +708,17 @@ const Introduction = () => {
     }, []);
 
     useEffect(() => {
-        setSliderBoxHeight(textBoxRef1.current.offsetHeight);
+        console.log(sliderHeight);
+        setSliderHeight(InvitationTextBoxRef.current.offsetHeight + headerHeight);
+
         if (window.innerWidth < 782) {
             setHeaderHeight(105);
             setPerSlide(1);
         } else {
-            setHeaderHeight(158);
+            setHeaderHeight(120);
             setPerSlide(3);
         }
-    }, [sliderBoxHeight, headerHeight, perSlide]);
+    }, [sliderHeight, headerHeight, perSlide, moreBoxRef]);
 
     useEffect(() => {}, [isMoreOpen, isMoreOpen2]);
 
@@ -835,7 +834,7 @@ const Introduction = () => {
                                 </span>
                             </div>
                         </div>
-                        <div css={invitationTextBox}>
+                        <div css={invitationTextBox} ref={InvitationTextBoxRef}>
                             <div css={invitationText1}>
                                 <div css={theme.textKr}>
                                     <p style={{ fontWeight: "bold" }}>초대 I:</p>
@@ -854,7 +853,7 @@ const Introduction = () => {
                                     <p>Jinyoung Yoo, Miji Lee, Somi Lee, Jiwoo Lee</p>
                                 </div>
                             </div>
-                            <div css={invitationText2} ref={textBoxRef1}>
+                            <div css={invitationText2}>
                                 <div>
                                     <p css={theme.textKr}>
                                         {"<"}지휘 수업{">"}은 픽션-전시의 기획서를 작성한다. 이때, 픽션-전시의 의미는
@@ -899,7 +898,11 @@ const Introduction = () => {
                             </div>
                         </div>
                         {isMoreOpen && isMoreOpen.bool === true && (
-                            <div css={moreContainer}>
+                            <div
+                                css={moreContainer}
+                                ref={moreBoxRef}
+                                style={{ height: `calc(100vh - ${sliderHeight}px - 100px)` }}
+                            >
                                 <div>
                                     <div css={ArtistInfoTextContent}>
                                         <div>
@@ -1100,7 +1103,7 @@ const Introduction = () => {
                                 </div>
                             </div>
                         )}
-                        <div css={sliderContainer}>
+                        <div css={sliderContainer} style={{ height: `calc(100vh - ${sliderHeight}px)` }}>
                             <div
                                 css={sliderArrowL}
                                 onMouseOver={() => {
@@ -1176,11 +1179,9 @@ const Introduction = () => {
                                         >
                                             <img src={el.src} />
                                             <div css={slideText}>
+                                                <span css={[theme.textKr, theme.textEn]}>{el.title}</span>
                                                 <span css={[theme.textKr, theme.textEn]}>
-                                                    {el.title} {el.titleKr}
-                                                </span>
-                                                <span css={[theme.textKr, theme.textEn]}>
-                                                    {el.particiEn} {el.particiKr}
+                                                    {el.particiKr} {el.particiEn}
                                                 </span>
                                             </div>
                                         </div>
