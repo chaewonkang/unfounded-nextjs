@@ -62,6 +62,7 @@ const comingSoonContainer = css`
 
     @media (max-width: 781px) {
         height: calc(100vh - 32px);
+        padding-top: 50px;
     }
 `;
 

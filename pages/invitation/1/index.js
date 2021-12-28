@@ -253,7 +253,7 @@ const bottomBannerContainer = css`
         position: relative;
         bottom: 0;
         overflow: hidden;
-        height: 32px;
+        height: 40px;
         background-color: #fff;
         display: inline-block;
     }

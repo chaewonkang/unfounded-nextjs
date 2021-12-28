@@ -76,7 +76,7 @@ const mainContainer = css`
 
         & > div:first-of-type {
             width: 100%;
-            height: 100%;
+            height: auto;
             position: fixed;
             bottom: 0;
             top: unset;
@@ -88,7 +88,7 @@ const mainContainer = css`
             img:first-of-type {
                 z-index: -1;
                 width: 100%;
-                height: 100%;
+                height: auto;
                 object-fit: contain;
                 object-position: bottom;
             }
@@ -98,10 +98,10 @@ const mainContainer = css`
             z-index: 10;
             img:last-of-type {
                 position: absolute;
-                top: 38px;
-                width: calc(100vw - 57px);
-                margin-left: 28.5px;
-                margin-right: 28.5px;
+                top: 19.4px;
+                width: calc(100vw - 30px);
+                margin-left: 15px;
+                margin-right: 15px;
             }
         }
 

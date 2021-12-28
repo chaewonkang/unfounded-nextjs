@@ -30,7 +30,6 @@ export default function TransitionLayout({ children }) {
 
     useEffect(() => {
         setTransitionStage("slideUp");
-        // console.log(transitionStage);
     }, []);
 
     useEffect(() => {

@@ -197,7 +197,11 @@ export const menuWheel = css`
     @media (max-width: 781px) {
         width: 100vw;
         position: absolute;
+        padding-left: 15px;
+        padding-right: 15px;
         top: 59px;
+        display: flex;
+        align-items: center;
 
         & > img:first-of-type {
             position: relative;
