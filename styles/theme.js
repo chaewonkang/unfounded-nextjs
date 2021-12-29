@@ -226,7 +226,7 @@ export const menuWheel = css`
 export const titleKr = css`
     font-family: Gothic A1, sans-serif;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
     letter-spacing: -0.2px;
     line-height: 24px;
 
@@ -240,13 +240,39 @@ export const titleKr = css`
 export const textKr = css`
     font-family: Gothic A1, sans-serif;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 14px;
     letter-spacing: -0.2px;
     line-height: 24px;
 
     @media (max-width: 781px) {
         font-size: 14px;
         letter-spacing: -0.2px;
+        line-height: 23px;
+    }
+`;
+
+export const titleEn = css`
+    font-family: PP Neue Montreal Regular, sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.1px;
+    line-height: 24px;
+
+    @media (max-width: 781px) {
+        font-size: 15px;
+        letter-spacing: 0.1px;
+        line-height: 23px;
+    }
+`;
+
+export const textEn = css`
+    font-family: PP Neue Montreal Regular, sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.1px;
+    line-height: 24px;
+
+    @media (max-width: 781px) {
+        font-size: 15px;
+        letter-spacing: 0.1px;
         line-height: 23px;
     }
 `;
@@ -265,32 +291,6 @@ export const mTextKr = css`
     font-size: 14px;
     letter-spacing: -0.2px;
     line-height: 23px;
-`;
-
-export const titleEn = css`
-    font-family: PP Neue Montreal Regular, sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.1px;
-    line-height: 24px;
-
-    @media (max-width: 781px) {
-        font-size: 15px;
-        letter-spacing: 0.1px;
-        line-height: 23px;
-    }
-`;
-
-export const textEn = css`
-    font-family: PP Neue Montreal Regular, sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.1px;
-    line-height: 24px;
-
-    @media (max-width: 781px) {
-        font-size: 15px;
-        letter-spacing: 0.1px;
-        line-height: 23px;
-    }
 `;
 
 export const mTitleEn = css`

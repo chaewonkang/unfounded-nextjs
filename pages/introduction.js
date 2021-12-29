@@ -547,7 +547,7 @@ const eachSlide = css`
 
     :hover {
         & > img {
-            mix-blend-mode: difference;
+            filter: invert(100%);
         }
     }
 
@@ -569,7 +569,7 @@ const eachSlide = css`
 
         :hover {
             & > img {
-                mix-blend-mode: difference;
+                // mix-blend-mode: overlay;
             }
         }
 
@@ -673,10 +673,9 @@ const Introduction = () => {
     const router = useRouter();
     const [index, setIndex] = useState(0);
     const [index2, setIndex2] = useState(0);
-    const timeoutRef = useRef(null);
-    const scrollRef = useRef(null);
+    const timeoutRef = useRef();
+    const scrollRef = useRef();
     const outerDivRef = useRef();
-
     const [headerHeight, setHeaderHeight] = useState(0);
     const [perSlide, setPerSlide] = useState(0);
     const moreBoxRef = useRef();
@@ -708,8 +707,8 @@ const Introduction = () => {
     }, []);
 
     useEffect(() => {
-        console.log(sliderHeight);
         setSliderHeight(InvitationTextBoxRef.current.offsetHeight + headerHeight);
+        console.log(scrollRef.current.offsetTop);
 
         if (window.innerWidth < 782) {
             setHeaderHeight(105);
@@ -718,7 +717,7 @@ const Introduction = () => {
             setHeaderHeight(120);
             setPerSlide(3);
         }
-    }, [sliderHeight, headerHeight, perSlide, moreBoxRef]);
+    }, [sliderHeight, headerHeight, perSlide, moreBoxRef, scrollRef]);
 
     useEffect(() => {}, [isMoreOpen, isMoreOpen2]);
 
@@ -731,6 +730,7 @@ const Introduction = () => {
                     <div
                         css={[theme.downArrowBox, downArrowBoxStyle]}
                         onClick={() => {
+                            console.log("arrow is clicked");
                             window.scrollTo({
                                 top: scrollRef.current.offsetTop - headerHeight,
                                 behavior: "smooth",

@@ -2,10 +2,8 @@ import { ThemeProvider } from "styled-components";
 import theme from "../styles/theme";
 import { useState, useEffect } from "react";
 import { css } from "@emotion/react";
-import Link from "next/link";
-import { useRouter } from "next/router";
 
-import styled from "styled-components";
+import { useRouter } from "next/router";
 
 const menuContainer = css`
     width: 100vw;
@@ -40,14 +38,14 @@ const StyledBurger = css`
     @media (max-width: 781px) {
         cursor: pointer;
         width: 50px;
-        height: 40px;
+        height: 55px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         z-index: 14;
         position: absolute;
-        top: 13px;
+        top: 5px;
         right: 13px;
 
         div {

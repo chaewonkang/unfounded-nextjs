@@ -93,6 +93,7 @@ const footerLeftArea = css`
 const footerBottomArea = css`
     width: 50%;
     order: 3;
+    margin-top: 39px;
 
     & > div {
         & > span {
@@ -477,7 +478,6 @@ const Footer = ({ bgColor, color, children }) => {
                         ) : null}
                     </div>
                 </div>
-
                 <div onClick={() => setIsCreditOpen(!isCreditOpen)}>
                     <div>
                         <span>Credit</span>
@@ -557,7 +557,6 @@ const Footer = ({ bgColor, color, children }) => {
                         ) : null}
                     </div>
                 </div>
-
                 <div onClick={() => setIsContactOpen(!isContactOpen)}>
                     <div>
                         <span>Contact</span>

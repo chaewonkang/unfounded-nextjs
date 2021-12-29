@@ -115,9 +115,8 @@ const sliderBGWrapper = css`
     & > div {
         height: 100%;
         width: 100vw;
-        display: inline-block;
-        flex-direction: column;
         overflow: hidden;
+        display: inline-block;
     }
 `;
 
@@ -236,7 +235,9 @@ const introContainer = css`
     position: relative;
     top: 0;
     width: 100vw;
-    height: 100vh;
+    height: auto;
+    display: flex;
+    flex-direction: column;
 `;
 
 const bottomBannerContainer = css`
@@ -254,8 +255,8 @@ const bottomBannerContainer = css`
         width: 100%;
         position: relative;
         bottom: 0;
-        overflow: hidden;
-        height: 40px;
+        overflow: hieen;
+        height: 32px;
         background-color: #fff;
         display: inline-block;
     }
@@ -308,7 +309,6 @@ const bottomBannerWrapper = css`
         height: 100%;
         display: inline-block;
         white-space: nowrap;
-
         transition: ease 1000ms;
 
         & > div {
@@ -326,7 +326,7 @@ const bottomBannerWrapper = css`
                 position: relative;
 
                 p {
-                    width: calc(100% / 3);
+                    width: auto;
                     font-size: 15px;
                     font-family: PP Neue Montreal Regular, sans-serif;
                     letter-spacing: 0.1px;
@@ -335,7 +335,7 @@ const bottomBannerWrapper = css`
                 }
 
                 p:nth-of-type(2) {
-                    text-align: center;
+                    display: none;
                 }
 
                 p:last-of-type {
@@ -352,12 +352,12 @@ const introductionContainer = css`
     height: auto;
     border-top: 1px solid;
     border-bottom: 1px solid;
-    overflow: auto;
     word-break: keep-all;
 
     & > div {
         width: 100%;
-        height: auto;
+        height: 100%;
+        overflow: auto;
 
         p {
             overflow: auto;
@@ -387,7 +387,6 @@ const EachTextBox = css`
     width: 100vw;
     height: auto;
     overflow: hidden;
-    margin-top: -10px;
 
     @media (max-width: 781px) {
         width: 100vw;
@@ -417,6 +416,7 @@ const moreContainer = css`
 
     @media (max-width: 781px) {
         height: auto;
+        overflow: hidden;
     }
 `;
 
@@ -494,7 +494,7 @@ const ArtistInfoTextContent = css`
 
     @media (max-width: 781px) {
         width: 100%;
-        height: 100%;
+        height: auto;
 
         display: flex;
         flex-direction: column;
@@ -506,7 +506,7 @@ const ArtistInfoTextContent = css`
 
         & > div {
             width: 100%;
-            height: 100%;
+            height: 50%;
             display: flex;
             flex-direction: column;
 
@@ -603,6 +603,89 @@ const ProjectInfoTextContent = css`
 
         & > div:first-of-type {
             margin-right: 0px;
+        }
+    }
+`;
+
+const InvitationInfoContent = css`
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    white-space: pre-wrap;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    align-items: flex-start;
+    justify-content: center;
+    border-top: 1px solid;
+
+    & > div {
+        width: calc(50% - 9px);
+        height: 100%;
+        display: flex;
+
+        & > p:first-of-type {
+            width: calc((100% / 6) * 2);
+            max-width: calc((100% / 6) * 2);
+            padding-right: 9px;
+        }
+
+        & > p:last-of-type {
+            width: calc((100% / 6) * 4);
+            max-width: calc((100% / 6) * 4);
+            overflow: auto;
+            padding-right: 9px;
+        }
+    }
+
+    & > div:first-of-type {
+        margin-right: 9px;
+    }
+
+    & > div:last-of-type {
+        margin-left: 9px;
+    }
+
+    @media (max-width: 781px) {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        white-space: pre-wrap;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+
+        & > div {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+
+            & > p:first-of-type {
+                width: 100%;
+                max-width: 100%;
+                padding-right: 9px;
+            }
+
+            & > p:last-of-type {
+                width: 100%;
+                max-width: 100%;
+                oberflow: auto;
+                padding-right: 9px;
+            }
+        }
+
+        & > div:first-of-type {
+            margin-right: 0px;
+        }
+
+        & > div:last-of-type {
+            margin-top: 30px;
+            margin-left: 0px;
         }
     }
 `;
@@ -733,7 +816,7 @@ const InvitationOne = () => {
                                                         <iframe
                                                             width="100%"
                                                             style={{
-                                                                height: "56vh",
+                                                                height: "100%",
                                                                 zIndex: 30,
                                                             }}
                                                             src={el.iframeSrc}
@@ -801,30 +884,6 @@ const InvitationOne = () => {
                     </div>
                 </div>
                 <div css={EachTextBox} ref={scrollRef}>
-                    <div
-                        css={sliderBGWrapper}
-                        style={{
-                            transform: `translate3d(${(InvitationOneData.length * 100 - index * 100) * -1}%, 0, 0)`,
-                            height: `${artistInfoBoxHeight}px`,
-                        }}
-                    >
-                        {InvitationOneData.map(el => {
-                            return (
-                                <div>
-                                    <div
-                                        css={sliderContentBg}
-                                        style={
-                                            (InvitationOneData.indexOf(el) + 1) % 2 === 1
-                                                ? {
-                                                      backgroundColor: "#000",
-                                                  }
-                                                : { backgroundColor: "#FF9D46" }
-                                        }
-                                    ></div>
-                                </div>
-                            );
-                        })}
-                    </div>
                     <div css={moreContainer} ref={artistInfoBoxRef}>
                         <div css={ArtistInfoBox}>
                             <div
@@ -871,7 +930,32 @@ const InvitationOne = () => {
                                 })}
                             </div>
                         </div>
+                        <div
+                            css={sliderBGWrapper}
+                            style={{
+                                transform: `translate3d(${(InvitationOneData.length * 100 - index * 100) * -1}%, 0, 0)`,
+                                height: `${artistInfoBoxHeight}px`,
+                            }}
+                        >
+                            {InvitationOneData.map(el => {
+                                return (
+                                    <div>
+                                        <div
+                                            css={sliderContentBg}
+                                            style={
+                                                (InvitationOneData.indexOf(el) + 1) % 2 === 1
+                                                    ? {
+                                                          backgroundColor: "#000",
+                                                      }
+                                                    : { backgroundColor: "#FF9D46" }
+                                            }
+                                        ></div>
+                                    </div>
+                                );
+                            })}
+                        </div>
                     </div>
+
                     <div
                         css={introductionContainer}
                         style={
@@ -884,7 +968,7 @@ const InvitationOne = () => {
                         }
                     >
                         <div>
-                            <div css={ArtistInfoTextContent} style={{ height: "50vh" }}>
+                            <div css={InvitationInfoContent}>
                                 <div>
                                     <p css={theme.textKr} style={{ fontWeight: "bold" }}>
                                         초대 I: 지휘 수업 指揮 受業{" "}

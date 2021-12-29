@@ -14,6 +14,10 @@ const GlobalStyles = createGlobalStyle`
 			top: 0;
 	   }
 
+	   body {
+		   overflow-x: hidden;
+	   }
+
 	   #__next {
 		    width: 100vw;
 			height: 100vh;
