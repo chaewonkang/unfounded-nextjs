@@ -88,15 +88,14 @@ const sliderContainer = css`
 
 const sliderWrapper = css`
     width: 100vw;
-    height: 100%;
+    height: calc(100vh - 48px);
+
     display: inline-block;
-    position: absolute;
     z-index: 2;
     white-space: nowrap;
     transition: ease 1000ms;
 
     & > div {
-        height: 100vh;
         width: 100vw;
         display: inline-block;
     }
@@ -187,7 +186,6 @@ const sliderContentWrapper = css`
 const iframeContainer = css`
     width: calc((100% / 12) * 8);
     height: 100%;
-    position: relative;
 
     @media (max-width: 781px) {
         width: 100%;
@@ -199,13 +197,21 @@ const iframeContainer = css`
 const iframeWrapper = css`
     width: 100%;
     height: 100%;
-    transition: ease 1000ms;
+
+    transition: ease-in 2000ms;
+
+    & > div:first-of-type {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 `;
 
 const startImageWrapper = css`
     width: 100%;
     height: 100%;
-    position: relative;
 
     & > div:first-of-type {
         width: 100%;
@@ -255,8 +261,6 @@ const slideText = css`
 `;
 
 const introContainer = css`
-    position: relative;
-    top: 0;
     width: 100vw;
     height: auto;
     display: flex;
@@ -488,37 +492,9 @@ const ArtistInfoTextContent = css`
     align-items: flex-start;
     justify-content: center;
 
-    & > div {
-        width: calc(50% - 9px);
-        height: 100%;
-        display: flex;
-
-        & > p:first-of-type {
-            width: calc((100% / 6) * 2);
-            max-width: calc((100% / 6) * 2);
-            padding-right: 9px;
-        }
-
-        & > p:last-of-type {
-            width: calc((100% / 6) * 4);
-            max-width: calc((100% / 6) * 4);
-            overflow: auto;
-            padding-right: 9px;
-        }
-    }
-
-    & > div:first-of-type {
-        margin-right: 9px;
-    }
-
-    & > div:last-of-type {
-        margin-left: 9px;
-    }
-
     @media (max-width: 781px) {
         width: 100%;
-        height: auto;
-
+        height: 100%;
         display: flex;
         flex-direction: column;
         white-space: pre-wrap;
@@ -526,35 +502,6 @@ const ArtistInfoTextContent = css`
         padding-left: 15px;
         padding-right: 15px;
         padding-bottom: 20px;
-
-        & > div {
-            width: 100%;
-            height: 50%;
-            display: flex;
-            flex-direction: column;
-
-            & > p:first-of-type {
-                width: 100%;
-                max-width: 100%;
-                padding-right: 9px;
-            }
-
-            & > p:last-of-type {
-                width: 100%;
-                max-width: 100%;
-                oberflow: auto;
-                padding-right: 9px;
-            }
-        }
-
-        & > div:first-of-type {
-            margin-right: 0px;
-        }
-
-        & > div:last-of-type {
-            margin-top: 30px;
-            margin-left: 0px;
-        }
     }
 `;
 
@@ -619,7 +566,6 @@ const ProjectInfoTextContent = css`
             & > p:last-of-type {
                 width: 100%;
                 max-width: 100%;
-                oberflow: auto;
                 padding-right: 9px;
             }
         }
@@ -691,14 +637,14 @@ const InvitationInfoContent = css`
             & > p:first-of-type {
                 width: 100%;
                 max-width: 100%;
-                padding-right: 9px;
+                padding-right: 0px;
             }
 
             & > p:last-of-type {
                 width: 100%;
                 max-width: 100%;
                 oberflow: auto;
-                padding-right: 9px;
+                padding-right: 0px;
             }
         }
 
@@ -711,6 +657,98 @@ const InvitationInfoContent = css`
             margin-left: 0px;
         }
     }
+`;
+
+const mobileDisplay = css`
+    display: none;
+
+    @media (max-width: 781px) {
+        width: 100%;
+        width: calc(100%);
+        height: 100%;
+        display: flex;
+        & > div {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: auto;
+
+            & > div {
+                p:first-of-type,
+                p:nth-of-type(2),
+                p:nth-of-type(3) {
+                    width: 100%;
+                    width: 100%;
+                    padding-right: 0px;
+                    height: auto;
+                }
+
+                p:nth-of-type(3) {
+                    padding-top: 30px;
+                }
+
+                p:last-of-type {
+                    width: calc((100% / 6) * 4);
+                    max-width: calc((100% / 6) * 4);
+                    overflow: auto;
+                    padding-right: 0px;
+                }
+            }
+        }
+
+        & > div:first-of-type {
+            margin-right: 0px;
+        }
+
+        & > div:last-of-type {
+            margin-left: 0px;
+        }
+    }
+`;
+
+const desktopDisplay = css`
+    width: 100%;
+    width: calc(100%);
+    height: 100%;
+    display: flex;
+
+    & > div {
+        width: calc(50% - 9px);
+        height: 100%;
+        display: flex;
+        overflow: auto;
+
+        & > p:first-of-type {
+            width: calc((100% / 6) * 2);
+            max-width: calc((100% / 6) * 2);
+            padding-right: 9px;
+            height: auto;
+        }
+
+        & > p:last-of-type {
+            width: calc((100% / 6) * 4);
+            max-width: calc((100% / 6) * 4);
+            overflow: auto;
+            padding-right: 9px;
+        }
+    }
+
+    & > div:first-of-type {
+        margin-right: 9px;
+    }
+
+    & > div:last-of-type {
+        margin-left: 9px;
+    }
+
+    @media (max-width: 781px) {
+        display: none;
+    }
+`;
+
+const mt30 = css`
+    margin-top: 30px;
 `;
 
 const InvitationOne = () => {
@@ -743,38 +781,6 @@ const InvitationOne = () => {
         <ThemeProvider theme={theme}>
             <div css={introContainer}>
                 <div css={sliderContainer}>
-                    <div css={sliderArrow}>
-                        <div
-                            onClick={() => {
-                                setCoverIsShow({ index: 0 });
-                                if (index === 0) {
-                                    setIndex(InvitationOneData.length - 1);
-                                } else if (index === 1) {
-                                    setIndex(0);
-                                } else if (index < InvitationOneData.length - 1) {
-                                    setIndex(index - 1);
-                                } else {
-                                    setIndex(index - 1);
-                                }
-                            }}
-                        >
-                            <img src="/static/images/sliderLeft.png" />
-                        </div>
-                        <div
-                            onClick={() => {
-                                setCoverIsShow({
-                                    index: 0,
-                                });
-
-                                if (index < InvitationOneData.length - 1) {
-                                    setIndex(index + 1);
-                                } else if (index == InvitationOneData.length - 1) setIndex(0);
-                                else if (index == 1) setIndex(index + 1);
-                            }}
-                        >
-                            <img src="/static/images/sliderRight.png" />
-                        </div>
-                    </div>
                     <div
                         css={sliderBGWrapper}
                         style={{
@@ -812,17 +818,19 @@ const InvitationOne = () => {
                                             <div css={iframeContainer}>
                                                 {coverIsShow.index === el.index + 1 ? (
                                                     <div css={iframeWrapper}>
-                                                        <iframe
-                                                            width="100%"
-                                                            style={{
-                                                                height: "100%",
-                                                                zIndex: 30,
-                                                            }}
-                                                            src={el.iframeSrc}
-                                                            frameBorder="0"
-                                                            scrolling="no"
-                                                            allowFullScreen
-                                                        ></iframe>
+                                                        <div>
+                                                            <iframe
+                                                                width="100%"
+                                                                style={{
+                                                                    height: "100%",
+                                                                    zIndex: 30,
+                                                                }}
+                                                                src={el.iframeSrc}
+                                                                frameBorder="0"
+                                                                scrolling="no"
+                                                                allowFullScreen
+                                                            ></iframe>
+                                                        </div>
                                                     </div>
                                                 ) : (
                                                     <div
@@ -847,6 +855,38 @@ const InvitationOne = () => {
                                 </div>
                             );
                         })}
+                    </div>
+                    <div css={sliderArrow}>
+                        <div
+                            onClick={() => {
+                                setCoverIsShow({ index: 0 });
+                                if (index === 0) {
+                                    setIndex(InvitationOneData.length - 1);
+                                } else if (index === 1) {
+                                    setIndex(0);
+                                } else if (index < InvitationOneData.length - 1) {
+                                    setIndex(index - 1);
+                                } else {
+                                    setIndex(index - 1);
+                                }
+                            }}
+                        >
+                            <img src="/static/images/sliderLeft.png" />
+                        </div>
+                        <div
+                            onClick={() => {
+                                setCoverIsShow({
+                                    index: 0,
+                                });
+
+                                if (index < InvitationOneData.length - 1) {
+                                    setIndex(index + 1);
+                                } else if (index == InvitationOneData.length - 1) setIndex(0);
+                                else if (index == 1) setIndex(index + 1);
+                            }}
+                        >
+                            <img src="/static/images/sliderRight.png" />
+                        </div>
                     </div>
                 </div>
                 <div css={bottomBannerContainer}>
@@ -898,17 +938,31 @@ const InvitationOne = () => {
                                                 </div>
                                             </div>
                                             <div css={ArtistInfoTextContent}>
-                                                <div>
-                                                    <p css={theme.textKr} style={{ fontWeight: "bold" }}>
-                                                        {el.particiKr}
-                                                    </p>
-                                                    <p css={theme.textKr}>{el.artistInfoKr}</p>
+                                                <div css={mobileDisplay}>
+                                                    <div>
+                                                        <p css={theme.textKr} style={{ fontWeight: "bold" }}>
+                                                            {el.particiKr}
+                                                        </p>
+                                                        <p css={theme.textKr}>{el.artistInfoKr}</p>
+                                                        <p css={[theme.textEn, mt30]} style={{ fontWeight: "bold" }}>
+                                                            {el.particiEn}
+                                                        </p>
+                                                        <p css={theme.textEn}>{el.artistInfoEn}</p>
+                                                    </div>
                                                 </div>
-                                                <div>
-                                                    <p css={theme.textEn} style={{ fontWeight: "bold" }}>
-                                                        {el.particiEn}
-                                                    </p>
-                                                    <p css={theme.textEn}>{el.artistInfoEn}</p>
+                                                <div css={desktopDisplay}>
+                                                    <div>
+                                                        <p css={theme.textKr} style={{ fontWeight: "bold" }}>
+                                                            {el.particiKr}
+                                                        </p>
+                                                        <p css={theme.textKr}>{el.artistInfoKr}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p css={theme.textEn} style={{ fontWeight: "bold" }}>
+                                                            {el.particiEn}
+                                                        </p>
+                                                        <p css={theme.textEn}>{el.artistInfoEn}</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

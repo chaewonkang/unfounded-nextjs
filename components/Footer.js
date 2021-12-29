@@ -114,6 +114,7 @@ const footerBottomArea = css`
                 flex-direction: column;
                 margin-right: 0px;
                 width: 40%;
+                -webkit-text-stroke-width: 0.5px;
             }
 
             div:last-of-type {
@@ -205,7 +206,7 @@ const footerRightArea = css`
         p:first-of-type {
             width: 40%;
             letter-spacing: 0.2px;
-            -webkit-text-stroke-width: 0.2px;
+            -webkit-text-stroke-width: 0.5px;
         }
 
         p:last-of-type {
@@ -368,7 +369,11 @@ const Footer = ({ bgColor, color, children }) => {
                             </div>
                             <div>
                                 <p>unfounded.info@gmail.com</p>
-                                <p>@unfounded</p>
+                                <p>
+                                    <a href="http://www.instagram.com/unfounded.info" target="_blank">
+                                        @unfounded.info
+                                    </a>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -577,7 +582,11 @@ const Footer = ({ bgColor, color, children }) => {
                                 </div>
                                 <div>
                                     <span>unfounded.info@gmail.com</span>
-                                    <span>@unfounded</span>
+                                    <span>
+                                        <a href="http://www.instagram.com/unfounded.info" target="_blank">
+                                            @unfounded.info
+                                        </a>
+                                    </span>
                                 </div>
                             </div>
                         ) : null}

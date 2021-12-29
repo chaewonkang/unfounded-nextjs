@@ -235,7 +235,12 @@ const InvitationTwo = () => {
                     </div>
                 </div>
                 <div css={bottomBanner}>
-                    <p>FOLLOW US ON INSTAGRAM AT @UNFOUNDED</p>
+                    <p>
+                        FOLLOW US{" "}
+                        <a href="http://www.instagram.com/unfounded.info" target="_blank">
+                            @UNFOUNDED.INFO
+                        </a>
+                    </p>
                 </div>
                 <Footer bgColor={"#000"} color={"#fff"} />
             </div>

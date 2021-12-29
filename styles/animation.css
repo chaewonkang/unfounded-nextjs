@@ -74,7 +74,7 @@
         width: 1600vw;
         position: relative;
         height: 60px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         overflow: hidden;
         --offset: 20vw;
         --move-initial: calc(0);
