@@ -1,7 +1,7 @@
 const InvitationOneData = [
     {
         index: 0,
-        src: "/static/images/invitation/1/1_1.png",
+        src: "/static/images/invitation/1/1_alter.png",
         iframeSrc: "https://miro.com/app/live-embed/uXjVOfjPq-8=/?moveToViewport=-476,-312,950,624",
         title: "Down Stairs of Wunderkammer",
         titleKr: "프로젝트 A",
@@ -18,7 +18,7 @@ const InvitationOneData = [
     },
     {
         index: 1,
-        src: "/static/images/invitation/1/1_2.png",
+        src: "/static/images/invitation/1/1_eugene.png",
         iframeSrc: "https://miro.com/app/live-embed/uXjVOfjPq_M=/?moveToViewport=-794,-559,1450,949",
         title: "미싱노미술관",
         titleKr: "프로젝트 A",
@@ -35,7 +35,7 @@ const InvitationOneData = [
     },
     {
         index: 2,
-        src: "/static/images/invitation/1/1_3.jpg",
+        src: "/static/images/invitation/1/1_jinyoung.jpg",
         iframeSrc: "https://miro.com/app/live-embed/uXjVOfjPqyg=/?moveToViewport=-459,-300,916,600",
         title: "WE SHALL MEET AGAIN",
         titleKr: "프로젝트 A",
@@ -52,7 +52,7 @@ const InvitationOneData = [
     },
     {
         index: 3,
-        src: "/static/images/invitation/1/1_4.png",
+        src: "/static/images/invitation/1/1_miji.jpg",
         iframeSrc: "https://miro.com/app/live-embed/uXjVOfjPqzE=/?moveToViewport=-4087,-11193,19906,13193",
         title: "PURPLEX",
         titleKr: "프로젝트 A",
@@ -69,7 +69,7 @@ const InvitationOneData = [
     },
     {
         index: 4,
-        src: "/static/images/invitation/1/1_5.jpg",
+        src: "/static/images/invitation/1/1_jiwoo.png",
         iframeSrc: "https://miro.com/app/live-embed/uXjVOfjOdkM=/?moveToViewport=-254917,-178249,458400,300000",
         title: "Air of Records",
         titleKr: "프로젝트 A",
@@ -86,7 +86,7 @@ const InvitationOneData = [
     },
     {
         index: 5,
-        src: "/static/images/invitation/1/1_1.png",
+        src: "/static/images/invitation/1/1_somee.png",
         iframeSrc: "https://miro.com/app/live-embed/uXjVOfjOVco=/?moveToViewport=-459,-300,916,600",
         title: "전시생애사",
         titleKr: "프로젝트 A",

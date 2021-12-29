@@ -2,7 +2,7 @@ import { useRef, useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import theme from "../styles/theme";
 import { useRouter } from "next/router";
-import { css } from "@emotion/react";
+import { css, keyframes } from "@emotion/react";
 import Footer from "../components/Footer";
 import InvitationOneData from "../data/InvitationOneData";
 import { route } from "next/dist/next-server/server/router";
@@ -210,17 +210,6 @@ const invitationTextBox = css`
         margin-bottom: 15px;
         height: auto;
     }
-`;
-
-const marqueeBox1 = css`
-    display: inline-block;
-    animation: marquee 20s linear infinite;
-`;
-
-const marqueeBox2 = css`
-    display: inline-block;
-    animation: marquee2 20s linear infinite;
-    animation-delay: 10s;
 `;
 
 const invitationText1 = css`
@@ -589,6 +578,19 @@ const slideText = css`
         display: inline-block;
         width: 50%;
     }
+
+    @media (max-width: 781px) {
+        width: 100%;
+
+        span {
+            display: inline-block;
+            width: auto;
+        }
+
+        span:last-of-type {
+            margin-left: 10px;
+        }
+    }
 `;
 
 const ArtistInfoTextContent = css`
@@ -820,18 +822,24 @@ const Introduction = () => {
                         <p>FOLLOW US ON INSTAGRAM AT @UNFOUNDED</p>
                     </div>
                     <div css={invitationBox} ref={scrollRef}>
-                        <div css={theme.marquee}>
-                            <div css={marqueeBox1}>
-                                <span>
-                                    INVITATION I: Conductor’s Lesson INVITATION I: Conductor’s Lesson INVITATION I:
-                                    Conductor’s Lesson&nbsp;
-                                </span>
-                            </div>
-                            <div css={marqueeBox2}>
-                                <span>
-                                    &nbsp;&nbsp;INVITATION I: Conductor’s Lesson INVITATION I: Conductor’s Lesson
-                                    INVITATION I: Conductor’s Lesson
-                                </span>
+                        <div className="marquee">
+                            <div className="marquee__inner" ariaHidden="true">
+                                <span> INVITATION I: Conductor’s Lesson </span>
+                                <span> INVITATION I: Conductor’s Lesson </span>
+                                <span> INVITATION I: Conductor’s Lesson </span>
+                                <span> INVITATION I: Conductor’s Lesson </span>
+                                <span> INVITATION I: Conductor’s Lesson </span>
+                                <span> INVITATION I: Conductor’s Lesson </span>
+                                <span> INVITATION I: Conductor’s Lesson </span>
+                                <span> INVITATION I: Conductor’s Lesson </span>
+                                <span> INVITATION I: Conductor’s Lesson </span>
+                                <span> INVITATION I: Conductor’s Lesson </span>
+                                <span> INVITATION I: Conductor’s Lesson </span>
+                                <span> INVITATION I: Conductor’s Lesson </span>
+                                <span> INVITATION I: Conductor’s Lesson </span>
+                                <span> INVITATION I: Conductor’s Lesson </span>
+                                <span> INVITATION I: Conductor’s Lesson </span>
+                                <span> INVITATION I: Conductor’s Lesson </span>
                             </div>
                         </div>
                         <div css={invitationTextBox} ref={InvitationTextBoxRef}>

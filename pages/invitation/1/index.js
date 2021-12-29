@@ -205,15 +205,38 @@ const iframeWrapper = css`
 const startImageWrapper = css`
     width: 100%;
     height: 100%;
+    position: relative;
 
     & > div:first-of-type {
         width: 100%;
         height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         & > img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            cursor: pointer;
+
+            :hover {
+                filter: invert(100%);
+            }
+        }
+
+        & > div {
+            position: absolute;
+            background-color: #000;
+            padding-left: 5px;
+            padding-right: 5px;
+
+            span {
+                font-size: 20px;
+                font-family: PP Neue Montreal Regular, sans-serif;
+
+                letter-spacing: 0px;
+            }
         }
     }
 `;
@@ -350,8 +373,8 @@ const bottomBannerWrapper = css`
 const introductionContainer = css`
     width: 100%;
     height: auto;
-    border-top: 1px solid;
-    border-bottom: 1px solid;
+    border-top: 0.5px solid;
+    border-bottom: 0.5px solid;
     word-break: keep-all;
 
     & > div {
@@ -367,8 +390,8 @@ const introductionContainer = css`
     @media (max-width: 781px) {
         width: 100%;
         height: 100vh;
-        border-top: 1px solid;
-        border-bottom: 1px solid;
+        border-top: 0.5px solid;
+        border-bottom: 0.5px solid;
         overflow: auto;
         word-break: keep-all;
 
@@ -408,7 +431,7 @@ const EachTextBox = css`
 `;
 
 const moreContainer = css`
-    border-top: 1px solid #000;
+    border-top: 0.5px solid;
     width: 100%;
     height: auto;
     transition: 3s ease-in;
@@ -500,8 +523,8 @@ const ArtistInfoTextContent = css`
         flex-direction: column;
         white-space: pre-wrap;
         padding-top: 20px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
         padding-bottom: 20px;
 
         & > div {
@@ -544,7 +567,7 @@ const ProjectInfoTextContent = css`
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
-    border-bottom: 1px solid;
+    border-bottom: 0.5px solid;
 
     & > div {
         width: calc(100%);
@@ -576,8 +599,8 @@ const ProjectInfoTextContent = css`
         flex-direction: column;
         white-space: pre-wrap;
         padding-top: 20px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
         padding-bottom: 20px;
 
         & > div {
@@ -618,7 +641,7 @@ const InvitationInfoContent = css`
     padding-bottom: 20px;
     align-items: flex-start;
     justify-content: center;
-    border-top: 1px solid;
+    border-top: 0.5px solid;
 
     & > div {
         width: calc(50% - 9px);
@@ -655,8 +678,8 @@ const InvitationInfoContent = css`
         flex-direction: column;
         white-space: pre-wrap;
         padding-top: 20px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
         padding-bottom: 20px;
 
         & > div {
@@ -688,30 +711,6 @@ const InvitationInfoContent = css`
             margin-left: 0px;
         }
     }
-`;
-
-const marquee = css`
-    position: absolute;
-    width: 100%;
-
-    top: calc(50% - 43px);
-    overflow: hidden;
-    padding-top: 10px;
-    white-space: nowrap;
-    font-family: "GTFAgentur", serif;
-    font-size: 86px;
-    color: #ff9d46;
-`;
-
-const marqueeBox1 = css`
-    display: inline-block;
-    animation: marquee 20s linear infinite;
-`;
-
-const marqueeBox2 = css`
-    display: inline-block;
-    animation: marquee2 20s linear infinite;
-    animation-delay: 10s;
 `;
 
 const InvitationOne = () => {
@@ -836,21 +835,8 @@ const InvitationOne = () => {
                                                     >
                                                         <div>
                                                             <img src={el.src} />
-                                                            <div css={marquee}>
-                                                                <div css={marqueeBox1}>
-                                                                    <span>
-                                                                        CLICK to START CLICK to START CLICK to START
-                                                                        CLICK to START CLICK to START CLICK to START
-                                                                        CLICK to START &nbsp; &nbsp;
-                                                                    </span>
-                                                                </div>
-                                                                <div css={marqueeBox2}>
-                                                                    <span>
-                                                                        CLICK to START CLICK to START CLICK to START
-                                                                        CLICK to START CLICK to START CLICK to START
-                                                                        CLICK to START &nbsp; &nbsp;
-                                                                    </span>
-                                                                </div>
+                                                            <div className="blink">
+                                                                <span>CLICK TO START</span>
                                                             </div>
                                                         </div>
                                                     </div>

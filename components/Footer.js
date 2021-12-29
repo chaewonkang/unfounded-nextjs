@@ -186,6 +186,7 @@ const footerRightArea = css`
 
         p:first-of-type {
             width: 40%;
+            font-weight: bold;
         }
 
         p:last-of-type {
@@ -203,6 +204,8 @@ const footerRightArea = css`
 
         p:first-of-type {
             width: 40%;
+            letter-spacing: 0.2px;
+            -webkit-text-stroke-width: 0.2px;
         }
 
         p:last-of-type {
@@ -250,6 +253,10 @@ const footerContainerMobile = css`
                     letter-spacing: -0.5px;
                 }
             }
+        }
+
+        & > div:first-of-type {
+            border-top: none;
         }
     }
 `;

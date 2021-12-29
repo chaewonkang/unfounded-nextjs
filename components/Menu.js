@@ -16,7 +16,8 @@ const menuContainer = css`
 
 const StyledBurger = css`
     cursor: pointer;
-    width: 90px;
+    width: 65px;
+    height: 40px;
     padding-top: 10px;
     padding-bottom: 10px;
     display: flex;
