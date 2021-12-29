@@ -4,6 +4,7 @@ import theme from "../styles/theme";
 import { useRouter } from "next/router";
 import { css } from "@emotion/react";
 import Footer from "../components/Footer";
+import InvitationSlider from "../components/InvitationSlider";
 
 const sliderArrow = css`
     position: absolute;
@@ -40,6 +41,7 @@ const comingSoonContainer = css`
     padding-bottom: 21px;
     padding-top: calc(112px + 46px);
     position: relative;
+
     align-items: center;
     justify-content: center;
 
@@ -49,6 +51,8 @@ const comingSoonContainer = css`
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+        color: #fff;
 
         img {
             height: 100%;
@@ -57,7 +61,8 @@ const comingSoonContainer = css`
     }
 
     @media (max-width: 781px) {
-        display: none;
+        height: calc(100vh - 32px);
+        padding-top: 50px;
     }
 `;
 
@@ -164,9 +169,21 @@ const bottomBanner = css`
     }
 
     @media (max-width: 781px) {
+        width: 100vw;
+        position: relative;
+        bottom: 0;
         height: 32px;
+        background-color: #fff;
+        padding-left: 15px;
+        padding-right: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
         p {
             font-size: 15px;
+            font-family: PP Neue Montreal Regular, sans-serif;
+            letter-spacing: 0.1px;
         }
     }
 `;
