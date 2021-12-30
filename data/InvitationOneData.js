@@ -54,7 +54,7 @@ const InvitationOneData = [
         index: 3,
         src: "/static/images/invitation/1/1_miji.jpg",
         iframeSrc: "https://miro.com/app/live-embed/uXjVOfjPqzE=/?moveToViewport=49829,-13097,10861,7122",
-        title: "PURPLEX",
+        title: "PERPLEX",
         titleKr: "프로젝트 A",
         particiEn: "Miji Lee",
         particiKr: "이미지",

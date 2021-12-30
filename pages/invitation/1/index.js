@@ -995,7 +995,6 @@ const InvitationOne = () => {
                             })}
                         </div>
                     </div>
-
                     <div
                         css={introductionContainer}
                         style={
