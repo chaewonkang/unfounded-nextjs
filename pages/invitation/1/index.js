@@ -166,7 +166,7 @@ const sliderContentBg = css`
 `;
 
 const sliderContentWrapper = css`
-    width: 85%;
+    width: 100%;
     height: 90%;
     display: flex;
     flex-direction: column;
@@ -184,7 +184,7 @@ const sliderContentWrapper = css`
 `;
 
 const iframeContainer = css`
-    width: calc((100% / 12) * 8);
+    width: calc((100% / 12) * 10);
     height: 100%;
 
     @media (max-width: 781px) {
@@ -1093,9 +1093,8 @@ const InvitationOne = () => {
                                         <br />
                                         <span style={{ textDecoration: "underline" }}>
                                             <a href="https://www.youtube.com/watch?v=th_ro9CiASc" target="_blank">
-                                                The video above is a scene mentioned in Score Score page 61. Salieri
-                                                peeps and drops Mozart's score, impressed by imaginary music in his own
-                                                head.
+                                                A scene mentioned in Score Score page 61. Salieri peeps Mozart's score.
+                                                Impressed by imaginary music in his own head, he drops it.
                                             </a>
                                         </span>
                                         <br />
@@ -1108,22 +1107,21 @@ const InvitationOne = () => {
                                         <br />
                                         <br />
                                         The most important virtue for a composer would be imagination. The music that
-                                        the composer creates only exists in her or his head. The composer finishes
-                                        her/his score with the imaginary orchestra, constituted of conductor and
-                                        performer all herself/himself. This process is similar to how a curator wrties a
-                                        exhibition proposal. The exhibition only exists in her or his head. The curator
-                                        finishes her/his proposal with the imaginary exhibition space and artworks.
-                                        Imagination, again, is the most crucial virtue here. Both music score and
-                                        curatorial proposal are documents that marks a prognostication of an unrealized
-                                        future. <br />
+                                        the composer creates only exists in their head. The composer finishes their
+                                        score with the imaginary orchestra, consisting of conductor and performer all
+                                        themselves. This process is similar to how a curator writes an exhibition
+                                        proposal. The exhibition only exists in their head. The curator finishes their
+                                        proposal within the imaginary exhibition space and artworks. Imagination, again,
+                                        is the most crucial virtue here. Both music score and curatorial proposal are
+                                        documents that mark a prognostication of an unrealized future. <br />
                                         <br />
                                         <span style={{ fontWeight: "bold" }}>Conductor’s lesson</span>
                                         <br />
                                         <br /> "Suppose the composer wants to hear a musical instrument with a half
-                                        note. If the composer does not understand the nature of the orchestra, she/he
-                                        will use the half note as it is. Though to hear the sound of the half note in
-                                        the actual play, the note should be written a little longer on the score. A
-                                        composer who has experience conducting can delicately understand the orchestra's
+                                        note. If the composer does not understand the nature of the orchestra, they will
+                                        use the half note as it is. Though to hear the sound of the half note in the
+                                        actual play, the note should be written a little longer on the score. A composer
+                                        who has experience conducting can delicately understand the orchestra's
                                         characteristics and mind. It helps with easier imagination and performance when
                                         orchestrated. Composers should not only deal with sound but also include the
                                         mind of the performer in the creation."
@@ -1132,42 +1130,42 @@ const InvitationOne = () => {
                                         <br />
                                         But a curator’s work is closer to the conductor’s than the composer’s. It is
                                         involved in both imagination and reality. The proposal wanders to different
-                                        agencies who are related to an exhibition, becoming a foundation for communal
+                                        agencies related to an exhibition, becoming a foundation for communal
                                         discussion. It serves as a criterion setting the overall direction of the
                                         exhibition, coordinating each individual’s viewpoint, being modified to meet
-                                        realistic requirements or in the process of reflecting different opinions. As
-                                        the proposal is completed, it becomes a document produced according to the
-                                        exhibition rather than a pre-document for the exhibition. <br />
+                                        realistic requirements, or in the process of reflecting different opinions. The
+                                        proposal becomes a document produced following the exhibition rather than a
+                                        preliminary document as the proposal is completed. <br />
                                         <br /> In this regard, the curatorial proposal is a ‘score’ of the exhibition.
                                         The proposal is a compass that guides the unknown path, although it hides in the
-                                        concealed site of the exhibition. Just as a conductor realizes an imaginary
-                                        music using a music score as a compass, a curator realizes an imaginary
-                                        exhibition using a proposal as a compass. Management and administration,
-                                        accounting take place in this realization process. These are also the work of a
-                                        conductor and a curator. This position between imagination and reality
-                                        emphasized the feasibility of the proposal. <br />
+                                        concealed site of the exhibition. Just as a conductor realizes imaginary music
+                                        using a music score as a compass, a curator realizes an imaginary exhibition
+                                        using a proposal as a compass. Management, administration, and accounting also
+                                        take place in this realization process as a work of a conductor and a curator.
+                                        The feasibility of the proposal depends on this specific position of working in
+                                        between imagination and reality.
                                         <br />
-                                        Most of the proposal writes down on the premise of realization. The feasibility
-                                        is the one of indexes for evaluating the excellence of a proposal. An exhibition
-                                        which is nice in her/his brain can be shabby in reality. If an exhibition is too
-                                        large or too small compared to the scale of budget, it can’t get a high score no
-                                        matter how interesting and necessary it deals with. Likewise, the budget list,
-                                        schedule, casting situation, and expected effect are factors that mark the
-                                        feasibility of a proposal in itself regardless of the quality of content. At
-                                        this point, a work of curator and composer split. A composer sometimes writes
-                                        music that can never be played, not focused on realization. A curator writes
-                                        down on the premise of realization. A conductor works on the premise of
-                                        realization. Therefore, the title of this invitation is the ‘conductor’s’
-                                        lesson, not the ‘composer’ lesson. <br />
                                         <br />
-                                        The invitation I: Conductor's Lesson is an experiment that puts some distance
-                                        between an exhibition and a proposal. Beyond accurate and precise sentences,
-                                        popular topics, repeatedly doubting the feasibility, it emphasizes the process
-                                        of writing a proposal and external expansion of the proposal. Six curators wrote
-                                        their own proposal that would or would not be realized using various ways.
-                                        Audiences will look rather than read proposals, imagining exhibitions. Some
-                                        parts of these exhibitions can only be visited through imagination, as if great
-                                        composers doodled in a blank margin that the audience would not hear.
+                                        Most of the proposals are written based on the realization of the exhibition.
+                                        Practicability is one of the indexes for evaluating a proposal. A magnificent
+                                        exhibition in the imagination can be miserable in reality. Even though an
+                                        exhibition has an interesting topic, it is hard to receive positive feedback
+                                        when it is irrelevant to the scale of the budget. Budget list, schedule, casting
+                                        situation, and expectations are factors that mark the feasibility of a proposal
+                                        in itself regardless of the quality of content. At this point, a work of curator
+                                        and composer differentiates. A composer can write music that will never be
+                                        played, disregarding realization. A curator writes down on the premise of
+                                        completion. A conductor works on accomplishment. Therefore, the title of this
+                                        invitation is the ‘conductor’s’ lesson, not the ‘composer’ lesson. <br />
+                                        <br />
+                                        The invitation I: Conductor's Lesson is an experiment distancing exhibition and
+                                        a proposal. Beyond accurate and precise sentences, popular topics, skepticism of
+                                        the feasibility, it emphasizes writing a proposal and experiments with the
+                                        possibility of the proposal. Six curators wrote their proposal that would or
+                                        would not be realized using various ways. Audiences will look rather than read
+                                        proposals, imagining exhibitions. Some parts of these exhibitions can only be
+                                        visited through imagination as if great composers doodled in a blank margin that
+                                        the audience would not hear.
                                         <br />
                                         <br />
                                         “Even for strings, Johann Sebastian Bach liked to write whole and half notes

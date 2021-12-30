@@ -356,7 +356,16 @@ const Menu = ({ transX }) => {
                             {curRoute && (
                                 <div>
                                     <div>
-                                        <span>
+                                        <span
+                                            onClick={() => {
+                                                router.push({
+                                                    pathname:
+                                                        curRoute === 1
+                                                            ? menuArr[menuArr.length - 1].route
+                                                            : menuArr[curRoute - 2].route,
+                                                });
+                                            }}
+                                        >
                                             {curRoute === 1
                                                 ? menuArr[menuArr.length - 1].title
                                                 : menuArr[curRoute - 2].title}
@@ -365,7 +374,14 @@ const Menu = ({ transX }) => {
                                     <div css={theme.flexCenter}>
                                         <span>{menuArr[curRoute - 1].title}</span>
                                     </div>
-                                    <div css={theme.flexEnd}>
+                                    <div
+                                        css={theme.flexEnd}
+                                        onClick={() => {
+                                            router.push({
+                                                pathname: curRoute === 5 ? menuArr[0].route : menuArr[curRoute].route,
+                                            });
+                                        }}
+                                    >
                                         <span>{curRoute === 5 ? menuArr[0].title : menuArr[curRoute].title}</span>
                                     </div>
                                 </div>

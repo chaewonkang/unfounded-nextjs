@@ -71,27 +71,31 @@ const infoText = css`
         color: #fff;
         padding-bottom: 21px;
 
-        p:first-of-type {
+        & > p:first-of-type {
             width: calc(50% - 9px);
             margin-right: 9px;
             font-family: Gothic A1, sans-serif;
-            font-size: 21px;
+            font-size: 19px;
             font-weight: 500;
-            line-height: 37px;
+            line-height: 34px;
             word-break: keep-all;
             height: 100%;
             overflow: auto;
         }
 
-        p:last-of-type {
+        & > p:last-of-type {
             width: calc(50% - 9px);
             margin-left: 9px;
             font-family: PP Neue Montreal Regular, sans-serif;
-            font-size: 23px;
-            line-height: 34px;
+            font-size: 21px;
+            line-height: 31px;
             letter-spacing: 0.1px;
             height: 100%;
             overflow: auto;
+
+            & > span {
+                font-style: "italic";
+            }
         }
     }
 
@@ -776,64 +780,96 @@ const Introduction = () => {
                                 문서에서 밝혀진 부분은 극히 적다. 여기에 그 일부를 적으며 누군가 이 문서의 해독을
                                 이어나가 주기를 바란다.
                                 <br />
-                                <br /> “... ... 현실과 가상이, 사실과 허구가, 진실과 거짓이, 물질과 이미지가 (불에 탄
-                                자국)다. … …” (종이 문서: 32번 문서: 16쪽) <br /> “실재는 … … 설탕이 물에 녹듯 … …
-                                용해되고 있다.” (107 번째 석판: 2번째 줄) <br /> “유령은 과거가 아니다. 유령은 곧 도래할
-                                미래의 모습이다.” (카세트 테이프: 233번 문서: 1쪽 3번 메모) <br /> “시간이 완전히 엉켜
-                                버렸다. 우리는 쓸 수 없게 된 시간을 버리고 새로운 시간을 구축하자고 약속했다. 과거로
-                                가고 있다고 생각했지만 금세 미래였다. 미래로 흐르고 있다고 생각했지만 역시, 현재였다.
-                                악독한 뫼비우스.” (일기들 [검은색 가죽]: 64번 문서: 577쪽) <br /> “미안해, 네가 이번
-                                리얼리티를 위해 만든 규칙들, 다 알아서 시시해져 버렸어.” (편지들: 584번 문서: 2쪽){" "}
-                                <br />
-                                “발굴 현장에서 얻은 결과에 따르면 … … 발견자의 유해가 폐허의 가장 안쪽에 안치되어
-                                있었다.” (보고서: 20번 문서: 92쪽) <br /> “이 사진은 실화를 바탕으로 한다.(촬영 장소
-                                불확실?)” (포토에세이: 388번 문서: 12쪽 뒷면) <br /> “예언이 본 사건을 촉발시킨 것으로
-                                알려져 있다.” (신문: 998번 문서: 1쪽 헤드라인) <br /> <br /> 언파운디드 문서가 흥미로운
-                                것은 그것에 어떤 순서도 없기 때문이다. 이 문서는 어디로도 나아가지 않는다. 대신 멈춰
-                                있다. 적어도 멈춰 있는 것처럼 보인다. 그러나 자세히 살피면 모든 방향에서 그것을 당기는
-                                중력이 작동하기 때문에 멈춰 있는 것처럼 보일 따름이지, 그것은 일 초에도 수천 번을
-                                진동한다. 우리가 언파운디드 문서를 발견한 곳은 이천 년 전에 혹은 만 년 뒤에 미술관이
-                                되는 곳이었다. <br /> <br /> 우리는 언파운디드 문서 중 일부를 함께 해독할 사람 몇 명을
-                                수소문하여 ‘초대’했다. 그들은 미술관의 생리에 대해 잘 알고 있거나 잘 모르고 있는 전시
-                                기획자, 비평가, 예술가, 관객, 행인 중 용기와 믿음을 점쳐 우선 선발되었다. 우리는 이들과
-                                함께 언파운디드 문서의 일부를 실행해 보면서 무엇이 나타나는지 관찰하고자 했다. 수천 번의
-                                진동을 잠시라도 목격했다면 운이 좋은 날이었다. 여전히 해독할 수 없는 문서가 많이 남아
-                                있기에, 우리는 ‘탐험’으로 지도 혹은 내비게이션 역할을 할 수 있는 또 다른 문서를
-                                만들었다. 가려지거나 숨겨진 입구와 출구를 포착하고, 이 문서의 다른 부분을 탐침하는 데에
-                                도움이 되길 바라는 마음으로. 그러나 어쩐지, 그것은 또 다른 수수께끼를 불러 오기만 하는
-                                것 같기도 하다.
+                                <br />{" "}
+                                <span
+                                    style={{
+                                        fontSize: "17px",
+                                        lineHeight: "31px",
+                                        display: "block",
+                                        fontStyle: "italic",
+                                        width: "100%",
+                                        height: "fit-content",
+                                        margin: "0",
+                                    }}
+                                >
+                                    “... ... 현실과 가상이, 사실과 허구가, 진실과 거짓이, 물질과 이미지가 (불에 탄
+                                    자국)다. … …” (종이 문서: 32번 문서: 16쪽) <br /> “실재는 … … 설탕이 물에 녹듯 … …
+                                    용해되고 있다.” (107 번째 석판: 2번째 줄) <br /> “유령은 과거가 아니다. 유령은 곧
+                                    도래할 미래의 모습이다.” (카세트 테이프: 233번 문서: 1쪽 3번 메모) <br /> “시간이
+                                    완전히 엉켜 버렸다. 우리는 쓸 수 없게 된 시간을 버리고 새로운 시간을 구축하자고
+                                    약속했다. 과거로 가고 있다고 생각했지만 금세 미래였다. 미래로 흐르고 있다고
+                                    생각했지만 역시, 현재였다. 악독한 뫼비우스.” (일기들 [검은색 가죽]: 64번 문서:
+                                    577쪽) <br /> “미안해, 네가 이번 리얼리티를 위해 만든 규칙들, 다 알아서 시시해져
+                                    버렸어.” (편지들: 584번 문서: 2쪽) <br />
+                                    “발굴 현장에서 얻은 결과에 따르면 … … 발견자의 유해가 폐허의 가장 안쪽에 안치되어
+                                    있었다.” (보고서: 20번 문서: 92쪽) <br /> “이 사진은 실화를 바탕으로 한다.(촬영 장소
+                                    불확실?)” (포토에세이: 388번 문서: 12쪽 뒷면) <br /> “예언이 본 사건을 촉발시킨
+                                    것으로 알려져 있다.” (신문: 998번 문서: 1쪽 헤드라인) <br /> <br />
+                                </span>
+                                언파운디드 문서가 흥미로운 것은 그것에 어떤 순서도 없기 때문이다. 이 문서는 어디로도
+                                나아가지 않는다. 대신 멈춰 있다. 적어도 멈춰 있는 것처럼 보인다. 그러나 자세히 살피면
+                                모든 방향에서 그것을 당기는 중력이 작동하기 때문에 멈춰 있는 것처럼 보일 따름이지,
+                                그것은 일 초에도 수천 번을 진동한다. 우리가 언파운디드 문서를 발견한 곳은 이천 년 전에
+                                혹은 만 년 뒤에 미술관이 되는 곳이었다. <br /> <br /> 우리는 언파운디드 문서 중 일부를
+                                함께 해독할 사람 몇 명을 수소문하여 ‘초대’했다. 그들은 미술관의 생리에 대해 잘 알고
+                                있거나 잘 모르고 있는 전시 기획자, 비평가, 예술가, 관객, 행인 중 용기와 믿음을 점쳐 우선
+                                선발되었다. 우리는 이들과 함께 언파운디드 문서의 일부를 실행해 보면서 무엇이 나타나는지
+                                관찰하고자 했다. 수천 번의 진동을 잠시라도 목격했다면 운이 좋은 날이었다. 여전히 해독할
+                                수 없는 문서가 많이 남아 있기에, 우리는 ‘탐험’으로 지도 혹은 내비게이션 역할을 할 수
+                                있는 또 다른 문서를 만들었다. 가려지거나 숨겨진 입구와 출구를 포착하고, 이 문서의 다른
+                                부분을 탐침하는 데에 도움이 되길 바라는 마음으로. 그러나 어쩐지, 그것은 또 다른
+                                수수께끼를 불러 오기만 하는 것 같기도 하다.
                             </p>
                             <div css={borderMobile}></div>
                             <p>
-                                Unfounded is a name for a pile of documents discovered at the beginning of the 21st
-                                century. Likewise, the meaning rootless, vain, and nonsense, Unfounded is full of
-                                confounding and indecipherable content, only ensuring it was written with great care. It
-                                has been nearly two hundred years since its discovery, yet few parts are revealed from
-                                these riddles of pun and incomprehensible diagrams. Some parts of the document are
-                                written down below, hoping someone to continue decrypting the document. <br />
-                                <br /> “... … real and virtual, fact and fiction, truth and lie, material and image are
-                                (burnt spots) … …” (papers: number 32: page 16) <br /> “Reality is … … melting down … …
-                                like sugar in water.” (stone tablets number 107: line 2) <br />
-                                “Ghosts are not the past. They are the future that will soon arrive.” (cassette tapes:
-                                number 233: memo number 3 from page 1) <br /> “The time is entirely tangled. We promised
-                                to get rid of the useless time and construct a new time. We thought we were moving to
-                                the past but soon arrived at the future. We thought we were moving to the future, but we
-                                arrived at the present again. Vicious Möbius strip. (diaries [in black leather]: number
-                                64: page 577) <br />
-                                “Sorry. Your rules to make this reality, I found it and it became boring.” (letters:
-                                number 584: page 2) <br /> “According to the report of the excavation site… … remains of
-                                the discoverer were placed in the innermost part of the ruins. (reports: number 20: page
-                                92) <br /> “This photo is based on true story.(site unknown?)” (photo essays: number
-                                288: page 12) <br /> “The prophecy precipitated the event.” (newspaper: number 998:
-                                headline from page 1) <br /> <br /> What makes the Unfounded document interesting is
+                                <span style={{ fontStyle: "italic" }}>Unfounded </span> &nbsp;is a name for a pile of
+                                documents discovered at the beginning of the 21st century. Likewise, the meaning
+                                rootless, vain, and nonsense, &nbsp;
+                                <span style={{ fontStyle: "italic" }}>Unfounded</span> &nbsp;is full of confounding and
+                                indecipherable content, only ensuring it was written with great care. It has been nearly
+                                two hundred years since its discovery, yet few parts are revealed from these riddles of
+                                pun and incomprehensible diagrams. Some parts of the document are written down below,
+                                hoping someone to continue decrypting the document. <br />
+                                <br />
+                                <span
+                                    style={{
+                                        fontSize: "18px",
+                                        lineHeight: "29px",
+                                        fontStyle: "italic",
+                                        display: "block",
+                                        width: "100%",
+                                        height: "fit-content",
+                                        margin: "0",
+                                    }}
+                                >
+                                    “... … real and virtual, fact and fiction, truth and lie, material and image are
+                                    (burnt spots) … …” (papers: number 32: page 16) <br /> “Reality is … … melting down
+                                    … … like sugar in water.” (stone tablets number 107: line 2) <br />
+                                    “Ghosts are not the past. They are the future that will soon arrive.” (cassette
+                                    tapes: number 233: memo number 3 from page 1) <br /> “The time is entirely tangled.
+                                    We promised to get rid of the useless time and construct a new time. We thought we
+                                    were moving to the past but soon arrived at the future. We thought we were moving to
+                                    the future, but we arrived at the present again. Vicious Möbius strip. (diaries [in
+                                    black leather]: number 64: page 577) <br />
+                                    “Sorry. Your rules to make this reality, I found it and it became boring.” (letters:
+                                    number 584: page 2) <br /> “According to the report of the excavation site… …
+                                    remains of the discoverer were placed in the innermost part of the ruins. (reports:
+                                    number 20: page 92) <br /> “This photo is based on true story.(site unknown?)”
+                                    (photo essays: number 288: page 12) <br /> “The prophecy precipitated the event.”
+                                    (newspaper: number 998: headline from page 1)
+                                </span>{" "}
+                                <br /> <br /> What makes the &nbsp;
+                                <span style={{ fontStyle: "italic" }}>Unfounded</span>&nbsp; document interesting is
                                 that it does not have any order. The document has stopped moving to nowhere. At least,
                                 it seems as if it is still. It gives the impression of being motionless; however, it
                                 vibrates thousands of times a second by the gravity that pulls the document in all
-                                directions. We found the Unfounded document where it was a museum two thousand years ago
-                                or where it will be a museum ten thousand years later. <br /> <br /> We have ‘invited’ a
-                                few people who would decipher the part of the Unfounded document together. People were
-                                selected among the curator, critic, artist, audience, a passerby who knows or does not
-                                know the system of the museum, prioritizing the courage and faith they have. We have
+                                directions. We found the &nbsp;<span style={{ fontStyle: "italic" }}>Unfounded </span>
+                                &nbsp; document where it was a museum two thousand years ago or where it will be a
+                                museum ten thousand years later. <br /> <br /> We have sent an ‘invitation’ to a few
+                                people who would decipher the part of the &nbsp;
+                                <span style={{ fontStyle: "italic" }}>Unfounded </span>&nbsp; document together. People
+                                were selected among the curator, critic, artist, audience, a passerby who knows or does
+                                not know the system of the museum, prioritizing the courage and faith they have. We have
                                 executed some parts of the Unfounded document and examined what emerges. On some lucky
                                 days, thousands of vibrations were witnessed. Inexplicable documents have led us to
                                 create another document that can serve as a map or navigation as an ‘exploration,’
@@ -894,7 +930,7 @@ const Introduction = () => {
                                         <p>유진영, 이미지, 이솜이, 이지우 </p>
                                     </div>
                                     <div css={theme.textEn}>
-                                        <p>invitee</p>
+                                        <p>Guests</p>
                                         <p>Jinyoung Yoo, Miji Lee, Somi Lee, Jiwoo Lee</p>
                                     </div>
                                 </div>
@@ -917,7 +953,7 @@ const Introduction = () => {
                                         no limitation in the form of the proposal. From a typical one to a formal one, a
                                         floorplan, and a diagram, guests choose the form which suits each. Doing so, we
                                         look into the relationship between an exhibition and a proposal assumed as a
-                                        score of an exhibition.The guest list consists of six people who are curators.
+                                        score of an exhibition. The guest list consists of six people who are curators.
                                     </p>
                                 </div>
                                 <div>
@@ -1145,9 +1181,9 @@ const Introduction = () => {
                                                             href="https://www.youtube.com/watch?v=th_ro9CiASc"
                                                             target="_blank"
                                                         >
-                                                            The video above is a scene mentioned in Score Score page 61.
-                                                            Salieri peeps and drops Mozart's score, impressed by
-                                                            imaginary music in his own head.
+                                                            A scene mentioned in Score Score page 61. Salieri peeps
+                                                            Mozart's score. Impressed by imaginary music in his own
+                                                            head, he drops it.
                                                         </a>
                                                     </span>
                                                     <br />
@@ -1164,22 +1200,22 @@ const Introduction = () => {
                                                     <br />
                                                     <br />
                                                     The most important virtue for a composer would be imagination. The
-                                                    music that the composer creates only exists in her or his head. The
-                                                    composer finishes her/his score with the imaginary orchestra,
-                                                    constituted of conductor and performer all herself/himself. This
-                                                    process is similar to how a curator wrties a exhibition proposal.
-                                                    The exhibition only exists in her or his head. The curator finishes
-                                                    her/his proposal with the imaginary exhibition space and artworks.
+                                                    music that the composer creates only exists in their head. The
+                                                    composer finishes their score with the imaginary orchestra,
+                                                    consisting of conductor and performer all themselves. This process
+                                                    is similar to how a curator writes an exhibition proposal. The
+                                                    exhibition only exists in their head. The curator finishes their
+                                                    proposal within the imaginary exhibition space and artworks.
                                                     Imagination, again, is the most crucial virtue here. Both music
-                                                    score and curatorial proposal are documents that marks a
+                                                    score and curatorial proposal are documents that mark a
                                                     prognostication of an unrealized future. <br />
                                                     <br />
                                                     <span style={{ fontWeight: "bold" }}>Conductor’s lesson</span>
                                                     <br />
                                                     <br /> "Suppose the composer wants to hear a musical instrument with
                                                     a half note. If the composer does not understand the nature of the
-                                                    orchestra, she/he will use the half note as it is. Though to hear
-                                                    the sound of the half note in the actual play, the note should be
+                                                    orchestra, they will use the half note as it is. Though to hear the
+                                                    sound of the half note in the actual play, the note should be
                                                     written a little longer on the score. A composer who has experience
                                                     conducting can delicately understand the orchestra's characteristics
                                                     and mind. It helps with easier imagination and performance when
@@ -1190,49 +1226,48 @@ const Introduction = () => {
                                                     <br />
                                                     But a curator’s work is closer to the conductor’s than the
                                                     composer’s. It is involved in both imagination and reality. The
-                                                    proposal wanders to different agencies who are related to an
-                                                    exhibition, becoming a foundation for communal discussion. It serves
-                                                    as a criterion setting the overall direction of the exhibition,
+                                                    proposal wanders to different agencies related to an exhibition,
+                                                    becoming a foundation for communal discussion. It serves as a
+                                                    criterion setting the overall direction of the exhibition,
                                                     coordinating each individual’s viewpoint, being modified to meet
-                                                    realistic requirements or in the process of reflecting different
-                                                    opinions. As the proposal is completed, it becomes a document
-                                                    produced according to the exhibition rather than a pre-document for
-                                                    the exhibition. <br />
+                                                    realistic requirements, or in the process of reflecting different
+                                                    opinions. The proposal becomes a document produced following the
+                                                    exhibition rather than a preliminary document as the proposal is
+                                                    completed. <br />
                                                     <br /> In this regard, the curatorial proposal is a ‘score’ of the
                                                     exhibition. The proposal is a compass that guides the unknown path,
                                                     although it hides in the concealed site of the exhibition. Just as a
-                                                    conductor realizes an imaginary music using a music score as a
-                                                    compass, a curator realizes an imaginary exhibition using a proposal
-                                                    as a compass. Management and administration, accounting take place
-                                                    in this realization process. These are also the work of a conductor
-                                                    and a curator. This position between imagination and reality
-                                                    emphasized the feasibility of the proposal. <br />
+                                                    conductor realizes imaginary music using a music score as a compass,
+                                                    a curator realizes an imaginary exhibition using a proposal as a
+                                                    compass. Management, administration, and accounting also take place
+                                                    in this realization process as a work of a conductor and a curator.
+                                                    The feasibility of the proposal depends on this specific position of
+                                                    working in between imagination and reality.
                                                     <br />
-                                                    Most of the proposal writes down on the premise of realization. The
-                                                    feasibility is the one of indexes for evaluating the excellence of a
-                                                    proposal. An exhibition which is nice in her/his brain can be shabby
-                                                    in reality. If an exhibition is too large or too small compared to
-                                                    the scale of budget, it can’t get a high score no matter how
-                                                    interesting and necessary it deals with. Likewise, the budget list,
-                                                    schedule, casting situation, and expected effect are factors that
-                                                    mark the feasibility of a proposal in itself regardless of the
-                                                    quality of content. At this point, a work of curator and composer
-                                                    split. A composer sometimes writes music that can never be played,
-                                                    not focused on realization. A curator writes down on the premise of
-                                                    realization. A conductor works on the premise of realization.
-                                                    Therefore, the title of this invitation is the ‘conductor’s’ lesson,
-                                                    not the ‘composer’ lesson. <br />
                                                     <br />
-                                                    The invitation I: Conductor's Lesson is an experiment that puts some
-                                                    distance between an exhibition and a proposal. Beyond accurate and
-                                                    precise sentences, popular topics, repeatedly doubting the
-                                                    feasibility, it emphasizes the process of writing a proposal and
-                                                    external expansion of the proposal. Six curators wrote their own
-                                                    proposal that would or would not be realized using various ways.
-                                                    Audiences will look rather than read proposals, imagining
-                                                    exhibitions. Some parts of these exhibitions can only be visited
-                                                    through imagination, as if great composers doodled in a blank margin
-                                                    that the audience would not hear.
+                                                    Most of the proposals are written based on the realization of the
+                                                    exhibition. Practicability is one of the indexes for evaluating a
+                                                    proposal. A magnificent exhibition in the imagination can be
+                                                    miserable in reality. Even though an exhibition has an interesting
+                                                    topic, it is hard to receive positive feedback when it is irrelevant
+                                                    to the scale of the budget. Budget list, schedule, casting
+                                                    situation, and expectations are factors that mark the feasibility of
+                                                    a proposal in itself regardless of the quality of content. At this
+                                                    point, a work of curator and composer differentiates. A composer can
+                                                    write music that will never be played, disregarding realization. A
+                                                    curator writes down on the premise of completion. A conductor works
+                                                    on accomplishment. Therefore, the title of this invitation is the
+                                                    ‘conductor’s’ lesson, not the ‘composer’ lesson. <br />
+                                                    <br />
+                                                    The invitation I: Conductor's Lesson is an experiment distancing
+                                                    exhibition and a proposal. Beyond accurate and precise sentences,
+                                                    popular topics, skepticism of the feasibility, it emphasizes writing
+                                                    a proposal and experiments with the possibility of the proposal. Six
+                                                    curators wrote their proposal that would or would not be realized
+                                                    using various ways. Audiences will look rather than read proposals,
+                                                    imagining exhibitions. Some parts of these exhibitions can only be
+                                                    visited through imagination as if great composers doodled in a blank
+                                                    margin that the audience would not hear.
                                                     <br />
                                                     <br />
                                                     “Even for strings, Johann Sebastian Bach liked to write whole and

@@ -5,7 +5,7 @@ const InvitationOneData = [
         iframeSrc: "https://miro.com/app/live-embed/uXjVOfjPq-8=/?moveToViewport=-4654,-8346,11618,8724",
         title: "Down Stairs of Wunderkammer",
         titleKr: "프로젝트 A",
-        particiEn: "Kim Alter",
+        particiEn: "Alter Kim",
         particiKr: "김얼터",
         link: "",
         no: "01",
@@ -14,7 +14,7 @@ const InvitationOneData = [
         artistInfoEn:
             "Alter likes the things that lead us into temptation. She works with producing exhibitions and all kinds of writing that relates to the exhibition. The curator of cream(2020). Founder of Euryung Company.",
         projectInfo:
-            "관객은 어느 미술관에 메타버스 내에서 회화와 조각의 미학적 가능성을 탐구하는 전시를 보러 간다. 전시장에서 잠깐 나온 사이, 관객은 미술관 지하 1층으로 향하는 계단에서 길을 잃게 된다. 길고 긴 계단을 지나 도착한 이 미술관의 지하에는 지상 공간과 같은 건물이라고는 믿을 수 없을 만큼 전혀 다른 풍경이 도사리고 있다. 호기심의 상자를 가리키는 분더캄머, 그 분더캄머의 아래 층에서 만나게 되는 것은.......",
+            "관객은 메타버스 내에서 회화와 조각의 미학적 가능성을 탐구하는 전시를 보러 어느 미술관에 간다. 전시장에서 잠깐 나온 사이, 관객은 미술관 지하 1층으로 향하는 계단에서 길을 잃게 된다. 길고 긴 계단을 지나 도착한 이 미술관의 지하에는 지상 공간과 같은 건물이라고는 믿을 수 없을 만큼 전혀 다른 풍경이 도사리고 있다. 호기심의 상자를 가리키는 분더캄머, 그 분더캄머의 아래 층에서 만나게 되는 것은.......",
     },
     {
         index: 1,
@@ -39,7 +39,7 @@ const InvitationOneData = [
         iframeSrc: "https://miro.com/app/live-embed/uXjVOfjPqyg=/?moveToViewport=-2135,-1319,4196,2042",
         title: "WE SHALL MEET AGAIN",
         titleKr: "프로젝트 A",
-        particiEn: "Yu Jinyoung",
+        particiEn: "Jinyoung You",
         particiKr: "유진영",
         link: "",
         no: "03",
@@ -56,7 +56,7 @@ const InvitationOneData = [
         iframeSrc: "https://miro.com/app/live-embed/uXjVOfjPqzE=/?moveToViewport=49829,-13097,10861,7122",
         title: "PURPLEX",
         titleKr: "프로젝트 A",
-        particiEn: "Lee Miji",
+        particiEn: "Miji Lee",
         particiKr: "이미지",
         link: "",
         no: "04",
@@ -70,10 +70,10 @@ const InvitationOneData = [
     {
         index: 4,
         src: "/static/images/invitation/1/1_jiwoo.png",
-        iframeSrc: "https://miro.com/app/live-embed/uXjVOfjOdkM=/?moveToViewport=-281877,-187871,500650,346443",
+        iframeSrc: "https://miro.com/app/live-embed/uXjVOfjOdkM=/?moveToViewport=-335627,-154171,576000,299600",
         title: "Air of Records",
         titleKr: "프로젝트 A",
-        particiEn: "Lee Jiwoo",
+        particiEn: "Jiwoo Lee",
         particiKr: "이지우",
         link: "",
         no: "05",
@@ -87,10 +87,10 @@ const InvitationOneData = [
     {
         index: 5,
         src: "/static/images/invitation/1/1_somee.png",
-        iframeSrc: "https://miro.com/app/live-embed/uXjVOfjOVco=/?moveToViewport=5756,-16680,54957,36450",
+        iframeSrc: "https://miro.com/app/live-embed/uXjVOfjOVco=/?moveToViewport=1434,-16389,58507,36038",
         title: "전시생애사",
         titleKr: "프로젝트 A",
-        particiEn: "Lee Somee",
+        particiEn: "Somi Lee",
         particiKr: "이솜이",
         link: "",
         no: "06",
@@ -99,7 +99,7 @@ const InvitationOneData = [
         artistInfoEn:
             "Somi Lee believes in the power of the world that is completed when setting the conditions of exhibition, including time and space, the scenes and senses perceived there. Research and imagine the conditions surrounding the performance, explaining women in visual language, and art accessible to various bodies. Curating 《Perform Collection System》, (performplace.org, 2021), 《perform2019: Linkin-out》(Asia Culture Center, Ilmin Art Museum, 2019),  《piercer》(SeMA Warehouse, 2021) that weaving each collection’s time and space, 《best regards, Weave Wave》(co curating, jungganjijeom, 2021) that making public・private relationship with female artist,  Braille drawing book, 『Black Spell Hotel』(2022).",
         projectInfo:
-            "이솜이는 기획, 전시, 그 이후에서 파생되는 도큐멘테이션을 전시의 탄생에서부터 죽음까지의 ’전시 생애사’로 설정한다.  여기서 전시는 기획 단계에서의 기획, 즉 픽션이 ‘materialize(실현・구체화・물질화)’되는 아주 일시적인 순간이자, 이를 목격한이들이 그 존재를 믿고 지켜볼 수 있는 순간이다. 기획 단계에서 큐레이터의 진지한픽션이 그의 머릿속에서만 시뮬레이션 및 수정의 과정을 거치며 머물렀다가, 물리적인 공간과  꽤 냉철한 실시간 등 다른 이들과 공유할 수 있는 시공간 속에서 꺼내지고, 또 접촉하는 것이다. 전시의 탄생 단계에서는 픽션이 강력히 작용한다면, 그가 전시로 물질화, 혹은 실현되는 단계부터는 전시의 구조는 다시 한번 흔들리며 위기를겪거나 전시 환경을 딛고 확장하며 새로운 돌파구를 맞이한다.  2021년 12월, 이미 열렸던 전시, 《HOLE》을 지나간 사건으로 다루지 않고 전시 이전과 이후를 오가며 그 선후 관계를 교란시키는 복잡한 생애사를 소개하려 한다. 《HOLE》은 물리적인 조건, 협력자들 간의 관계 등과의 만남을 지나며 기획자가 예측했던 바와는 다르게 흘러가는데.. ",
+            "이솜이는 기획, 전시, 도큐멘테이션을 포함하는 과정, 전시의 탄생부터 죽음까지를 ‘전시생애사’로 설정한다. 여기서 전시는 기획 단계에서의 기획, 즉 픽션이 ‘실현・구체화・물질화(materialize)’되는 아주 일시적인 순간으로, 이를 목격한 이들은 그 존재를 확인하고 지켜볼 수 있는 순간을 갖게 된다. 기획 단계에서 큐레이터의 진지한 픽션이 그의 머릿속에서만 시뮬레이션 및 수정의 과정을 거치며 머물다가 물리적인 공간, 꽤 냉철한 실시강성, 다른 이들과의 관계 등 전시의 조건들에 접촉한다. 전시의 탄생 단계에서는 픽션이 강력히 작용한다면, 그가 전시로 물질화, 혹은 실현되는 단계부터는 전시의 구조가 다시 한번 흔들리며 위기를 겪거나 전시 환경을 딛고 확장하며 새로운 돌파구를 찾는다. 2021년 12월, 이미 지나간 전시, 《HOLE》을 지나간 사건으로 다루지 않고 전시 이전과 이후를 오가며 그 선후 관계를 교란시키는 복잡한 생애사를 소개하려 한다. 《HOLE》은 물리적인 조건, 협력자들 간의 관계 등과의 만남을 지나며 기획자가 예측했던 바와는 다르게 흘러가는데..",
     },
 ];
 
