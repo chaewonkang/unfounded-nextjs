@@ -382,12 +382,12 @@ const Index = () => {
                 </div>
                 <div>
                     <p>
-                        The website Unfounded is a space for researching fiction-related practices and uploading
+                        {/* The website Unfounded is a space for researching fiction-related practices and uploading
                         Founders’ projects, online exhibitions, and games related to Founders’ fiction.
                         <br />
                         <br />
                         It is expected that the website will provide a discursive foundation for fiction and expand
-                        curatorial practice by seeking ways to consider fiction in various ways.
+                        curatorial practice by seeking ways to consider fiction in various ways. */}
                     </p>
                 </div>
             </div>
