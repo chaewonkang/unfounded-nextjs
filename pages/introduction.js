@@ -161,7 +161,7 @@ const borderMobile = css`
 const invitationBox = css`
     width: 100vw;
     height: calc(100vh - 120px);
-    background-color: #ff9d46;
+    background-color: #ff7e27;
     overflow: hidden;
 
     & > div:first-of-type {
@@ -176,7 +176,7 @@ const invitationBox = css`
     @media (max-width: 781px) {
         width: 100vw;
         height: calc(100vh - (59px + 46px));
-        background-color: #ff9d46;
+        background-color: #ff7e27;
         padding-top: 0px;
         overflow: hidden;
         display: flex;
@@ -234,7 +234,7 @@ const invitationText1 = css`
 
     & > div:last-of-type {
         position: absolute;
-        bottom: 18px;
+        bottom: 20px;
     }
 
     @media (max-width: 781px) {
@@ -325,7 +325,7 @@ const invitationText2 = css`
 const moreContainer = css`
     border-top: 1px solid #000;
     width: 100%;
-    background-color: #ff9d46;
+    background-color: #ff7e27;
     position: absolute;
     transition: 3s ease-in;
     display: flex;
@@ -342,7 +342,7 @@ const moreContainer = css`
         border-top: 1px solid #000;
         width: 100%;
         height: calc(100vh - (82px + 138px + 105px));
-        background-color: #ff9d46;
+        background-color: #ff7e27;
         position: absolute;
         transition: 3s ease-in;
         padding-bottom: 10px;
@@ -536,7 +536,7 @@ const eachSlide = css`
     width: calc(((100vw - 42px) / 3));
     display: inline-block;
     flex-direction: column;
-    background-color: #ff9d46;
+    background-color: #ff7e27;
 
     :hover {
         & > img {
@@ -558,7 +558,7 @@ const eachSlide = css`
         margin-left: 15px;
         display: inline-block;
         flex-direction: column;
-        background-color: #ff9d46;
+        background-color: #ff7e27;
 
         :hover {
             & > img {
@@ -606,8 +606,8 @@ const ArtistInfoTextContent = css`
     display: flex;
     white-space: pre-wrap;
     padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
     padding-bottom: 20px;
 
     & > div {
@@ -718,7 +718,6 @@ const Introduction = () => {
 
     useEffect(() => {
         setSliderHeight(InvitationTextBoxRef.current.offsetHeight + headerHeight);
-        console.log(scrollRef.current.offsetTop);
 
         if (window.innerWidth < 782) {
             setHeaderHeight(105);

@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const mobileBottomMargin = css`
     display: none;
-    background-color: #ff9d46;
+    background-color: #ff7e27;
 
     @media (max-width: 781px) {
         display: block;
@@ -22,7 +22,7 @@ const mainContainer = css`
     width: 100vw;
     height: 100vh;
     position: relative;
-    background-color: #ff9d46;
+    background-color: #ff7e27;
 
     & > div:first-of-type {
         width: 100%;
@@ -72,7 +72,7 @@ const mainContainer = css`
         width: 100vw;
         height: 100vh;
         position: relative;
-        background-color: #ff9d46;
+        background-color: #ff7e27;
 
         & > div:first-of-type {
             width: 100%;
@@ -133,7 +133,7 @@ const mainContainer = css`
 `;
 
 const downArrowBoxStyle = css`
-    background-color: #ff9d46;
+    background-color: #ff7e27;
 `;
 
 const Index = () => {
@@ -169,13 +169,7 @@ const Index = () => {
                     </p>
                 </div>
             </div>
-            <Footer
-                bgColor={"#FF9D46"}
-                color={"#000"}
-                style={{
-                    animation: `fadeIn ${delay * 2}s ease-in`,
-                }}
-            />
+            <Footer bgColor={" #ff7e27"} color={"#000"} />
             <Link href="/introduction">
                 <div
                     css={[theme.downArrowBox, downArrowBoxStyle]}

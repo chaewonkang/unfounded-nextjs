@@ -49,7 +49,7 @@
     display: inline-block;
     position: relative;
     transform: translate3d(var(--move-initial), 0, 0);
-    animation: marqueeAnimation 40s linear infinite;
+    animation: marqueeAnimation 100s linear infinite;
     animation-play-state: paused;
     animation-play-state: running;
 }

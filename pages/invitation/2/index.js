@@ -114,7 +114,7 @@ const bottomBanner = css`
 const invitationBox = css`
     width: 100vw;
     height: 100vh;
-    background-color: #ff9d46;
+    background-color: #ff7e27;
     padding-top: 10px;
     & > div:first-of-type {
         span {
@@ -128,7 +128,7 @@ const invitationBox = css`
     @media (max-width: 781px) {
         width: 100vw;
 
-        background-color: #ff9d46;
+        background-color: #ff7e27;
         padding-top: 0px;
         & > div:first-of-type {
             span {

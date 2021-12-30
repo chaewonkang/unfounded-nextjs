@@ -797,7 +797,7 @@ const InvitationOne = () => {
                                                 ? {
                                                       backgroundColor: "#000",
                                                   }
-                                                : { backgroundColor: "#FF9D46" }
+                                                : { backgroundColor: " #ff7e27" }
                                         }
                                     ></div>
                                 </div>
@@ -987,7 +987,7 @@ const InvitationOne = () => {
                                                     ? {
                                                           backgroundColor: "#000",
                                                       }
-                                                    : { backgroundColor: "#FF9D46" }
+                                                    : { backgroundColor: " #ff7e27" }
                                             }
                                         ></div>
                                     </div>
@@ -1004,7 +1004,7 @@ const InvitationOne = () => {
                                       color: "#fff",
                                       backgroundColor: "#000",
                                   }
-                                : { color: "#000", backgroundColor: "#FF9D46" }
+                                : { color: "#000", backgroundColor: " #ff7e27" }
                         }
                     >
                         <div>

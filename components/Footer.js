@@ -317,7 +317,7 @@ const contactBox = css`
     }
 `;
 
-const Footer = ({ bgColor, color, children }) => {
+const Footer = ({ bgColor, color }) => {
     const [isCreditOpen, setIsCreditOpen] = useState(false);
     const [isAboutOpen, setIsAboutOpen] = useState(false);
     const [isContactOpen, setIsContactOpen] = useState(false);
@@ -329,7 +329,7 @@ const Footer = ({ bgColor, color, children }) => {
         <ThemeProvider theme={theme}>
             <div
                 css={footerContainer}
-                style={router.pathname === "/" ? { backgroundColor: bgColor, color: color, display: "flex" } : null}
+                style={{ backgroundColor: bgColor, color: color, display: router.pathname === "/" ? "flex" : null }}
             >
                 <div css={footerLeftArea}>
                     <div>
@@ -380,11 +380,10 @@ const Footer = ({ bgColor, color, children }) => {
                 </div>
                 <div css={footerRightArea}>
                     <span>Credit</span>
-
                     <div>
                         <div>
                             <p>기획</p>
-                            <p>김얼터 박유진</p>
+                            <p>김얼터, 박유진</p>
                         </div>
                         <div>
                             <p>웹 개발</p>
@@ -394,10 +393,7 @@ const Footer = ({ bgColor, color, children }) => {
                             <p>그래픽 디자인</p>
                             <p>염조흔</p>
                         </div>
-                        <div>
-                            <p>후원</p>
-                            <p>서울문화재단</p>
-                        </div>
+
                         <div>
                             <p>손님 목록</p>
                             <p></p>
@@ -405,6 +401,10 @@ const Footer = ({ bgColor, color, children }) => {
                         <div>
                             <p>● 초대 I</p>
                             <p>유진영, 이미지, 이솜이, 이지우</p>
+                        </div>
+                        <div>
+                            <p>후원</p>
+                            <p>서울문화재단, 서울특별시</p>
                         </div>
                         {/* <div>
                         <p>● 초대 II</p>
@@ -419,7 +419,7 @@ const Footer = ({ bgColor, color, children }) => {
                     <div>
                         <div>
                             <p>Directed by</p>
-                            <p>Yoojin Park, Nahyun Kim</p>
+                            <p>Alter Kim, Eugene Hannah Park</p>
                         </div>
                         <div>
                             <p>Web Development</p>
@@ -429,10 +429,7 @@ const Footer = ({ bgColor, color, children }) => {
                             <p>Graphic Design</p>
                             <p>Joheun Yeom</p>
                         </div>
-                        <div>
-                            <p>Funding</p>
-                            <p>SFAC</p>
-                        </div>
+
                         <div>
                             <p>Participants</p>
                             <p></p>
@@ -440,6 +437,31 @@ const Footer = ({ bgColor, color, children }) => {
                         <div>
                             <p>● Invitation I</p>
                             <p>Jinyoung You, Miji Lee, Somi Lee, Jiwoo Lee</p>
+                        </div>
+                        <div>
+                            <p>Supported by</p>
+                            <p>SFAC, Seoul</p>
+                        </div>
+                        <div
+                            style={{
+                                marginTop: "5px",
+                                marginBottom: "10px",
+                                marginLeft: "40%",
+                                width: "60%",
+                            }}
+                        >
+                            <img
+                                style={{
+                                    height: "20px",
+                                    display: "block",
+                                }}
+                                src={
+                                    router.pathname === "/"
+                                        ? "/static/images/sponsorLogoColor.png"
+                                        : "/static/images/sponsorLogo.png"
+                                }
+                                alt="sponsor"
+                            />
                         </div>
                         {/* <div>
                         <p>● Invitation II</p>
@@ -500,7 +522,7 @@ const Footer = ({ bgColor, color, children }) => {
                                 <div css={theme.mTextKr}>
                                     <div>
                                         <p>기획</p>
-                                        <p>김얼터 박유진</p>
+                                        <p>김얼터, 박유진</p>
                                     </div>
                                     <div>
                                         <p>웹 개발</p>
@@ -511,16 +533,16 @@ const Footer = ({ bgColor, color, children }) => {
                                         <p>염조흔</p>
                                     </div>
                                     <div>
-                                        <p>후원</p>
-                                        <p>서울문화재단</p>
-                                    </div>
-                                    <div>
                                         <p>손님 목록</p>
                                         <p></p>
                                     </div>
                                     <div>
                                         <p>● 초대 I</p>
                                         <p>유진영, 이미지, 이솜이, 이지우</p>
+                                    </div>
+                                    <div>
+                                        <p>후원</p>
+                                        <p>서울문화재단, 서울특별시</p>
                                     </div>
                                     {/* <div>
                         <p>● 초대 II</p>
@@ -544,10 +566,7 @@ const Footer = ({ bgColor, color, children }) => {
                                         <p>Graphic Design</p>
                                         <p>Joheun Yeom</p>
                                     </div>
-                                    <div>
-                                        <p>Funding</p>
-                                        <p>SFAC</p>
-                                    </div>
+
                                     <div>
                                         <p>Participants</p>
                                         <p></p>
@@ -555,6 +574,31 @@ const Footer = ({ bgColor, color, children }) => {
                                     <div>
                                         <p>● Invitation I</p>
                                         <p>Jinyoung You, Miji Lee, Somi Lee, Jiwoo Lee</p>
+                                    </div>
+                                    <div>
+                                        <p>Funding</p>
+                                        <p>SFAC, Seoul</p>
+                                    </div>
+                                    <div
+                                        style={{
+                                            marginTop: "10px",
+                                            marginBottom: "10px",
+                                            marginLeft: "40%",
+                                            width: "60%",
+                                        }}
+                                    >
+                                        <img
+                                            style={{
+                                                height: "20px",
+                                                display: "block",
+                                            }}
+                                            src={
+                                                router.pathname === "/"
+                                                    ? "/static/images/sponsorLogoColor.png"
+                                                    : "/static/images/sponsorLogo.png"
+                                            }
+                                            alt="sponsor"
+                                        />
                                     </div>
                                     {/* <div>
                         <p>● Invitation II</p>

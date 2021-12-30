@@ -66,7 +66,7 @@ const StyledMenu = css`
     display: inline-block;
     width: 100vw;
     z-index: 15;
-    background-color: #ff9d46;
+    background-color: #ff7e27;
     height: 100vh;
     max-height: 100vh;
     text-align: center;
@@ -83,7 +83,7 @@ const StyledMenu = css`
         position: absolute;
         top: 0;
         z-index: -1;
-        background-color: #ff9d46;
+        background-color: #ff7e27;
 
         img {
             width: 100%;
@@ -97,7 +97,7 @@ const StyledMenu = css`
         display: inline-block;
         width: 100vw;
         z-index: 1000;
-        background: #ff9d46;
+        background: #ff7e27;
         height: 100vh;
         max-height: 100vh;
         text-align: center;
@@ -117,7 +117,7 @@ const StyledMenu = css`
             align-items: flex-end;
             justify-content: flex-end;
             z-index: -1;
-            background-color: #ff9d46;
+            background-color: #ff7e27;
 
             img {
                 width: 100%;
@@ -142,23 +142,26 @@ const openMenuSymbol = css`
 
 const openMenuHeader = css`
     width: 100vw;
-    height: 112px;
+    height: 80px;
     position: absolute;
     top: 0;
     display: flex;
     padding-left: 21px;
     padding-right: 21px;
     padding-top: 11px;
+    padding-bottom: 12px;
     justify-content: space-between;
 
     & > div:first-of-type {
         cursor: pointer;
         height: 100%;
-        padding-top: 11px;
         padding-left: 21px;
+        padding-right: 21px;
+        padding-top: 11px;
+        padding-bottom: 12px;
 
         & > img {
-            height: 88px;
+            height: 100%;
         }
     }
 
@@ -169,7 +172,7 @@ const openMenuHeader = css`
         right: 21px;
 
         & > img {
-            height: 76px;
+            height: 60px;
         }
     }
 
@@ -447,6 +450,7 @@ const Menu = ({ transX }) => {
                                 Invitation 2
                             </span>
                             <span
+                                onMouseOver={() => setMenuBg(3)}
                                 onClick={() => {
                                     setOpen(!open);
                                     router.push({
@@ -459,6 +463,7 @@ const Menu = ({ transX }) => {
                             <br />
                             <br />
                             <span
+                                onMouseOver={() => setMenuBg(4)}
                                 onClick={() => {
                                     setOpen(!open);
                                     router.push({
