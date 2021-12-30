@@ -317,7 +317,7 @@ const contactBox = css`
     }
 `;
 
-const Footer = ({ bgColor, color, isDisplay }) => {
+const Footer = ({ bgColor, color, isDisplay, isDisplayNone }) => {
     const [isCreditOpen, setIsCreditOpen] = useState(false);
     const [isAboutOpen, setIsAboutOpen] = useState(false);
     const [isContactOpen, setIsContactOpen] = useState(false);

@@ -319,7 +319,7 @@ const InvitationThree = () => {
                         </a>
                     </p>
                 </div>
-                <Footer bgColor={"#000"} color={"#fff"} />
+                <Footer bgColor={"#000"} color={"#fff"} isDisplay />
             </div>
         </ThemeProvider>
     );

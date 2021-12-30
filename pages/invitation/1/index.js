@@ -1179,7 +1179,7 @@ const InvitationOne = () => {
                         </div>
                     </div>
                 </div>
-                <Footer bgColor={"#000"} color={"#fff"} />
+                <Footer bgColor={"#000"} color={"#fff"} isDisplay />
             </div>
         </ThemeProvider>
     );
