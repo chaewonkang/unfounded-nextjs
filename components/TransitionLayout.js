@@ -7,7 +7,7 @@ const menuArr = ["/introduction", "/invitation/1", "/invitation/2", "/invitation
 export default function TransitionLayout({ children }) {
     const [displayChildren, setDisplayChildren] = useState(children);
     const router = useRouter();
-    const [prevRouter, setPrevRouter] = useState("");
+
     const storage = globalThis?.sessionStorage;
 
     const [transitionStage, setTransitionStage] = useState("slideUp");
@@ -21,11 +21,6 @@ export default function TransitionLayout({ children }) {
         storage.setItem("prevPath", prevPath);
         // Set the current path value by looking at the browser's location object.
         storage.setItem("currentPath", globalThis.location.pathname);
-
-        // console.log("---------------------");
-        // console.log(`currPath: ${menuArr.indexOf(storage.getItem("currentPath"))}`);
-        // console.log(`prevPath: ${menuArr.indexOf(storage.getItem("prevPath"))}`);
-        // console.log("---------------------");
     }
 
     useEffect(() => {

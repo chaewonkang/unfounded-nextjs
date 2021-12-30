@@ -169,7 +169,7 @@ const Index = () => {
                     </p>
                 </div>
             </div>
-            <Footer bgColor={" #ff7e27"} color={"#000"} />
+            <Footer bgColor={" #ff7e27"} color={"#000"} mainFooterIsDisplay={true} />
             <Link href="/introduction">
                 <div
                     css={[theme.downArrowBox, downArrowBoxStyle]}

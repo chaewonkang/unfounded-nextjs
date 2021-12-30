@@ -317,7 +317,7 @@ const contactBox = css`
     }
 `;
 
-const Footer = ({ bgColor, color }) => {
+const Footer = ({ bgColor, color, isDisplay }) => {
     const [isCreditOpen, setIsCreditOpen] = useState(false);
     const [isAboutOpen, setIsAboutOpen] = useState(false);
     const [isContactOpen, setIsContactOpen] = useState(false);
@@ -474,77 +474,81 @@ const Footer = ({ bgColor, color }) => {
                     </div>
                 </div>
             </div>
-            <div css={footerContainerMobile} style={router.pathname === "/" ? { display: "none" } : null}>
-                <div onClick={() => setIsAboutOpen(!isAboutOpen)}>
-                    <div>
-                        <span>Unfounded</span>
+
+            {isDisplay && (
+                <div css={footerContainerMobile}>
+                    <div onClick={() => setIsAboutOpen(!isAboutOpen)}>
+                        <div>
+                            <span>Unfounded</span>
+                        </div>
+                        <div css={collapsibleContainer}>
+                            {isAboutOpen ? (
+                                <div css={collapsible}>
+                                    <p css={[theme.mTextKr]}>
+                                        언파운디드는 큐레토리얼 실천이 생산한 가상이 현실에 개입하는 현상을 탐구한다.
+                                        가상은 오랫동안 문학적 내러티브나 허구, 거짓말, 가짜, 속임수, 환상처럼 물질적
+                                        현실 세계로부터 분리된 대상을 지칭해 왔다. 그러나 가상과 현실의 관계는 이중 나선
+                                        구조와 같다. 큐레토리얼 실천은 이 이중 나선 구조를 풀고 감는 일이다. 이 이중
+                                        나선 구조가 회전할 때, 우리는 그 현상을 픽션이라고 부른다. 언파운디드는 ‘초대’와
+                                        ‘탐험’으로 구성된다. ‘초대’는 다양한 사람들과 함께 큐레토리얼 실천의 재료와
+                                        도구들을 분석하고 실험한다. ‘탐험’은 큐레토리얼 실천이 이중 나선 구조를 풀고
+                                        감는 형세를 탐침하고 그 결과를 글쓰기로 생산한다. 제목인 unfounded는
+                                        무근無根하다, 헛되다, 이유 없다라는 뜻이며, 이 이름 안에서 김얼터와 박유진이
+                                        함께 일한다.
+                                        <br />
+                                        <br />
+                                    </p>
+                                    <p css={[theme.mTextEn]} style={{ marginTop: "30px" }}>
+                                        Unfounded speculates the phenomenon in which the virtual produced by curatorial
+                                        practice intervenes into the real. The virtual has been considered as a literary
+                                        narrative or fabrication, falsehood, lie, fake, deception, fantasy separated
+                                        from the real. However, the relationship between virtual and real is like a
+                                        double helix. Curatorial practice is winding and rewinding this double helix.
+                                        Fiction is the rotation of this double helix. The project has two parts:
+                                        “Invitation” and "Exploration." "Invitation" invites diverse practitioners to
+                                        experiment with ingredients and tools of curatorial practices. "Exploration"
+                                        probes the topography of how the curatorial practices twist and untwist the
+                                        double helix and produces writing as an outcome. Alter Kim and Eugene Hannah
+                                        Park practice around the title unfounded, which stands for rootless, vain,
+                                        nonsense.
+                                    </p>
+                                </div>
+                            ) : null}
+                        </div>
                     </div>
-                    <div css={collapsibleContainer}>
-                        {isAboutOpen ? (
-                            <div css={collapsible}>
-                                <p css={[theme.mTextKr]}>
-                                    언파운디드는 큐레토리얼 실천이 생산한 가상이 현실에 개입하는 현상을 탐구한다. 가상은
-                                    오랫동안 문학적 내러티브나 허구, 거짓말, 가짜, 속임수, 환상처럼 물질적 현실
-                                    세계로부터 분리된 대상을 지칭해 왔다. 그러나 가상과 현실의 관계는 이중 나선 구조와
-                                    같다. 큐레토리얼 실천은 이 이중 나선 구조를 풀고 감는 일이다. 이 이중 나선 구조가
-                                    회전할 때, 우리는 그 현상을 픽션이라고 부른다. 언파운디드는 ‘초대’와 ‘탐험’으로
-                                    구성된다. ‘초대’는 다양한 사람들과 함께 큐레토리얼 실천의 재료와 도구들을 분석하고
-                                    실험한다. ‘탐험’은 큐레토리얼 실천이 이중 나선 구조를 풀고 감는 형세를 탐침하고 그
-                                    결과를 글쓰기로 생산한다. 제목인 unfounded는 무근無根하다, 헛되다, 이유 없다라는
-                                    뜻이며, 이 이름 안에서 김얼터와 박유진이 함께 일한다.
-                                    <br />
-                                    <br />
-                                </p>
-                                <p css={[theme.mTextEn]} style={{ marginTop: "30px" }}>
-                                    Unfounded speculates the phenomenon in which the virtual produced by curatorial
-                                    practice intervenes into the real. The virtual has been considered as a literary
-                                    narrative or fabrication, falsehood, lie, fake, deception, fantasy separated from
-                                    the real. However, the relationship between virtual and real is like a double helix.
-                                    Curatorial practice is winding and rewinding this double helix. Fiction is the
-                                    rotation of this double helix. The project has two parts: “Invitation” and
-                                    "Exploration." "Invitation" invites diverse practitioners to experiment with
-                                    ingredients and tools of curatorial practices. "Exploration" probes the topography
-                                    of how the curatorial practices twist and untwist the double helix and produces
-                                    writing as an outcome. Alter Kim and Eugene Hannah Park practice around the title
-                                    unfounded, which stands for rootless, vain, nonsense.
-                                </p>
-                            </div>
-                        ) : null}
-                    </div>
-                </div>
-                <div onClick={() => setIsCreditOpen(!isCreditOpen)}>
-                    <div>
-                        <span>Credit</span>
-                    </div>
-                    <div css={collapsibleContainer}>
-                        {isCreditOpen ? (
-                            <div css={[collapsible, creditBox]}>
-                                <div css={theme.mTextKr}>
-                                    <div>
-                                        <p>기획</p>
-                                        <p>김얼터, 박유진</p>
-                                    </div>
-                                    <div>
-                                        <p>웹 개발</p>
-                                        <p>강채원</p>
-                                    </div>
-                                    <div>
-                                        <p>그래픽 디자인</p>
-                                        <p>염조흔</p>
-                                    </div>
-                                    <div>
-                                        <p>손님 목록</p>
-                                        <p></p>
-                                    </div>
-                                    <div>
-                                        <p>● 초대 I</p>
-                                        <p>유진영, 이미지, 이솜이, 이지우</p>
-                                    </div>
-                                    <div>
-                                        <p>후원</p>
-                                        <p>서울문화재단, 서울특별시</p>
-                                    </div>
-                                    {/* <div>
+                    <div onClick={() => setIsCreditOpen(!isCreditOpen)}>
+                        <div>
+                            <span>Credit</span>
+                        </div>
+                        <div css={collapsibleContainer}>
+                            {isCreditOpen ? (
+                                <div css={[collapsible, creditBox]}>
+                                    <div css={theme.mTextKr}>
+                                        <div>
+                                            <p>기획</p>
+                                            <p>김얼터, 박유진</p>
+                                        </div>
+                                        <div>
+                                            <p>웹 개발</p>
+                                            <p>강채원</p>
+                                        </div>
+                                        <div>
+                                            <p>그래픽 디자인</p>
+                                            <p>염조흔</p>
+                                        </div>
+                                        <div>
+                                            <p>손님 목록</p>
+                                            <p></p>
+                                        </div>
+                                        <div>
+                                            <p>● 초대 I</p>
+                                            <p>유진영, 이미지, 이솜이, 이지우</p>
+                                        </div>
+                                        <div>
+                                            <p>후원</p>
+                                            <p>서울문화재단, 서울특별시</p>
+                                        </div>
+                                        {/* <div>
                         <p>● 초대 II</p>
                         <p>이영주(룹앤테일) | 박선호, 박이선, 정여름, 황재민</p>
                     </div>
@@ -552,55 +556,55 @@ const Footer = ({ bgColor, color }) => {
                         <p>● 초대 III</p>
                         <p>Meltmirror(ISVN) | 박지성, 홍명보, 안정환, 김남길</p>
                     </div> */}
-                                </div>
-                                <div css={theme.mTextEn} style={{ marginTop: "30px" }}>
-                                    <div>
-                                        <p>Directed by</p>
-                                        <p>Alter Kim, Eugene Hannah Park</p>
                                     </div>
-                                    <div>
-                                        <p>Web Development</p>
-                                        <p>Chaewon Kang</p>
-                                    </div>
-                                    <div>
-                                        <p>Graphic Design</p>
-                                        <p>Joheun Yeom</p>
-                                    </div>
+                                    <div css={theme.mTextEn} style={{ marginTop: "30px" }}>
+                                        <div>
+                                            <p>Directed by</p>
+                                            <p>Alter Kim, Eugene Hannah Park</p>
+                                        </div>
+                                        <div>
+                                            <p>Web Development</p>
+                                            <p>Chaewon Kang</p>
+                                        </div>
+                                        <div>
+                                            <p>Graphic Design</p>
+                                            <p>Joheun Yeom</p>
+                                        </div>
 
-                                    <div>
-                                        <p>Participants</p>
-                                        <p></p>
-                                    </div>
-                                    <div>
-                                        <p>● Invitation I</p>
-                                        <p>Jinyoung You, Miji Lee, Somi Lee, Jiwoo Lee</p>
-                                    </div>
-                                    <div>
-                                        <p>Funding</p>
-                                        <p>SFAC, Seoul</p>
-                                    </div>
-                                    <div
-                                        style={{
-                                            marginTop: "10px",
-                                            marginBottom: "10px",
-                                            marginLeft: "40%",
-                                            width: "60%",
-                                        }}
-                                    >
-                                        <img
+                                        <div>
+                                            <p>Participants</p>
+                                            <p></p>
+                                        </div>
+                                        <div>
+                                            <p>● Invitation I</p>
+                                            <p>Jinyoung You, Miji Lee, Somi Lee, Jiwoo Lee</p>
+                                        </div>
+                                        <div>
+                                            <p>Funding</p>
+                                            <p>SFAC, Seoul</p>
+                                        </div>
+                                        <div
                                             style={{
-                                                height: "20px",
-                                                display: "block",
+                                                marginTop: "10px",
+                                                marginBottom: "10px",
+                                                marginLeft: "40%",
+                                                width: "60%",
                                             }}
-                                            src={
-                                                router.pathname === "/"
-                                                    ? "/static/images/sponsorLogoColor.png"
-                                                    : "/static/images/sponsorLogo.png"
-                                            }
-                                            alt="sponsor"
-                                        />
-                                    </div>
-                                    {/* <div>
+                                        >
+                                            <img
+                                                style={{
+                                                    height: "20px",
+                                                    display: "block",
+                                                }}
+                                                src={
+                                                    router.pathname === "/"
+                                                        ? "/static/images/sponsorLogoColor.png"
+                                                        : "/static/images/sponsorLogo.png"
+                                                }
+                                                alt="sponsor"
+                                            />
+                                        </div>
+                                        {/* <div>
                         <p>● Invitation II</p>
                         <p>Youngju Lee(Loopntale) | Sunho Park, Leesun Park, Yeoreum Jeong, Jaemin Hwang</p>
                     </div>
@@ -608,35 +612,36 @@ const Footer = ({ bgColor, color }) => {
                         <p>● Invitation III</p>
                         <p>Meltmirror(ISVN) | Jisung Park, Myungbo Hong, Jeonghwan Ahn, Namgil Kim</p>
                     </div> */}
+                                    </div>
                                 </div>
-                            </div>
-                        ) : null}
+                            ) : null}
+                        </div>
+                    </div>
+                    <div onClick={() => setIsContactOpen(!isContactOpen)}>
+                        <div>
+                            <span>Contact</span>
+                        </div>
+                        <div css={collapsibleContainer}>
+                            {isContactOpen ? (
+                                <div css={[collapsible, theme.mTextEn, contactBox]}>
+                                    <div>
+                                        <span>E-Mail</span>
+                                        <span>Instagram</span>
+                                    </div>
+                                    <div>
+                                        <span>unfounded.info@gmail.com</span>
+                                        <span>
+                                            <a href="http://www.instagram.com/unfounded.info" target="_blank">
+                                                @unfounded.info
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                            ) : null}
+                        </div>
                     </div>
                 </div>
-                <div onClick={() => setIsContactOpen(!isContactOpen)}>
-                    <div>
-                        <span>Contact</span>
-                    </div>
-                    <div css={collapsibleContainer}>
-                        {isContactOpen ? (
-                            <div css={[collapsible, theme.mTextEn, contactBox]}>
-                                <div>
-                                    <span>E-Mail</span>
-                                    <span>Instagram</span>
-                                </div>
-                                <div>
-                                    <span>unfounded.info@gmail.com</span>
-                                    <span>
-                                        <a href="http://www.instagram.com/unfounded.info" target="_blank">
-                                            @unfounded.info
-                                        </a>
-                                    </span>
-                                </div>
-                            </div>
-                        ) : null}
-                    </div>
-                </div>
-            </div>
+            )}
         </ThemeProvider>
     );
 };

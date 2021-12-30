@@ -691,7 +691,9 @@ const Introduction = () => {
     const moreBoxRef = useRef();
     const InvitationTextBoxRef = useRef();
     const [sliderHeight, setSliderHeight] = useState(0);
-
+    const [delay, setDelay] = useState(1);
+    const [mobileFooterDisplay, setMobileFooterDisplay] = useState(false);
+    const [desktopFooterDisplay, setDesktopFooterDisplay] = useState(false);
     const [isArrowO, setIsArrowO] = useState(false);
     const [isMoreOpen, setIsMoreOpen] = useState({
         bool: false,
@@ -725,12 +727,19 @@ const Introduction = () => {
         } else {
             setHeaderHeight(120);
             setPerSlide(3);
+            setDesktopFooterDisplay(true);
         }
-    }, [sliderHeight, headerHeight, perSlide, moreBoxRef, scrollRef]);
+    }, [sliderHeight, headerHeight, perSlide, moreBoxRef, scrollRef, desktopFooterDisplay]);
 
     useEffect(() => {}, [isMoreOpen, isMoreOpen2]);
 
     useEffect(() => {}, [isArrowO]);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setMobileFooterDisplay(true);
+        }, 2500);
+    }, [mobileFooterDisplay]);
 
     return (
         <ThemeProvider theme={theme}>
@@ -745,11 +754,19 @@ const Introduction = () => {
                                 behavior: "smooth",
                             });
                         }}
+                        style={{
+                            animation: `fadeIn ${delay}s ease-in`,
+                        }}
                     >
                         <img src="../static/images/downArrowW.png" alt="down_arrow" />
                         <img src="../static/images/downArrowW.png" alt="down_arrow" />
                     </div>
-                    <div css={infoText}>
+                    <div
+                        css={infoText}
+                        style={{
+                            animation: `fadeIn ${delay * 2}s ease-in`,
+                        }}
+                    >
                         <div>
                             <p>
                                 ‘언파운디드’는 21세기 초입에 발견된 어떤 문서들의 총칭이다. ‘unfounded’는 무근無根하다,
@@ -825,7 +842,12 @@ const Introduction = () => {
                             </p>
                         </div>
                     </div>
-                    <div css={bottomBanner}>
+                    <div
+                        css={bottomBanner}
+                        style={{
+                            animation: `fadeIn ${delay * 2}s ease-in`,
+                        }}
+                    >
                         <p>
                             FOLLOW US{" "}
                             <a href="http://www.instagram.com/unfounded.info" target="_blank">
@@ -833,7 +855,13 @@ const Introduction = () => {
                             </a>
                         </p>
                     </div>
-                    <div css={invitationBox} ref={scrollRef}>
+                    <div
+                        css={invitationBox}
+                        ref={scrollRef}
+                        style={{
+                            animation: `fadeIn ${delay * 3}s ease-in`,
+                        }}
+                    >
                         <div className="marquee">
                             <div className="marquee__inner" ariaHidden="true">
                                 <span> INVITATION I: Conductor’s Lesson </span>
@@ -1218,7 +1246,12 @@ const Introduction = () => {
                             )}
                         </div>
                     </div>
-                    <Footer bgColor={"#000"} color={"#fff"} />
+                    <Footer
+                        bgColor={"#000"}
+                        color={"#fff"}
+                        isDisplay={mobileFooterDisplay}
+                        mainFooterIsDisplay={desktopFooterDisplay}
+                    />
                 </div>
             </div>
         </ThemeProvider>
