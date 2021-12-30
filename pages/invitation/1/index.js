@@ -955,13 +955,13 @@ const InvitationOne = () => {
                                                         <p css={theme.textKr} style={{ fontWeight: "bold" }}>
                                                             {el.particiKr}
                                                         </p>
-                                                        <p css={theme.textKr}>{el.artistInfoKr}</p>
+                                                        <p css={theme.textKr}>{parse(el.artistInfoKr)}</p>
                                                     </div>
                                                     <div>
                                                         <p css={theme.textEn} style={{ fontWeight: "bold" }}>
                                                             {el.particiEn}
                                                         </p>
-                                                        <p css={theme.textEn}>{el.artistInfoEn}</p>
+                                                        <p css={theme.textEn}>{parse(el.artistInfoEn)}</p>
                                                     </div>
                                                 </div>
                                             </div>
