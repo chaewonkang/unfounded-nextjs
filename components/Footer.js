@@ -549,6 +549,10 @@ const Footer = ({ bgColor, color, isDisplay, isDisplayNone }) => {
                                             <p>유진영, 이미지, 이솜이, 이지우</p>
                                         </div>
                                         <div>
+                                            <p>주최·주관</p>
+                                            <p>박유진(언파운디드)</p>
+                                        </div>
+                                        <div>
                                             <p>후원</p>
                                             <p>서울문화재단, 서울특별시</p>
                                         </div>
@@ -585,7 +589,7 @@ const Footer = ({ bgColor, color, isDisplay, isDisplayNone }) => {
                                         </div>
                                         <div>
                                             <p>Funding</p>
-                                            <p>SFAC, Seoul</p>
+                                            <p>Seoul Metropolitan Government, Seoul Foundation for Arts and Culture </p>
                                         </div>
                                         <div
                                             style={{
