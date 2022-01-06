@@ -396,14 +396,14 @@ const Index = () => {
                     <div>
                         <span>Unfounded</span>
                         <p>
-                            언파운디드는 큐레토리얼 실천이 생산한 가상으로 현실에 개입하는 현상을 탐구한다.가상은
-                            오랫동안 문학적 내러티브나 허구, 거짓말, 가짜, 속임수, 환상처럼 물질적 현실 세계로부터
-                            분리된 대상을 지칭해 왔다. 그러나 가상과 현실의 관계는 이중 나선 구조와 같다. 큐레토리얼
-                            실천은 이 이중 나선 구조를 풀고 감는 일이다. 이 이중 나선 구조가 회전할 때, 우리는 그 현상을
-                            픽션이라고 부른다. 언파운디드는 ‘초대’와 ‘탐험’으로 구성된다. ‘초대’는 다양한 사람들과 함께
-                            큐레토리얼 실천의 재료와 도구들을 분석하고 실험한다. ‘탐험’은 큐레토리얼 실천이 이중 나선
-                            구조를 풀고 감는 형세를 탐침하고 그 결과를 글쓰기로 생산한다. 제목인 unfounded는
-                            무근無根하다, 헛되다, 이유 없다라는 뜻이며, 이 이름 안에서 김얼터와 박유진이 함께 일한다.
+                            언파운디드는 가상이 현실에 개입하는 현상을 탐구한다. 이때 가상은 큐레토리얼 실천으로 생산된
+                            것이다. 가상은 오랫동안 문학적 내러티브나 허구, 거짓말, 가짜, 속임수, 환상처럼 물질적 현실
+                            세계로부터 분리된 대상을 지칭해 왔다. 그러나 가상과 현실의 관계는 이중 나선 구조와 같다.
+                            큐레토리얼 실천은 이 이중 나선 구조를 풀고 감으며 새로운 배열을 형성하는 일이다. <br />
+                            언파운디드는 ‘초대’와 ‘탐험’으로 구성된다. ‘초대’는 다양한 사람들과 함께 큐레토리얼 실천의
+                            재료와 도구들을 분석하고 실험한다. ‘탐험’은 이중 나선 구조의 다양한 매듭법을 공부하고 그
+                            결과를 글쓰기로 생산한다. 제목인 unfounded는 무근無根하다, 헛되다, 이유 없다라는 뜻이며, 이
+                            이름 안에서 김얼터와 박유진이 함께 일한다
                             <br /> <br />
                         </p>
                         <p>
@@ -411,10 +411,11 @@ const Index = () => {
                             intervenes into the real. The virtual has been considered as a literary narrative or
                             fabrication, falsehood, lie, fake, deception, fantasy separated from the real. However, the
                             relationship between virtual and real is like a double helix. Curatorial practice is winding
-                            and rewinding this double helix. Fiction is the rotation of this double helix. The project
-                            has two parts: “Invitation” and "Exploration." "Invitation" invites diverse practitioners to
-                            experiment with ingredients and tools of curatorial practices. "Exploration" probes the
-                            topography of how the curatorial practices twist and untwist the double helix and produces
+                            and rewinding this double helix with new order.
+                            <br />
+                            The project has two parts: “Invitation” and "Exploration." "Invitation" invites diverse
+                            practitioners to experiment with ingredients and tools of curatorial practices.
+                            “Exploration” investigates the various types of knots of this double helix and produces
                             writing as an outcome. Alter Kim and Eugene Hannah Park practice around the title unfounded,
                             which stands for rootless, vain, nonsense.
                         </p>
@@ -464,8 +465,12 @@ const Index = () => {
                             <p>유진영, 이미지, 이솜이, 이지우</p>
                         </div>
                         <div>
+                            <p>주최·주관</p>
+                            <p>박유진(언파운디드)</p>
+                        </div>
+                        <div>
                             <p>후원</p>
-                            <p>서울문화재단, 서울특별시</p>
+                            <p>서울특별시, 서울문화재단</p>
                         </div>
                         {/* <div>
                         <p>● 초대 II</p>
@@ -501,7 +506,7 @@ const Index = () => {
                         </div>
                         <div>
                             <p>Supported by</p>
-                            <p>SFAC, Seoul</p>
+                            <p>Seoul Metropolitan Government, Seoul Foundation for Arts and Culture </p>
                         </div>
                         <div
                             style={{
