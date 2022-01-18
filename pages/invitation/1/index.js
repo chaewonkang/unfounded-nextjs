@@ -837,15 +837,17 @@ const infoText = css`
             padding-top: calc(59px + 46px);
             color: #fff;
             padding-bottom: 21px;
+            padding-left: 15px;
+            padding-right: 15px;
 
             p:first-of-type {
                 width: 100%;
-                padding-top: 20px;
-                padding-left: 15px;
-                padding-right: 15px;
+                padding-top: 0px;
+                padding-left: 0px;
+                padding-right: 0px;
                 margin-right: 0px;
                 font-family: Gothic A1, sans-serif;
-                font-size: 18px;
+                font-size: 20px;
                 font-weight: 500;
                 line-height: 29px;
                 letter-spacing: -0.2px;
@@ -855,8 +857,9 @@ const infoText = css`
             }
 
             p:last-of-type {
-                padding-left: 15px;
-                padding-right: 15px;
+                padding-left: 0px;
+                padding-right: 0px;
+                padding-top: 0px;
                 width: 100%;
                 margin-left: 0px;
                 font-family: PP Neue Montreal Regular, sans-serif;
@@ -877,7 +880,7 @@ const borderMobile = css`
         height: 1px;
         border-top: 1px solid #fff;
         display: block;
-        width: 100vw;
+        width: 100%;
         margin-top: 20px;
         margin-bottom: 20px;
     }

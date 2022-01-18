@@ -156,7 +156,7 @@ const borderMobile = css`
         height: 1px;
         border-top: 1px solid #fff;
         display: block;
-        width: 100vw;
+        width: 100%;
         margin-top: 20px;
         margin-bottom: 20px;
     }
