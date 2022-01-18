@@ -899,7 +899,7 @@ const Introduction = () => {
                         }}
                     >
                         <div className="marquee">
-                            <div className="marquee__inner" ariaHidden="true">
+                            <div className="marquee__inner" aria-hidden="true">
                                 <span> INVITATION I: Conductor’s Lesson </span>
                                 <span> INVITATION I: Conductor’s Lesson </span>
                                 <span> INVITATION I: Conductor’s Lesson </span>
