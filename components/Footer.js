@@ -405,7 +405,7 @@ const Footer = ({ bgColor, color, isDisplay, isDisplayNone }) => {
                         </div>
                         <div>
                             <p>주최·주관</p>
-                            <p>언파운디드</p>
+                            <p>김얼터, 박유진(언파운디드)</p>
                         </div>
                         <div>
                             <p>후원</p>
@@ -550,7 +550,7 @@ const Footer = ({ bgColor, color, isDisplay, isDisplayNone }) => {
                                         </div>
                                         <div>
                                             <p>주최·주관</p>
-                                            <p>언파운디드</p>
+                                            <p>김얼터, 박유진(언파운디드)</p>
                                         </div>
                                         <div>
                                             <p>후원</p>
