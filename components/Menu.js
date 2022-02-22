@@ -492,10 +492,12 @@ const Menu = ({ transX }) => {
                         </div>
                         <div>
                             <p>
-                                The website Unfounded is a space for researching fiction-related practices and uploading
-                                Founders’ projects, online exhibitions, and games related to Founders’ fiction. It is
-                                expected that the website will provide a discursive foundation for fiction and expand
-                                curatorial practice by seeking ways to consider fiction in various ways.
+                                Unfounded is a name for a pile of documents discovered at the beginning of the 21st
+                                century. Likewise, the meaning rootless, vain, and nonsense, Unfounded is full of
+                                confounding and indecipherable content, only ensuring it was written with great care. It
+                                has been nearly two hundred years since its discovery, yet few parts are revealed from
+                                these riddles of pun and incomprehensible diagrams. Some parts of the document are
+                                written down below, hoping someone to continue decrypting the document.
                             </p>
                         </div>
                     </div>
