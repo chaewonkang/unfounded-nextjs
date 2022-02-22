@@ -6,12 +6,14 @@ import { css } from "@emotion/react";
 import Footer from "../../../components/Footer";
 import InvitationOneData from "../../../data/InvitationOneData";
 import parse from "html-react-parser";
+import expansion from "../../../static/images/expansion.png";
+import Link from "next/link";
 
 const sliderArrow = css`
     position: absolute;
     width: 100vw;
     height: 70px;
-    top: calc(50vh - 35px);
+    top: 42.5vh;
     padding-left: 16px;
     padding-right: 16px;
     display: flex;
@@ -183,6 +185,7 @@ const sliderContentWrapper = css`
 const iframeContainer = css`
     width: calc((100% / 12) * 10);
     height: 100%;
+    position: relative;
 
     @media (max-width: 781px) {
         width: 100%;
@@ -350,6 +353,16 @@ const bottomBannerWrapper = css`
             p:last-of-type {
                 text-align: right;
                 text-transform: uppercase;
+            }
+        }
+    }
+
+    @media (max-width: 1192px) {
+        & > div {
+            div {
+                p:nth-of-type(2) {
+                    display: none;
+                }
             }
         }
     }
@@ -895,6 +908,20 @@ const downArrowBoxStyle = css`
     padding-right: 21px;
 `;
 
+const expansionImg = css`
+    position: absolute;
+    z-index: 100;
+    right: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+
+    :hover {
+        filter: invert(100%);
+    }
+`;
+
 const InvitationOne = () => {
     const router = useRouter();
     const query = router.query;
@@ -1159,6 +1186,15 @@ const InvitationOne = () => {
                                     <div css={sliderContent}>
                                         <div css={sliderContentWrapper}>
                                             <div css={iframeContainer}>
+                                                <Link href={el.iframeSrc}>
+                                                    <a target="_blank">
+                                                        <img
+                                                            css={expansionImg}
+                                                            src={expansion}
+                                                            alt="expansion_icon"
+                                                        ></img>
+                                                    </a>
+                                                </Link>
                                                 {coverIsShow.index === el.index + 1 ? (
                                                     <div css={iframeWrapper}>
                                                         <div>
