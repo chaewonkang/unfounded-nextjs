@@ -404,6 +404,10 @@ const Footer = ({ bgColor, color, isDisplay, isDisplayNone }) => {
                             <p>유진영, 이미지, 이솜이, 이지우</p>
                         </div>
                         <div>
+                            <p>● 초대 II</p>
+                            <p>김영주(룹앤테일) | 박선호, 박이선, 정여름, 황재민</p>
+                        </div>
+                        <div>
                             <p>주최·주관</p>
                             <p>김얼터, 박유진(언파운디드)</p>
                         </div>
@@ -411,15 +415,6 @@ const Footer = ({ bgColor, color, isDisplay, isDisplayNone }) => {
                             <p>후원</p>
                             <p>서울특별시, 서울문화재단</p>
                         </div>
-                        <div>
-                            <p>● 초대 II</p>
-                            <p>김영주(룹앤테일) | 박선호, 박이선, 정여름, 황재민</p>
-                        </div>
-                        {/*
-                    <div>
-                        <p>● 초대 III</p>
-                        <p>Meltmirror(ISVN) | 박지성, 홍명보, 안정환, 김남길</p>
-                    </div> */}
                     </div>
 
                     <div>
@@ -446,7 +441,7 @@ const Footer = ({ bgColor, color, isDisplay, isDisplayNone }) => {
                         </div>
                         <div>
                             <p>● Invitation II</p>
-                            <p>Youngju Kim(Loopntale) | Jinyoung You, Miji Lee, Somi Lee, Jiwoo Lee</p>
+                            <p>Youngju Kim(Loopntale) | Sunho Park, Leesun Park, Yeoreum Jeong, Jaemin Hwang</p>
                         </div>
                         <div>
                             <p>Supported by</p>
@@ -565,18 +560,6 @@ const Footer = ({ bgColor, color, isDisplay, isDisplayNone }) => {
                                             <p>후원</p>
                                             <p>서울문화재단, 서울특별시</p>
                                         </div>
-                                        <div>
-                                            <p>● 초대 II</p>
-                                            <p>김영주(룹앤테일) | 박선호, 박이선, 정여름, 황재민</p>
-                                        </div>
-                                        {/* <div>
-                        <p>● 초대 II</p>
-                        <p>이영주(룹앤테일) | 박선호, 박이선, 정여름, 황재민</p>
-                    </div>
-                    <div>
-                        <p>● 초대 III</p>
-                        <p>Meltmirror(ISVN) | 박지성, 홍명보, 안정환, 김남길</p>
-                    </div> */}
                                     </div>
                                     <div css={theme.mTextEn} style={{ marginTop: "30px" }}>
                                         <div>
@@ -602,7 +585,10 @@ const Footer = ({ bgColor, color, isDisplay, isDisplayNone }) => {
                                         </div>
                                         <div>
                                             <p>● Invitation II</p>
-                                            <p>Youngju Kim(Loopntale) | Jinyoung You, Miji Lee, Somi Lee, Jiwoo Lee</p>
+                                            <p>
+                                                Youngju Kim(Loopntale) | Sunho Park, Leesun Park, Yeoreum Jeong, Jaemin
+                                                Hwang
+                                            </p>
                                         </div>
                                         <div>
                                             <p>Funding</p>
@@ -629,14 +615,6 @@ const Footer = ({ bgColor, color, isDisplay, isDisplayNone }) => {
                                                 alt="sponsor"
                                             />
                                         </div>
-                                        {/* <div>
-                        <p>● Invitation II</p>
-                        <p>Youngju Lee(Loopntale) | Sunho Park, Leesun Park, Yeoreum Jeong, Jaemin Hwang</p>
-                    </div>
-                    <div>
-                        <p>● Invitation III</p>
-                        <p>Meltmirror(ISVN) | Jisung Park, Myungbo Hong, Jeonghwan Ahn, Namgil Kim</p>
-                    </div> */}
                                     </div>
                                 </div>
                             ) : null}
