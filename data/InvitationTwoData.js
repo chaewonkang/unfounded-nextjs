@@ -61,7 +61,7 @@ const InvitationTwoData = [
         iframeSrc: `https://v6p9d9t4.ssl.hwcdn.net/html/5308343/summer/index.html`,
         title: `The Shepard`,
         titleKr: `양치기`,
-        particiEn: `Jiwoo Lee`,
+        particiEn: `Jeong Yeoreum`,
         particiKr: `정여름`,
         link: ``,
         no: `05`,
