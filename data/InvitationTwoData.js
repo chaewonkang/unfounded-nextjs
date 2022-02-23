@@ -44,7 +44,7 @@ const InvitationTwoData = [
     {
         index: 3,
         src: `/static/images/invitation/2/leesunpark.jpg`,
-        iframeSrc: `https://v6p9d9t4.ssl.hwcdn.net/html/5308348/index.html`,
+        iframeSrc: `https://v6p9d9t4.ssl.hwcdn.net/html/5308584/index.html`,
         title: `mail mail`,
         titleKr: `매일메일`,
         particiEn: `Leesun Park`,
