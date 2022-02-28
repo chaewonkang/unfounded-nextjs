@@ -59,7 +59,7 @@ const InvitationTwoData = [
         index: 4,
         src: `/static/images/invitation/2/yeoreumjeong.jpg`,
         iframeSrc: `https://v6p9d9t4.ssl.hwcdn.net/html/5308343/summer/index.html`,
-        title: `The Shepard`,
+        title: `THE SHEPHERD`,
         titleKr: `양치기`,
         particiEn: `Jeong Yeoreum`,
         particiKr: `정여름`,
