@@ -221,28 +221,18 @@ body::-webkit-scrollbar-track {
 
 @media (max-width: 781px) {
     .commonPopUp {
-        padding: 5px;
+        padding: 0px;
+        width: 100px;
+        height: 50px;
         z-index: 999;
-        font-size: 13px;
+        font-size: 15px;
+        word-wrap: none;
     }
 
-    .commonPopUp:hover {
-        position: fixed;
-        transition: ease-in 500ms;
-        width: 150px;
-        height: 150px;
-        bottom: 20px;
-        right: 20px;
-        border-radius: 50%;
-        background-color: #ff7e27;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #000;
-        font-family: "GTFAgentur";
-        border: 1px solid #000;
+    .commonPopUp > span {
+        width: 100%;
+
         text-align: center;
-        mix-blend-mode: difference;
     }
 
     .commonPopUp > div > span {
