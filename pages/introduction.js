@@ -1698,6 +1698,51 @@ const Introduction = () => {
                             )}
                         </div>
                     </div>
+                    <div
+                        css={[invitationBox]}
+                        ref={scrollRefTwo}
+                        style={{
+                            animation: `fadeIn ${delay * 3}s ease-in`,
+                            borderBottom: "1px solid #fff",
+                            height: "auto",
+                        }}
+                    >
+                        <div className="marquee">
+                            <div className="marquee__inner" aria-hidden="true">
+                                <span> INVITATION III: 〈48*48〉 </span>
+                                <span> INVITATION III: 〈48*48〉 </span>
+                                <span> INVITATION III: 〈48*48〉 </span> <span> INVITATION III: 〈48*48〉 </span>
+                                <span> INVITATION III: 〈48*48〉 </span> <span> INVITATION III: 〈48*48〉 </span>
+                                <span> INVITATION III: 〈48*48〉 </span> <span> INVITATION III: 〈48*48〉 </span>
+                                <span> INVITATION III: 〈48*48〉 </span> <span> INVITATION III: 〈48*48〉 </span>
+                                <span> INVITATION III: 〈48*48〉 </span> <span> INVITATION III: 〈48*48〉 </span>
+                            </div>
+                        </div>
+                        <div css={invitationTextBox} ref={InvitationTextBoxRef}>
+                            <div css={invitationText1}>
+                                <div css={theme.textKr}>
+                                    <p style={{ fontWeight: "bold" }}>초대 III: 〈48*48〉</p>
+                                    <p style={{ fontWeight: "bold" }}>INVITATION III: 〈48*48〉</p>
+                                </div>
+                                <div></div>
+                            </div>
+                            <div css={invitationText2}>
+                                <div>
+                                    <p css={theme.textKr}>
+                                        〈48*48〉은 컴퓨터 기반 전시의 다른 방향을 점친다. 웹의 등장 이후 컴퓨터로 볼 수
+                                        있는 전시를 만드는 일은 지속되어 왔으나, 그간의 역사를 되돌아 볼 때에 조금은
+                                        실망스럽고 시시한 것이 사실이다. 컴퓨터 내의 전시는 늘 온라인과 인터넷에 그
+                                        기반을 두었다. 이번 초대는 이러한 문제 의식을 바탕으로 RPG 만들기 툴을 활용하여
+                                        .pkg, .exe 형태로 배포되는 전시를 상상해 본다. 방문자들의 전시 경험은 게임
+                                        플레이 경험과 겹쳐지면서 작업은 게임과 큐레토리얼 실천의 교차점에 위치하게 된다.
+                                        손님 목록은 미술 전시 기획자 2인, 만화가 1인으로 구성되었고, 큰 손님에는 ISVN의
+                                        멜트미러가 초대되었다. 〈48*48〉은 2022년 여름 중 공개된다.
+                                    </p>
+                                </div>
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
                     <Footer
                         bgColor={"#000"}
                         color={"#fff"}

@@ -53,6 +53,7 @@ class MyDocument extends Document {
                 </Head>
                 <body {...bodyAttrs}>
                     <Main />
+
                     <NextScript />
                 </body>
             </Html>

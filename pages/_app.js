@@ -30,6 +30,18 @@ function MyApp({ Component, pageProps }) {
             <TransitionLayout>
                 {!excludePage.includes(router.asPath) ? <Menu /> : null}
                 <Component {...pageProps} />
+                <a href="https://unofficialeuryung.neocities.org/app/thepupilofnathanael/index.html " target="_blank">
+                    <div className="commonPopUp">
+                        <span>Pop Up</span>
+                        <div>
+                            <span>나타나엘의 눈동자</span>
+                            <br />
+                            <span>The Pupil of Nathanael</span>
+                            <br />
+                            <span>2022.02.28-03.07</span>
+                        </div>
+                    </div>
+                </a>
             </TransitionLayout>
         </>
     );

@@ -67,8 +67,7 @@ const InvitationTwoData = [
         no: `05`,
         artistInfoKr: `장소와 기억의 연관성에 대한 이야기를 영상 매체로 변사한다. 한 지점에서 등장하는 서사를 집착적으로 관찰하여 작동 원리를 분석하고, 그 본체와 부품을 도려내는 작업을 지속하고 있다. 언파운디드 워크숍에서는 미미하고 무능하다.`,
         artistInfoEn: `Jeong Yeoreum reframes the story about a correlation between space and memory into visual language. Her work is a continuous process of fixated reinvestigation on a narrative, analyzing its’ mechanism and dismantling the body from parts.`,
-        projectInfo: `양은 충분히 이탈할 가능성 있고 충분히 돌아올 가능성 있다. 구체적인 물체에 비해 작을 때 있고 부풀 때 있다(혹은 무거운 유령일 때 있다). 양은 사라지는 것만 가능하다. 사라짐은 미리 출현을 예고하기에 징조이자 징후, 비극적 기쁨이다. 편지, 메아리, 꺾인 목이다. 프리모리예로 향하는 기차다. 앞으로 가는 속도가 빨라질수록 육체는 뒤로 기운다.<br /><br />A sheep is likely to escape and return again. It may be smaller than a concrete object and may swell(or may be a heavy ghost). A sheep can only dissapear. Disappearance is the tragic joy, the bode and the sign that presages the appearance ahead of time. It is the letter, echoe, and the broken neck. It is the train to Primorsky. A body tilts back as it speeding forward.
-`,
+        projectInfo: `양은 충분히 이탈할 가능성 있고 충분히 돌아올 가능성 있다. 구체적인 물체에 비해 작을 때 있고 부풀 때 있다(혹은 무거운 유령일 때 있다). 양은 사라지는 것만 가능하다. 사라짐은 미리 출현을 예고하기에 징조이자 징후, 비극적 기쁨이다. 편지, 메아리, 꺾인 목이다. 프리모리예로 향하는 기차다. 앞으로 가는 속도가 빨라질수록 육체는 뒤로 기운다.<br /><br />A sheep is likely to escape and return again. It may be smaller than a concrete object and may swell(or may be a heavy ghost). A sheep can only dissapear. Disappearance is the tragic joy, the bode and the sign that presages the appearance ahead of time. It is the letter, echoe, and the broken neck. It is the train to Primorsky. A body tilts back as it speeding forward.`,
     },
     {
         index: 5,
