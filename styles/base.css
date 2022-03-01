@@ -219,6 +219,37 @@ body::-webkit-scrollbar-track {
     display: block;
 }
 
+@media (max-width: 781px) {
+    .commonPopUp {
+        padding: 5px;
+        z-index: 999;
+        font-size: 13px;
+    }
+
+    .commonPopUp:hover {
+        position: fixed;
+        transition: ease-in 500ms;
+        width: 150px;
+        height: 150px;
+        bottom: 20px;
+        right: 20px;
+        border-radius: 50%;
+        background-color: #ff7e27;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #000;
+        font-family: "GTFAgentur";
+        border: 1px solid #000;
+        text-align: center;
+        mix-blend-mode: difference;
+    }
+
+    .commonPopUp > div > span {
+        font-size: 11px;
+    }
+}
+
 body,
 button,
 dd,
